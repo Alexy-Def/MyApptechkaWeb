@@ -6,22 +6,53 @@
     <title>@ViewData["Title"] - MyApptechkaWeb</title>
 
     <link rel="stylesheet" href="~/css/reset.css?v=1" />
-    <link rel="stylesheet" href="~/css/layout.css?v=1" />
+    <link rel="stylesheet" href="~/css/layout.css?v=2" />
 
     @RenderSection("Scripts", required: false)
     @RenderSection("Style", required: false)
 </head>
 <body>
-    <div class="header">
-        <div>MyApptechka</div>
-    </div>
+    <div class="wrapper">
+        <header class="header">
+            <div class="container">
+                <div class="header-full">
+                    <nav class="menu-header-first">
+                        <ul class="menu-list">
+                            <li><a href="" class="menu-link">О проекте</a></li>
+                            <li><a href="" class="menu-link">Инструкции</a></li>
+                            <li><a href="" class="menu-link">Контакты</a></li>
+                        </ul>
+                    </nav>
+                    <div class="menu-header-second">MyApptechka</div>
+                    <nav class="menu-header-third">
+                        <ul class="menu-list">
+                            <li><a href="" class="menu-link">О проекте</a></li>
+                            <li><a href="" class="menu-link">Инструкции</a></li>
+                            <li><a href="" class="menu-link">Контакты</a></li>
+                        </ul>
+                    </nav>
+                    <div class="menu-header-fourth">
+                        <div class="autorization">Войти</div>
+                    </div>
+                </div>
+            </div>
+        </header>
 
-    <div class="content">
-        @RenderBody()
-    </div>
+        <div class="content">
+            <div class="container">
+                @RenderBody()
+            </div>
+        </div>
 
-    <div class="footer">
-        &copy; 2021 - MyApptechkaWeb
+        <footer class="footer">
+            <div class="container">
+                <div class="footer-full">
+                    <div class="menu-footer-left">
+                        &copy; 2021 - MyApptechkaWeb
+                    </div>
+                </div>
+            </div>
+        </footer>
     </div>
 </body>
 </html>
