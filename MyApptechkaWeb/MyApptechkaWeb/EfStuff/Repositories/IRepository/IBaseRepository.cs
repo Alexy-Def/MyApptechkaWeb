@@ -1,7 +1,7 @@
-﻿using SpaceWeb.EfStuff.Model;
+﻿using MyApptechkaWeb.EfStuff.Model;
 using System.Collections.Generic;
 
-namespace SpaceWeb.EfStuff.Repositories
+namespace MyApptechkaWeb.EfStuff.Repositories
 {
     public interface IBaseRepository<ModelType> where ModelType : BaseModel
     {

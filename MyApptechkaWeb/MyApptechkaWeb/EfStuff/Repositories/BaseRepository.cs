@@ -1,22 +1,22 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using SpaceWeb.EfStuff.Model;
+using MyApptechkaWeb.EfStuff.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace SpaceWeb.EfStuff.Repositories
+namespace MyApptechkaWeb.EfStuff.Repositories
 {
     public abstract class BaseRepository<ModelType> 
         : IBaseRepository<ModelType> where ModelType : BaseModel
     {
-        protected SpaceDbContext _spaceDbContext;
+        protected MyApptechkaDbContext _myApptechkaDbContext;
         protected DbSet<ModelType> _dbSet;
 
-        public BaseRepository(SpaceDbContext spaceDbContext)
+        public BaseRepository(MyApptechkaDbContext spaceDbContext)
         {
-            _spaceDbContext = spaceDbContext;
-            _dbSet = _spaceDbContext.Set<ModelType>();
+            _myApptechkaDbContext = spaceDbContext;
+            _dbSet = _myApptechkaDbContext.Set<ModelType>();
         }
 
         public virtual List<ModelType> GetAll()
@@ -39,7 +39,7 @@ namespace SpaceWeb.EfStuff.Repositories
             {
                 _dbSet.Add(model);
             }
-            _spaceDbContext.SaveChanges();
+            _myApptechkaDbContext.SaveChanges();
         }
 
         public virtual void Remove(long id)
@@ -50,8 +50,8 @@ namespace SpaceWeb.EfStuff.Repositories
 
         public virtual void Remove(ModelType model)
         {
-            _spaceDbContext.Remove(model);
-            _spaceDbContext.SaveChanges();
+            _myApptechkaDbContext.Remove(model);
+            _myApptechkaDbContext.SaveChanges();
         }
 
         public virtual void Remove(IEnumerable<long> ids)

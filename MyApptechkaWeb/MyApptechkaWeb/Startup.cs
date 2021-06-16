@@ -6,9 +6,11 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using MyApptechkaWeb.EfStuff;
+using MyApptechkaWeb.EfStuff.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Threading.Tasks;
 
 namespace MyApptechkaWeb
@@ -29,6 +31,44 @@ namespace MyApptechkaWeb
             services.AddDbContext<MyApptechkaDbContext>(x => x.UseSqlServer(connectionString));
 
             services.AddControllersWithViews();
+
+            RegistrationRepositories(services);
+        }
+
+        private void RegistrationRepositories(IServiceCollection services)
+        {
+            var assembly = Assembly.GetExecutingAssembly();
+
+            var types = assembly.GetTypes();
+
+            foreach (var iRepo in types.Where(type =>
+                type.IsInterface
+                && type.GetInterfaces()
+                    .Any(x =>
+                        x.IsGenericType
+                        && x.GetGenericTypeDefinition() == typeof(IBaseRepository<>))
+                ))
+            {
+                var realization = types.Single(x => x.GetInterfaces().Contains(iRepo));
+                services.AddScoped(
+                    iRepo,
+                    diContainer =>
+                    {
+                        var constructor = realization.GetConstructors()[0];
+                        var paramInfoes = constructor.GetParameters();
+
+                        var paramValues = new object[paramInfoes.Length];
+                        for (int i = 0; i < paramInfoes.Length; i++)
+                        {
+                            var paramInfo = paramInfoes[i];
+                            var paramValue = diContainer.GetService(paramInfo.ParameterType);
+                            paramValues[i] = paramValue;
+                        }
+
+                        var answer = constructor.Invoke(paramValues);
+                        return answer;
+                    });
+            }
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
