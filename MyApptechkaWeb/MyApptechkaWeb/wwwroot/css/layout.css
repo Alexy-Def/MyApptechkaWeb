@@ -168,10 +168,15 @@ input[type="password"] {
 }
 
 .menu-header-fourth {
+    height: 100%;
     flex: 1;
     text-align: end;
 }
 
+.log-in {
+    height: 100%;
+    align-items: center;
+}
 
 .header .link {
     display: flex;
