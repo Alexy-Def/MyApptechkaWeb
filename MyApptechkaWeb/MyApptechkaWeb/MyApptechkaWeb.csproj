@@ -5,6 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Folder Include="EfStuff\Repositories\" />
     <Folder Include="Views\User\" />
   </ItemGroup>
 
