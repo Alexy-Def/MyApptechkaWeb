@@ -36,7 +36,13 @@ body {
     }
 }
 
-@media (max-width: 992px) {
+@media (max-width: 1000px) {
+    .container {
+        max-width: 900px;
+    }
+}
+
+@media (max-width: 920px) {
     .container {
         max-width: 750px;
     }
