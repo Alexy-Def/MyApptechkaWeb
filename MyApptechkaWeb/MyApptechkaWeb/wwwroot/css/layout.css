@@ -62,8 +62,8 @@ body {
     }
 }
 
-.hide {
-    display: none !important;
+.nice-popup.hide {
+    display: none;
 }
 
 .nice-popup {
