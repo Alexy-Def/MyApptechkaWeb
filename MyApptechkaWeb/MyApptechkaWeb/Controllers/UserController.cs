@@ -47,14 +47,6 @@ namespace MyApptechkaWeb.Controllers
                 return RedirectToAction("Index", "Home");
             }
 
-            //var modelDb = new User()
-            //{
-            //    Login = model.Login,
-            //    Password = model.Password,
-            //    ConfirmedPassword = model.ConfirmedPassword
-            //};
-            //_userRepository.Save(modelDb);
-
             return View(model);
         }
     }

@@ -19,6 +19,5 @@ namespace MyApptechkaWeb.EfStuff.Repositories
             return _dbSet.SingleOrDefault(x =>
                 x.Login.ToLower() == login.ToLower());
         }
-
     }
 }
