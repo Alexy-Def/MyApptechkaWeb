@@ -1,0 +1,22 @@
+﻿@model RegistrationViewModel
+
+@{
+    Layout = "_Layout";
+}
+
+<div class="test">
+    <form action="/User/Registration" method="post">
+        <div>
+            @Html.TextBoxFor(x => x.Login)
+        </div>
+        <div>
+            @Html.TextBoxFor(x => x.Password)
+        </div>
+        <div>
+            @Html.TextBoxFor(x => x.ConfirmedPassword)
+        </div>
+        <div>
+            <button type="submit">Зарегистрировать</button>
+        </div>
+    </form>
+</div>

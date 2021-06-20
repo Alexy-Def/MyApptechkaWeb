@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using MyApptechkaWeb.EfStuff.Model;
 using MyApptechkaWeb.EfStuff.Repositories.IRepository;
 using MyApptechkaWeb.Models;
 using System;
@@ -34,7 +35,13 @@ namespace MyApptechkaWeb.Controllers
                 return View(model);
             }
 
-
+            var modelDb = new User()
+            {
+                Login = model.Login,
+                Password = model.Password,
+                ConfirmedPassword = model.ConfirmedPassword
+            };
+            _userRepository.Save(modelDb);
 
             return View(model);
         }
