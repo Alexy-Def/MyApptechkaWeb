@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using MyApptechkaWeb.EfStuff.Repositories.IRepository;
 using MyApptechkaWeb.Models;
 using System;
 using System.Collections.Generic;
@@ -9,13 +10,13 @@ using System.Threading.Tasks;
 
 namespace MyApptechkaWeb.Controllers
 {
-    
     public class UserController : Controller
     {
-        
+        private IUserRepository _userRepository;
 
-        public UserController()
+        public UserController(IUserRepository userRepository)
         {
+            _userRepository = userRepository;
         }
 
         [HttpGet]

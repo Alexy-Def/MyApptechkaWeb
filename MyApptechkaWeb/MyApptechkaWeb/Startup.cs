@@ -7,6 +7,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using MyApptechkaWeb.EfStuff;
 using MyApptechkaWeb.EfStuff.Repositories;
+using MyApptechkaWeb.EfStuff.Repositories.IRepository;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -29,6 +30,9 @@ namespace MyApptechkaWeb
         {
             var connectionString = Configuration.GetValue<string>("connectionString");
             services.AddDbContext<MyApptechkaDbContext>(x => x.UseSqlServer(connectionString));
+
+            services.AddScoped<IUserRepository>(diContainer =>
+                new UserRepository(diContainer.GetService<MyApptechkaDbContext>()));
 
             services.AddControllersWithViews();
 
