@@ -18,5 +18,24 @@ namespace MyApptechkaWeb.Controllers
         {
         }
 
+        [HttpGet]
+        public IActionResult Registration()
+        {
+            var model = new RegistrationViewModel();
+            return View(model);
+        }
+
+        [HttpPost]
+        public IActionResult Registration(RegistrationViewModel model)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View(model);
+            }
+
+
+
+            return View(model);
+        }
     }
 }
