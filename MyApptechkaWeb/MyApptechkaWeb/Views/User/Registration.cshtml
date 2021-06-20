@@ -10,10 +10,10 @@
             @Html.TextBoxFor(x => x.Login)
         </div>
         <div>
-            @Html.TextBoxFor(x => x.Password)
+            @Html.TextBoxFor(x => x.Password, new { type = "password" })
         </div>
         <div>
-            @Html.TextBoxFor(x => x.ConfirmedPassword)
+            @Html.TextBoxFor(x => x.ConfirmedPassword, new { type = "password" })
         </div>
         <div>
             <button type="submit">Зарегистрировать</button>

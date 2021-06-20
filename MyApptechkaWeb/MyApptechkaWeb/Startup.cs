@@ -1,3 +1,5 @@
+using AutoMapper;
+using AutoMapper.Configuration;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -5,9 +7,12 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using IConfiguration = Microsoft.Extensions.Configuration.IConfiguration;
 using MyApptechkaWeb.EfStuff;
+using MyApptechkaWeb.EfStuff.Model;
 using MyApptechkaWeb.EfStuff.Repositories;
 using MyApptechkaWeb.EfStuff.Repositories.IRepository;
+using MyApptechkaWeb.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -33,6 +38,8 @@ namespace MyApptechkaWeb
 
             services.AddScoped<IUserRepository>(diContainer =>
                 new UserRepository(diContainer.GetService<MyApptechkaDbContext>()));
+
+            RegisterMapper(services);
 
             services.AddControllersWithViews();
 
@@ -73,6 +80,23 @@ namespace MyApptechkaWeb
                         return answer;
                     });
             }
+        }
+
+        private void RegisterMapper(IServiceCollection services)
+        {
+            var configExpression = new MapperConfigurationExpression();
+
+            MapBoth<RegistrationViewModel, User>(configExpression);
+
+            var mapperConfiguration = new MapperConfiguration(configExpression);
+            var mapper = new Mapper(mapperConfiguration);
+            services.AddScoped<IMapper>(c => mapper);
+        }
+
+        public void MapBoth<Type1, Type2>(MapperConfigurationExpression configExpression)
+        {
+            configExpression.CreateMap<Type1, Type2>();
+            configExpression.CreateMap<Type2, Type1>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

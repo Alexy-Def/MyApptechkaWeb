@@ -13,5 +13,12 @@ namespace MyApptechkaWeb.EfStuff.Repositories
             : base(myApptechkaDbContext)
         {
         }
+
+        public User Get(string login)
+        {
+            return _dbSet.SingleOrDefault(x =>
+                x.Login.ToLower() == login.ToLower());
+        }
+
     }
 }

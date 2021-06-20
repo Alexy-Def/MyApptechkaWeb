@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using AutoMapper;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using MyApptechkaWeb.EfStuff.Model;
 using MyApptechkaWeb.EfStuff.Repositories.IRepository;
@@ -14,10 +15,12 @@ namespace MyApptechkaWeb.Controllers
     public class UserController : Controller
     {
         private IUserRepository _userRepository;
+        private IMapper _mapper;
 
-        public UserController(IUserRepository userRepository)
+        public UserController(IUserRepository userRepository, IMapper mapper)
         {
             _userRepository = userRepository;
+            _mapper = mapper;
         }
 
         [HttpGet]
@@ -35,13 +38,22 @@ namespace MyApptechkaWeb.Controllers
                 return View(model);
             }
 
-            var modelDb = new User()
+            var isUserUniq = _userRepository.Get(model.Login) == null;
+            if (isUserUniq)
             {
-                Login = model.Login,
-                Password = model.Password,
-                ConfirmedPassword = model.ConfirmedPassword
-            };
-            _userRepository.Save(modelDb);
+                var user = _mapper.Map<User>(model);
+                _userRepository.Save(user);
+
+                return RedirectToAction("Index", "Home");
+            }
+
+            //var modelDb = new User()
+            //{
+            //    Login = model.Login,
+            //    Password = model.Password,
+            //    ConfirmedPassword = model.ConfirmedPassword
+            //};
+            //_userRepository.Save(modelDb);
 
             return View(model);
         }

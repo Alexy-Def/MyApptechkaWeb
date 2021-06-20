@@ -8,5 +8,6 @@ namespace MyApptechkaWeb.EfStuff.Repositories.IRepository
 {
     public interface IUserRepository : IBaseRepository<User>
     {
+        public User Get(string login);
     }
 }
