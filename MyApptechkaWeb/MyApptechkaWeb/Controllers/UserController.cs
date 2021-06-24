@@ -1,5 +1,8 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using AutoMapper;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using MyApptechkaWeb.EfStuff.Model;
+using MyApptechkaWeb.EfStuff.Repositories.IRepository;
 using MyApptechkaWeb.Models;
 using System;
 using System.Collections.Generic;
@@ -9,14 +12,42 @@ using System.Threading.Tasks;
 
 namespace MyApptechkaWeb.Controllers
 {
-    
     public class UserController : Controller
     {
-        
+        private IUserRepository _userRepository;
+        private IMapper _mapper;
 
-        public UserController()
+        public UserController(IUserRepository userRepository, IMapper mapper)
         {
+            _userRepository = userRepository;
+            _mapper = mapper;
         }
 
+        [HttpGet]
+        public IActionResult Registration()
+        {
+            var model = new RegistrationViewModel();
+            return View(model);
+        }
+
+        [HttpPost]
+        public IActionResult Registration(RegistrationViewModel model)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View(model);
+            }
+
+            var isUserUniq = _userRepository.Get(model.Login) == null;
+            if (isUserUniq)
+            {
+                var user = _mapper.Map<User>(model);
+                _userRepository.Save(user);
+
+                return RedirectToAction("Index", "Home");
+            }
+
+            return View(model);
+        }
     }
 }
