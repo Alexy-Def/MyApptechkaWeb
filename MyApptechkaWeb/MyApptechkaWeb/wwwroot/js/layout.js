@@ -8,10 +8,10 @@ $(document).ready(function () {
 	});
 
 	$('.switcher-login-btn').click(function () {
-		$('.switcher-login-btn').addClass('selected-reg-login');
-		$('.switcher-login-btn').addClass('selected-login');
-		$('.switcher-reg-btn').removeClass('selected-reg-login');
-		$('.switcher-reg-btn').removeClass('selected-reg');
+		$('.switcher-login-btn').removeClass('selected-reg-login');
+		$('.switcher-login-btn').removeClass('selected-login');
+		$('.switcher-reg-btn').addClass('selected-reg-login');
+		$('.switcher-reg-btn').addClass('selected-reg');
 		$('.confirmPassword').addClass('hide');
 		$('.phoneNumber').addClass('hide');
 		$('.login').removeClass('hide');
@@ -21,10 +21,10 @@ $(document).ready(function () {
 	});
 
 	$('.switcher-reg-btn').click(function () {
-		$('.switcher-reg-btn').addClass('selected-reg-login');
-		$('.switcher-reg-btn').addClass('selected-reg');
-		$('.switcher-login-btn').removeClass('selected-reg-login');
-		$('.switcher-login-btn').removeClass('selected-login');
+		$('.switcher-reg-btn').removeClass('selected-reg-login');
+		$('.switcher-reg-btn').removeClass('selected-reg');
+		$('.switcher-login-btn').addClass('selected-reg-login');
+		$('.switcher-login-btn').addClass('selected-login');
 		$('.confirmPassword').removeClass('hide');
 		$('.phoneNumber').removeClass('hide');
 		$('.login').addClass('hide');

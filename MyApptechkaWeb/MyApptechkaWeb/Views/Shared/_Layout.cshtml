@@ -20,43 +20,47 @@
             <div class="login-block login-block-login">
                 <div class="reg-login-btn">
                     @*<div class="reg-log-container">*@
-                        <div class="switcher-login-btn selected-login selected-reg-login">Войти</div>
-                        <div class="switcher-reg-btn">Зарегистрироваться</div>
+                        <div class="switcher-login-btn selected-login selected-reg-login">Вход</div>
+                        <div class="switcher-reg-btn">Регистрация</div>
                     @*</div>*@
                 </div>
                 <div class="login-direction">
 
                     <form action="/User/Login" method="post" id="login-or-registration" class="loginformstyle">
                         <div>
+                            <div>Логин:</div>
                             <input name="Login"
                                    class="inputFields" type="text"
                                    @*placeholder="@Resource.Layout_Login"*@ />
                         </div>
                         <div>
+                            <div>Пароль:</div>
                             <input name="Password"
                                    class="inputFields" type="password"
                                    @*placeholder="@Resource.Layout_Password"*@ />
                         </div>
-                        <div>
+                        <div class="confirmPassword hide">
+                            <div>Подтвердить пароль:</div>
                             <input name="ConfirmPassword"
-                                   class="inputFields confirmPassword hide" type="password"
+                                   class="inputFields" type="password"
                                    @*placeholder="@Resource.Layout_Password"*@ />
                         </div>
-                        <div>
+                        <div class="phoneNumber hide">
+                            <div>Номер телефона:</div>
                             <input name="PhoneNumber"
-                                   class="inputFields phoneNumber hide" type="password"
+                                   class="inputFields" type="password"
                                    @*placeholder="@Resource.Layout_Password"*@ />
                         </div>
 
                         <div class="login-but">
                             <input class="pglogbut login" type="submit"
-                                   value="Login" />
+                                   value="Войти" />
                         </div>
 
                         @*<div class="or">or</div>*@
                         <div class="registration-but">
                             <input class="pglogbut reg hide" type="submit"
-                                   value="Registration" />
+                                   value="Зарегистрироваться" />
                         </div>
                     </form>
                 </div>
