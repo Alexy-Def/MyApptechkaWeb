@@ -98,8 +98,16 @@ body {
     z-index: 11;
     background-color: beige;
     /*background: url(/image/common/login_reg.jpg) no-repeat center;*/
-    height: 450px;
+    height: 500px;
     width: 600px;
+}
+
+.login-block-login {
+    height: 325px;
+}
+
+.login-block-reg {
+    height: 485px;
 }
 
 .reg-login-btn {

@@ -16,6 +16,8 @@ $(document).ready(function () {
 		$('.phoneNumber').addClass('hide');
 		$('.login').removeClass('hide');
 		$('.reg').addClass('hide');
+		$('.login-block').addClass('login-block-login');
+		$('.login-block').removeClass('login-block-reg');
 	});
 
 	$('.switcher-reg-btn').click(function () {
@@ -27,5 +29,7 @@ $(document).ready(function () {
 		$('.phoneNumber').removeClass('hide');
 		$('.login').addClass('hide');
 		$('.reg').removeClass('hide');
+		$('.login-block').addClass('login-block-reg');
+		$('.login-block').removeClass('login-block-login');
 	});
 });
