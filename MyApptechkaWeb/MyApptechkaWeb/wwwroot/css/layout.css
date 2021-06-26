@@ -2,9 +2,9 @@
     text-decoration: none;
 }
 
-a:visited {
-    text-decoration: none;
-}
+    a:visited {
+        text-decoration: none;
+    }
 
 html {
     width: 100%;
@@ -62,6 +62,10 @@ body {
     }
 }
 
+.hide {
+    display: none;
+}
+
 .nice-popup.hide {
     display: none;
 }
@@ -90,10 +94,67 @@ body {
 
 .login-block {
     display: flex;
+    flex-direction: column;
     z-index: 11;
-    background: url(/image/common/login_reg.jpg) no-repeat center;
-    height: 600px;
-    width: 900px;
+    background-color: beige;
+    /*background: url(/image/common/login_reg.jpg) no-repeat center;*/
+    height: 450px;
+    width: 600px;
+}
+
+.reg-login-btn {
+    height: 100%;
+    display: flex;
+    text-align: center;
+    font-size: 15pt;
+    margin: 0px 0px 30px 0px;
+    height: 40px;
+}
+
+.reg-log-container {
+    height: 100%;
+    display: flex;
+}
+
+.switcher-login-btn {
+    flex: 1;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+    .switcher-login-btn:hover {
+        cursor: pointer;
+        background-color: rgba(189, 181, 162, 0.7);
+        transition: 300ms;
+    }
+
+.switcher-reg-btn {
+    flex: 1;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+    .switcher-reg-btn:hover {
+        cursor: pointer;
+        background-color: rgba(189, 181, 162, 0.7);
+        transition: 300ms;
+    }
+
+.selected-reg-login {
+    border-bottom: 3px solid;
+    background-color: rgba(189, 181, 162, 0.7);
+}
+
+.selected-login {
+    border-right: 2px solid darkgray;
+}
+
+.selected-reg {
+    border-left: 2px solid darkgray;
 }
 
 .login-direction {
@@ -101,7 +162,7 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    width: 68%;
+    width: 100%;
 }
 
 .loginformstyle {
@@ -185,9 +246,9 @@ input[type="password"] {
     color: black;
 }
 
-.header .link:hover {
-    color: red;
-}
+    .header .link:hover {
+        color: red;
+    }
 
 .menu-list {
     display: flex;
