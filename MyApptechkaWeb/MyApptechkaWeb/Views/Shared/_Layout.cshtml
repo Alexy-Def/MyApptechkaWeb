@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="~/css/layout.css?v=3" />
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/js/layout.js?v=1"></script>
+    <script src="~/js/registration.js?v=1"></script>
 
     @RenderSection("Scripts", required: false)
     @RenderSection("Style", required: false)
@@ -35,7 +36,7 @@
                                    @*placeholder="@Resource.Layout_Login"*@ />
                         </div>
                         <div class="for-login">
-                            <div>Пароль:</div>
+                            <div class="text-for-input">Пароль:</div>
                             <input name="Password"
                                    class="inputFields" type="password"
                                    @*placeholder="@Resource.Layout_Password"*@ />
@@ -71,21 +72,22 @@
                             <input name="Login"
                                    class="inputFields" type="text"
                                    @*placeholder="@Resource.Layout_Login"*@ />
+                            <div id="for-json-result"></div>
                         </div>
                         <div class="for-reg hide">
-                            <div>Пароль:</div>
+                            <div class="text-for-input">Пароль:</div>
                             <input name="Password"
                                    class="inputFields" type="password"
                                    @*placeholder="@Resource.Layout_Password"*@ />
                         </div>
                         <div class="confirmPassword for-reg hide">
-                            <div>Подтвердить пароль:</div>
+                            <div class="text-for-input">Подтвердить пароль:</div>
                             <input name="ConfirmPassword"
                                    class="inputFields" type="password"
                                    @*placeholder="@Resource.Layout_Password"*@ />
                         </div>
                         <div class="phoneNumber for-reg hide">
-                            <div>Номер телефона:</div>
+                            <div class="text-for-input">Номер телефона:</div>
                             <input name="Phone"
                                    class="inputFields" type="text"
                                    @*placeholder="@Resource.Layout_Password"*@ />

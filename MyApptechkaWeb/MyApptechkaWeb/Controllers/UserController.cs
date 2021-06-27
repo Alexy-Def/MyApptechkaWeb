@@ -8,6 +8,7 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace MyApptechkaWeb.Controllers
@@ -54,6 +55,14 @@ namespace MyApptechkaWeb.Controllers
             }
 
             return View(model);
+        }
+
+        public JsonResult IsUserExist(string name)
+        {
+            //Thread.Sleep(2000);
+            var isExistUserWithTheName =
+                _userRepository.Get(name) != null;
+            return Json(isExistUserWithTheName);
         }
     }
 }
