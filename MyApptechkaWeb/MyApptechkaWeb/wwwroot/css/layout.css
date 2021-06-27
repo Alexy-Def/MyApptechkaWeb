@@ -151,16 +151,16 @@ body {
         transition: 300ms;
     }
 
-.selected-reg-login {
+.non-selected-reg-login {
     border-bottom: 3px solid;
     background-color: rgba(189, 181, 162, 0.7);
 }
 
-.selected-login {
+.non-selected-login {
     border-right: 2px solid darkgray;
 }
 
-.selected-reg {
+.non-selected-reg {
     border-left: 2px solid darkgray;
 }
 
@@ -187,7 +187,7 @@ body {
     border-top: none;
     border-left: none;
     border-right: none;
-    color: white;
+    color: black;
     outline: none;
 }
 

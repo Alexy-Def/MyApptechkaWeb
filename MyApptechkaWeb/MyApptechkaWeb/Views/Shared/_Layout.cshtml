@@ -6,9 +6,9 @@
     <title>@ViewData["Title"]</title>
 
     <link rel="stylesheet" href="~/css/reset.css?v=1" />
-    <link rel="stylesheet" href="~/css/layout.css?v=2" />
+    <link rel="stylesheet" href="~/css/layout.css?v=3" />
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script src="~/js/layout.js"></script>
+    <script src="~/js/layout.js?v=1"></script>
 
     @RenderSection("Scripts", required: false)
     @RenderSection("Style", required: false)
@@ -20,46 +20,85 @@
             <div class="login-block login-block-login">
                 <div class="reg-login-btn">
                     @*<div class="reg-log-container">*@
-                        <div class="switcher-login-btn selected-login selected-reg-login">Вход</div>
-                        <div class="switcher-reg-btn">Регистрация</div>
+                        <div class="switcher-login-btn">Вход</div>
+                        <div class="switcher-reg-btn non-selected-login non-selected-reg-login">Регистрация</div>
                     @*</div>*@
                 </div>
                 <div class="login-direction">
 
+
                     <form action="/User/Login" method="post" id="login-or-registration" class="loginformstyle">
-                        <div>
+                        <div class="for-login">
                             <div>Логин:</div>
                             <input name="Login"
                                    class="inputFields" type="text"
                                    @*placeholder="@Resource.Layout_Login"*@ />
                         </div>
-                        <div>
+                        <div class="for-login">
                             <div>Пароль:</div>
                             <input name="Password"
                                    class="inputFields" type="password"
                                    @*placeholder="@Resource.Layout_Password"*@ />
                         </div>
-                        <div class="confirmPassword hide">
+                        <!--<div class="confirmPassword hide">
+                            <div>Подтвердить пароль:</div>
+                            <input name="ConfirmPassword"
+                                   class="inputFields" type="password"-->
+                                   @*placeholder="@Resource.Layout_Password"*@ <!--/>
+                        </div>
+                        <div class="phoneNumber hide">
+                            <div>Номер телефона:</div>
+                            <input name="PhoneNumber"
+                                   class="inputFields" type="text"-->
+                                   @*placeholder="@Resource.Layout_Password"*@ <!--/>
+                        </div>-->
+
+                        <div class="login-but for-login">
+                            <input class="pglogbut" type="submit"
+                                   value="Войти" />
+                        </div>
+
+                        @*<div class="or">or</div>*@
+                        @*<div class="registration-but">
+                            <input class="pglogbut reg hide" type="submit"
+                                   value="Зарегистрироваться" />
+                        </div>*@
+                    </form>
+
+                    <form action="/User/Registration" method="post" id="login-or-registration" class="loginformstyle">
+                        <div class="for-reg hide">
+                            <div>Логин:</div>
+                            <input name="Login"
+                                   class="inputFields" type="text"
+                                   @*placeholder="@Resource.Layout_Login"*@ />
+                        </div>
+                        <div class="for-reg hide">
+                            <div>Пароль:</div>
+                            <input name="Password"
+                                   class="inputFields" type="password"
+                                   @*placeholder="@Resource.Layout_Password"*@ />
+                        </div>
+                        <div class="confirmPassword for-reg hide">
                             <div>Подтвердить пароль:</div>
                             <input name="ConfirmPassword"
                                    class="inputFields" type="password"
                                    @*placeholder="@Resource.Layout_Password"*@ />
                         </div>
-                        <div class="phoneNumber hide">
+                        <div class="phoneNumber for-reg hide">
                             <div>Номер телефона:</div>
-                            <input name="PhoneNumber"
-                                   class="inputFields" type="password"
+                            <input name="Phone"
+                                   class="inputFields" type="text"
                                    @*placeholder="@Resource.Layout_Password"*@ />
                         </div>
 
-                        <div class="login-but">
+                        @*<div class="login-but">
                             <input class="pglogbut login" type="submit"
                                    value="Войти" />
-                        </div>
+                        </div>*@
 
                         @*<div class="or">or</div>*@
-                        <div class="registration-but">
-                            <input class="pglogbut reg hide" type="submit"
+                        <div class="registration-but for-reg hide">
+                            <input class="pglogbut" type="submit"
                                    value="Зарегистрироваться" />
                         </div>
                     </form>

@@ -10,8 +10,10 @@ namespace MyApptechkaWeb.Models
 
         [Required]
         public string Password { get; set; }
-
-        public string ConfirmedPassword { get; set; }
+        
+        [Required(ErrorMessage = "test message")]
+        [Compare(nameof(Password))]
+        public string ConfirmPassword { get; set; }
 
         [Required(ErrorMessage = "Норм номер укажи")]
         [Phone]
