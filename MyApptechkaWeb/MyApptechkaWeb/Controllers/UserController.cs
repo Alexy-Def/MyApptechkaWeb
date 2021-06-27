@@ -42,9 +42,15 @@ namespace MyApptechkaWeb.Controllers
             if (isUserUniq)
             {
                 var user = _mapper.Map<User>(model);
+                user.Phone = user.Phone.Trim(new Char[] { ' ', '+' });
                 _userRepository.Save(user);
 
                 return RedirectToAction("Index", "Home");
+            }
+            else
+            {
+                ModelState.AddModelError(nameof(RegistrationViewModel.Login),
+                    "Такой пользователь уже существует");
             }
 
             return View(model);

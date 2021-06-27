@@ -16,6 +16,7 @@ namespace MyApptechkaWeb.Models
         public string ConfirmPassword { get; set; }
 
         [Required(ErrorMessage = "Норм номер укажи")]
+        [StringLength(13, ErrorMessage = "13 символов надо")]
         [Phone]
         public string Phone { get; set; }
     }
