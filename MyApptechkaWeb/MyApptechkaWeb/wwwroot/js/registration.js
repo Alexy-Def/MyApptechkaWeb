@@ -1,5 +1,5 @@
 $(document).ready(function () {
-	$('[name=Login]').change(function () {
+	$('[name=Login]').keyup(function () {
 		var name = $(this).val();
 
 		var url = '/User/IsUserExist?name=' + name;
