@@ -213,6 +213,7 @@ input[type="password"] {
     margin-top: 25px;
     padding: 10px 30px;
     cursor: pointer;
+    border-radius: 5px;
 }
 
     .pglogbut:hover {
