@@ -21,8 +21,8 @@
             <div class="login-block login-block-login">
                 <div class="reg-login-btn">
                     @*<div class="reg-log-container">*@
-                        <div class="switcher-login-btn">Вход</div>
-                        <div class="switcher-reg-btn non-selected-reg non-selected-reg-login">Регистрация</div>
+                    <div class="switcher-login-btn">Вход</div>
+                    <div class="switcher-reg-btn non-selected-reg non-selected-reg-login">Регистрация</div>
                     @*</div>*@
                 </div>
                 <div class="login-direction">
@@ -32,7 +32,7 @@
                         <div class="for-login">
                             <div>Логин:</div>
                             <input name="Login"
-                                   class="inputFields" type="text"
+                                   class="inputFields" id="test" type="text"
                                    @*placeholder="@Resource.Layout_Login"*@ />
                         </div>
                         <div class="for-login">
@@ -42,17 +42,19 @@
                                    @*placeholder="@Resource.Layout_Password"*@ />
                         </div>
                         <!--<div class="confirmPassword hide">
-                            <div>Подтвердить пароль:</div>
-                            <input name="ConfirmPassword"
-                                   class="inputFields" type="password"-->
-                                   @*placeholder="@Resource.Layout_Password"*@ <!--/>
-                        </div>
-                        <div class="phoneNumber hide">
-                            <div>Номер телефона:</div>
-                            <input name="PhoneNumber"
-                                   class="inputFields" type="text"-->
-                                   @*placeholder="@Resource.Layout_Password"*@ <!--/>
-                        </div>-->
+                    <div>Подтвердить пароль:</div>
+                    <input name="ConfirmPassword"
+                           class="inputFields" type="password"-->
+                        @*placeholder="@Resource.Layout_Password"*@
+                        <!--/>
+                </div>
+                <div class="phoneNumber hide">
+                    <div>Номер телефона:</div>
+                    <input name="PhoneNumber"
+                           class="inputFields" type="text"-->
+                        @*placeholder="@Resource.Layout_Password"*@
+                        <!--/>
+                </div>-->
 
                         <div class="login-but for-login">
                             <input class="pglogbut" type="submit"
@@ -61,9 +63,9 @@
 
                         @*<div class="or">or</div>*@
                         @*<div class="registration-but">
-                            <input class="pglogbut reg hide" type="submit"
-                                   value="Зарегистрироваться" />
-                        </div>*@
+                        <input class="pglogbut reg hide" type="submit"
+                               value="Зарегистрироваться" />
+                    </div>*@
                     </form>
 
                     <form action="/User/Registration" method="post" id="login-or-registration" class="loginformstyle">
@@ -94,9 +96,9 @@
                         </div>
 
                         @*<div class="login-but">
-                            <input class="pglogbut login" type="submit"
-                                   value="Войти" />
-                        </div>*@
+                        <input class="pglogbut login" type="submit"
+                               value="Войти" />
+                    </div>*@
 
                         @*<div class="or">or</div>*@
                         <div class="registration-but for-reg hide">
@@ -105,6 +107,13 @@
                         </div>
                     </form>
                 </div>
+            </div>
+
+            <div class="confirmation-reg-popup-cover">
+
+            </div>
+            <div class="confirmation-reg">
+
             </div>
         </div>
 

@@ -1,10 +1,17 @@
 $(document).ready(function () {
+	$("#test").focus();
+
 	$('.popup-cover').click(function () {
 		$('.nice-popup').addClass('hide');
 	});
 
 	$('.log-in').click(function () {
 		$('.nice-popup').removeClass('hide');
+	});
+
+	$('.confirmation-reg-popup-cover').click(function () {
+		$('.confirmation-reg-popup-cover').addClass('hide');
+		$('.confirmation-reg').addClass('hide');
 	});
 
 	$('.switcher-login-btn').click(function () {
