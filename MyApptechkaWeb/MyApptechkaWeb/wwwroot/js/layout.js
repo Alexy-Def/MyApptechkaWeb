@@ -21,6 +21,7 @@ $(document).ready(function () {
 	$('.switcher-reg-btn').click(function () {
 		$('.switcher-reg-btn').removeClass('non-selected-reg-login');
 		$('.switcher-reg-btn').removeClass('non-selected-reg');
+		$('.switcher-reg-btn').removeClass('non-selected-login');
 		$('.switcher-login-btn').addClass('non-selected-reg-login');
 		$('.switcher-login-btn').addClass('non-selected-login');
 		$('.for-reg').removeClass('hide');
