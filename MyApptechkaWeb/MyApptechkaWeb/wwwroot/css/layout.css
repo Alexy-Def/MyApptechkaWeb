@@ -99,6 +99,7 @@ body {
     background-color: beige;
     /*background: url(/image/common/login_reg.jpg) no-repeat center;*/
     width: 600px;
+    border-radius: 10px;
 }
 
 .login-block-login {
@@ -129,6 +130,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    border-radius: 10px 0 0 0;
 }
 
     .switcher-login-btn:hover {
@@ -143,6 +145,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    border-radius: 0 10px 0 0;
 }
 
     .switcher-reg-btn:hover {

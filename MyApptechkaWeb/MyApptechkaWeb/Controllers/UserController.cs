@@ -59,7 +59,6 @@ namespace MyApptechkaWeb.Controllers
 
         public JsonResult IsUserExist(string name)
         {
-            //Thread.Sleep(2000);
             var isExistUserWithTheName =
                 _userRepository.Get(name) != null;
             return Json(isExistUserWithTheName);
