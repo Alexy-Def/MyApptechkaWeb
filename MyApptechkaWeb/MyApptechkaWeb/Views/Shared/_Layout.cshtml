@@ -96,21 +96,25 @@
                         </div>
 
                         @*<div class="login-but">
-                        <input class="pglogbut login" type="submit"
-                               value="Войти" />
-                    </div>*@
+            <input class="pglogbut login" type="submit"
+                   value="Войти" />
+        </div>*@
 
                         @*<div class="or">or</div>*@
                         <div class="registration-but for-reg hide">
-                            <input class="pglogbut" type="submit"
+                            <input class="pglogbut reg-btn" type="submit"
                                    value="Зарегистрироваться" />
+                        </div>
+                        <div class="registration-but for-reg hide">
+                            <input class="pglogbut reg-btn test888"
+                                   value="Code" />
                         </div>
                     </form>
                 </div>
             </div>
 
-            <div class="confirmation-reg-popup-cover "></div>
-            <div class="confirmation-reg ">
+            <div class="confirmation-reg-popup-cover hide"></div>
+            <div class="confirmation-reg hide">
                 <div>Введите код подтверждения из СМС:</div>
                 <div class="title-for-code-reg">
                     <input class="code-from-sms-reg test1" id="test1" name="testtest" autofocus/>
@@ -118,7 +122,7 @@
                     <input class="code-from-sms-reg test3" id="test3"/>
                     <input class="code-from-sms-reg test4" id="test4"/>
                 </div>
-                <div class="test999">===</div>
+                <button class="confirmation-code-btn" disabled>Отправить код</button>
             </div>
         </div>
 

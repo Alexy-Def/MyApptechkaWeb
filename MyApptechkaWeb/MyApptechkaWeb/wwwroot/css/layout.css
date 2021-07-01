@@ -70,6 +70,10 @@ body {
     display: none;
 }
 
+.confirmation-reg.hide {
+    display: none;
+}
+
 .nice-popup {
     position: fixed;
     width: 100%;
