@@ -4,11 +4,9 @@ $(document).ready(function () {
 	//var tt = `${arr[0]}`;
 	$('.test999').click(function () {
 		$('.test1').focus();
-		for (var i = 0; i < 4; i++) {
-			var selector = `${arr[i]}`;
-			var selectorNext = `${arr[i+1]}`;
-			$(selector).keyup(function () {
-				$(selector).next(selectorNext).focus();
+		for (var i = 0; i < 3; i++) {
+			$(`${arr[i]}`).keyup(function () {
+				$(this).next().focus();
 			})
 		}
 		//console.log(t);
