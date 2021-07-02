@@ -22,6 +22,13 @@ body {
     max-width: 100%;*/
 }
 
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    /* display: none; <- Crashes Chrome on hover */
+    -webkit-appearance: none;
+    margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+}
+
 .wrapper {
     display: flex;
     min-height: 100%;
@@ -111,7 +118,7 @@ body {
 }
 
 .login-block-reg {
-    height: 525px;
+    height: 535px;
 }
 
 .reg-login-btn {
@@ -241,20 +248,75 @@ input[type="password"] {
     position: absolute;
     z-index: 40;
     height: 200px;
-    width: 400px;
+    width: 440px;
     background-color: beige;
     border-radius: 10px;
 }
 
-.code-from-sms-reg {
-    height: 20px;
-    width: 20px;
+.registration-btn {
+    color: gray;
+    background-color: lightgray;
+    width: 400px;
+    margin-top: 25px;
+    font-size: 13pt;
+    border-radius: 10px;
 }
 
-.header {
-    height: 60px;
-    background-color: aquamarine;
+.registration-btn-open {
+    color: black;
+    background-color: limegreen;
+    border: 3px solid;
+    box-shadow: 0 0 20px;
+    cursor: pointer;
 }
+
+    .registration-btn-open:hover {
+        box-shadow: 0 0 30px;
+        border: 4px solid;
+    }
+
+.confirmation-reg-text {
+    margin: 20px 0;
+    font-size: 16pt;
+    font-weight: 700;
+}
+
+.inputs-for-code-reg {
+    margin: 10px 0 20px 0;
+}
+
+.code-from-sms-reg {
+    height: 40px;
+    width: 40px;
+    text-align: center;
+    font-size: 25pt;
+    margin: 0 10px;
+    border-radius: 5px;
+    border: groove;
+}
+
+.confirmation-code-btn {
+    margin-top: 5px;
+    font-size: 16pt;
+    border-radius: 5px;
+}
+
+.confirmation-code-btn-open {
+    background-color: limegreen;
+    box-shadow: 0 0 5px;
+    padding: 5px;
+    width: 300px;
+}
+
+    .confirmation-code-btn-open:hover {
+        box-shadow: 0 0 15px green;
+        border: 2px solid;
+    }
+
+    .header {
+        height: 60px;
+        background-color: aquamarine;
+    }
 
 .header-full {
     height: 100%;

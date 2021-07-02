@@ -5,10 +5,12 @@ $(document).ready(function () {
 
         $('.for-reg').keyup(function () {
             if (IsFilledInputWithRegInfo() == true) {
-                $('.test888').attr("disabled", false);
+                $('.registration-btn').attr("disabled", false);
+                $('.registration-btn').addClass('registration-btn-open');
             }
             else {
-                $('.test888').attr("disabled", true);
+                $('.registration-btn').attr("disabled", true);
+                $('.registration-btn').removeClass('registration-btn-open');
             }
         })
 
@@ -24,7 +26,7 @@ $(document).ready(function () {
         }
     })
 
-    $('.test888').click(function () {
+    $('.registration-btn').click(function () {
         var arr = ['.test1', '.test2', '.test3', '.test4'];
         $('.confirmation-reg-popup-cover').removeClass('hide');
         $('.confirmation-reg').removeClass('hide');
@@ -34,9 +36,13 @@ $(document).ready(function () {
                 $(this).next().focus();
                 if (IsFilledInputWithCodeFromSms() == true) {
                     $('.confirmation-code-btn').attr("disabled", false);
+                    //$('.confirmation-code-btn').addClass('registration-btn-open');
+                    $('.confirmation-code-btn').removeClass('hide');
                 }
                 else {
                     $('.confirmation-code-btn').attr("disabled", true);
+                    //$('.confirmation-code-btn').removeClass('registration-btn-open');
+                    $('.confirmation-code-btn').addClass('hide');
                 }
             })
         }
@@ -91,5 +97,6 @@ $(document).ready(function () {
         $('.for-login').addClass('hide');
         $('.login-block').addClass('login-block-reg');
         $('.login-block').removeClass('login-block-login');
+        $('.registration-btn').removeClass('hide');
     });
 });
