@@ -53,6 +53,10 @@ $(document).ready(function () {
         }
     })
 
+    $('.confirmation-code-btn').click(function () {
+        $('.reg-btn').trigger('click');
+    })
+
     $('.popup-cover').click(function () {
         $('.nice-popup').addClass('hide');
     });
