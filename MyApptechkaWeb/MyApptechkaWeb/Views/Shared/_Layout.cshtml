@@ -32,7 +32,9 @@
                         <div class="for-login">
                             <div>Логин:</div>
                             <input name="Login"
-                                   class="inputFields" id="test" type="text"
+                                   class="inputFields" id="test" 
+                                   type="text"
+                                   autocomplete="off"
                                    @*placeholder="@Resource.Layout_Login"*@ />
                         </div>
                         <div class="for-login">
@@ -42,19 +44,19 @@
                                    @*placeholder="@Resource.Layout_Password"*@ />
                         </div>
                         <!--<div class="confirmPassword hide">
-                    <div>Подтвердить пароль:</div>
-                    <input name="ConfirmPassword"
-                           class="inputFields" type="password"-->
+        <div>Подтвердить пароль:</div>
+        <input name="ConfirmPassword"
+               class="inputFields" type="password"-->
                         @*placeholder="@Resource.Layout_Password"*@
                         <!--/>
-                </div>
-                <div class="phoneNumber hide">
-                    <div>Номер телефона:</div>
-                    <input name="PhoneNumber"
-                           class="inputFields" type="text"-->
+        </div>
+        <div class="phoneNumber hide">
+            <div>Номер телефона:</div>
+            <input name="PhoneNumber"
+                   class="inputFields" type="text"-->
                         @*placeholder="@Resource.Layout_Password"*@
                         <!--/>
-                </div>-->
+        </div>-->
 
                         <div class="login-but for-login">
                             <input class="pglogbut" type="submit"
@@ -63,53 +65,56 @@
 
                         @*<div class="or">or</div>*@
                         @*<div class="registration-but">
-                        <input class="pglogbut reg hide" type="submit"
-                               value="Зарегистрироваться" />
-                    </div>*@
+                <input class="pglogbut reg hide" type="submit"
+                       value="Зарегистрироваться" />
+            </div>*@
                     </form>
 
                     <form action="/User/Registration" method="post" id="login-or-registration" class="loginformstyle">
                         <div class="for-reg hide">
                             <div>Логин:</div>
                             <input name="Login"
-                                   class="inputFields" type="text"
+                                   class="inputFields for-reg login-for-reg" 
+                                   type="text" 
+                                   autocomplete="off"
                                    @*placeholder="@Resource.Layout_Login"*@ />
                             <div id="for-json-result"></div>
                         </div>
                         <div class="for-reg hide">
-                            <div class="text-for-input">Пароль:</div>
+                            <div class="text-for-input for-reg">Пароль:</div>
                             <input name="Password"
-                                   class="inputFields" type="password"
+                                   class="inputFields password-for-reg" type="password"
                                    @*placeholder="@Resource.Layout_Password"*@ />
                         </div>
                         <div class="confirmPassword for-reg hide">
                             <div class="text-for-input">Подтвердить пароль:</div>
                             <input name="ConfirmPassword"
-                                   class="inputFields" type="password"
+                                   class="inputFields confirm-password-for-reg" type="password"
                                    @*placeholder="@Resource.Layout_Password"*@ />
                         </div>
                         <div class="phoneNumber for-reg hide">
                             <div class="text-for-input">Номер телефона:</div>
                             <input name="Phone"
-                                   class="inputFields" type="text"
+                                   class="inputFields phone-for-reg" 
+                                   type="text" 
+                                   maxlength="13" 
+                                   autocomplete="off"
                                    @*placeholder="@Resource.Layout_Password"*@ />
                         </div>
 
                         @*<div class="login-but">
-            <input class="pglogbut login" type="submit"
-                   value="Войти" />
-        </div>*@
+                <input class="pglogbut login" type="submit"
+                       value="Войти" />
+            </div>*@
 
                         @*<div class="or">or</div>*@
                         <div class="registration-but for-reg hide">
                             <input class="pglogbut reg-btn" type="submit"
                                    value="Зарегистрироваться" />
                         </div>
-                        <div class="registration-but for-reg hide">
-                            <input class="pglogbut reg-btn test888"
-                                   value="Code" />
-                        </div>
+
                     </form>
+                    <button class="registration-but reg-btn test888" disabled>Code</button>
                 </div>
             </div>
 

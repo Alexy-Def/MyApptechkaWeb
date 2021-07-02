@@ -1,15 +1,38 @@
 $(document).ready(function () {
-    var arr = ['.test1', '.test2', '.test3', '.test4'];
-    //var t = arr[0];
-    //var tt = `${arr[0]}`;
+
+    $('.switcher-reg-btn').click(function () {
+        var inputsWithInfo = ['.login-for-reg', '.password-for-reg', '.confirm-password-for-reg', '.phone-for-reg'];
+
+        $('.for-reg').keyup(function () {
+            if (IsFilledInputWithRegInfo() == true) {
+                $('.test888').attr("disabled", false);
+            }
+            else {
+                $('.test888').attr("disabled", true);
+            }
+        })
+
+        function IsFilledInputWithRegInfo() {
+            var counter = 0;
+            for (var k = 0; k < 4; k++) {
+                if ($(`${inputsWithInfo[k]}`).val().length != 0) {
+                    counter++;
+                }
+            }
+
+            return counter == 4 ?? false;
+        }
+    })
+
     $('.test888').click(function () {
+        var arr = ['.test1', '.test2', '.test3', '.test4'];
         $('.confirmation-reg-popup-cover').removeClass('hide');
         $('.confirmation-reg').removeClass('hide');
         $('.test1').focus();
         for (var i = 0; i < 4; i++) {
             $(`${arr[i]}`).keyup(function () {
                 $(this).next().focus();
-                if (test777() == true) {
+                if (IsFilledInputWithCodeFromSms() == true) {
                     $('.confirmation-code-btn').attr("disabled", false);
                 }
                 else {
@@ -18,10 +41,7 @@ $(document).ready(function () {
             })
         }
 
-        
-            
-
-        function test777() {
+        function IsFilledInputWithCodeFromSms() {
             var counter = 0;
             for (var k = 0; k < 4; k++) {
                 if ($(`${arr[k]}`).val().length == 1) {
@@ -29,37 +49,9 @@ $(document).ready(function () {
                 }
             }
 
-            //return counter == 4 ? true : false;
-            if (counter == 4) {
-                return true;
-            }
-            else {
-                return false;
-            }
+            return counter == 4 ?? false;
         }
-
-        //console.log(t);
-        //console.log(tt);
-
-        //$('.test1').keyup(function () {
-        //	$(this).next('.test2').focus();
-        //})
-        //$('.test2').keyup(function () {
-        //	$(this).next('.test3').focus();
-        //})
-        //$('.test3').keyup(function () {
-        //	$(this).next('.test4').focus();
-        //})
     })
-    //for (var i = 0; i < 4; i++) {
-    //	$(`\'${arr[i]}\'`).keyup(function () {
-    //		$(this).next(`\'${arr[i + 1]}\'`).focus();
-    //       })
-    //   }
-
-    //$('.test1').keyup(function () {
-    //	$(this).next('.test2').focus();
-    //   })
 
     $('.popup-cover').click(function () {
         $('.nice-popup').addClass('hide');

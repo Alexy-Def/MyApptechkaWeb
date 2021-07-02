@@ -2,10 +2,17 @@ $(document).ready(function () {
 	$('[name=Login]').keyup(function () {
 		var name = $(this).val();
 
-		var url = '/User/IsUserExist?name=' + name;
+		if (name != '') {
+			var url = '/User/IsUserExist?name=' + name;
+		}
+		
 
 		//showIcon('spinner');
 		$.get(url).done(function (answer) {
+			if (name == '') {
+				answer = false;
+			}
+
 			//Когда придёт ответ
 			console.log("answer = " + answer);
 			if (answer) {
