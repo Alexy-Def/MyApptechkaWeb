@@ -18,6 +18,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using System.Threading.Tasks;
+using MyApptechkaWeb.Service.Interface;
+using MyApptechkaWeb.Service;
 
 namespace MyApptechkaWeb
 {
@@ -40,10 +42,17 @@ namespace MyApptechkaWeb
                 new UserRepository(diContainer.GetService<MyApptechkaDbContext>()));
 
             RegisterMapper(services);
+            RegistrationRepositories(services);
+            RegisterService(services);
 
             services.AddControllersWithViews();
+        }
 
-            RegistrationRepositories(services);
+        private void RegisterService(IServiceCollection services)
+        {
+            services.AddScoped<ISmsService>(diContainer =>
+                new SmsService()
+            );
         }
 
         private void RegistrationRepositories(IServiceCollection services)

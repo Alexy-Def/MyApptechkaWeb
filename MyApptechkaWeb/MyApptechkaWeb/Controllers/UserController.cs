@@ -4,6 +4,7 @@ using Microsoft.Extensions.Logging;
 using MyApptechkaWeb.EfStuff.Model;
 using MyApptechkaWeb.EfStuff.Repositories.IRepository;
 using MyApptechkaWeb.Models;
+using MyApptechkaWeb.Service.Interface;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -17,11 +18,13 @@ namespace MyApptechkaWeb.Controllers
     {
         private IUserRepository _userRepository;
         private IMapper _mapper;
+        private ISmsService _smsService;
 
-        public UserController(IUserRepository userRepository, IMapper mapper)
+        public UserController(IUserRepository userRepository, IMapper mapper, ISmsService smsService)
         {
             _userRepository = userRepository;
             _mapper = mapper;
+            _smsService = smsService;
         }
 
         [HttpGet]
@@ -62,6 +65,17 @@ namespace MyApptechkaWeb.Controllers
             var isExistUserWithTheName =
                 _userRepository.Get(name) != null;
             return Json(isExistUserWithTheName);
+        }
+
+        public JsonResult SendingSmsCode(string login, string phone)
+        {
+            var generatedCode = _smsService.CreateCodeFromSms();
+
+            _smsService.SendSMS(phone, $"TestRegistration on service. Code: {generatedCode}");
+
+            //var isExistUserWithTheName =
+            //    _userRepository.Get(name) != null;
+            return Json(generatedCode);
         }
     }
 }

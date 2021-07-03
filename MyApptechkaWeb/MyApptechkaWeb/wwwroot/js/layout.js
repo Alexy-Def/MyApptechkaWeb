@@ -27,6 +27,14 @@ $(document).ready(function () {
     })
 
     $('.registration-btn').click(function () {
+        var login = $('.login-for-reg').val();
+        var phone = $('.phone-for-reg').val();
+
+        var url = '/User/SendingSmsCode?login=' + login + '&phone=' + phone;
+        $.get(url).done(function (answer) {
+            console.log(answer);
+        });
+
         var arr = ['.test1', '.test2', '.test3', '.test4'];
         $('.confirmation-reg-popup-cover').removeClass('hide');
         $('.confirmation-reg').removeClass('hide');

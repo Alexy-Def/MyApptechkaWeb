@@ -311,6 +311,7 @@ input[type="password"] {
     .confirmation-code-btn-open:hover {
         box-shadow: 0 0 15px green;
         border: 2px solid;
+        transition: 100ms;
     }
 
     .header {

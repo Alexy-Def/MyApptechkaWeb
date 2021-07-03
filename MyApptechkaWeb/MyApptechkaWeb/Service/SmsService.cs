@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using MyApptechkaWeb.Service.Interface;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -8,31 +9,47 @@ using System.Threading.Tasks;
 
 namespace MyApptechkaWeb.Service
 {
-    public class SmsService
+    public class SmsService : ISmsService
     {
-        public static void SendSMS(string tel, string text, string username, string password)
+        private const string USERNAME = "193197322";
+        private const string PASSWORD = "aA8M8yAdl9sMs";
+
+        public int CreateCodeFromSms()
+        {
+            var random = new Random();
+            int value = random.Next(1000, 9999);
+
+            return value;
+        }
+
+        public void SendSMS(string tel, string text)
         {
             HttpWebRequest request = (HttpWebRequest)
-            WebRequest.Create("http://api.rocketsms.by/simple/send?username=" + username + "&password=" + password + "&phone=" + Uri.EscapeUriString(tel) + "&text=" + Uri.EscapeUriString(text));
+            WebRequest.Create("http://api.rocketsms.by/simple/send?username=" + USERNAME + "&password=" + PASSWORD + "&phone=" + Uri.EscapeUriString(tel) + "&text=" + Uri.EscapeUriString(text) + "&priority=" + true);
             WebResponse response = request.GetResponse();
 
-            using (Stream stream = response.GetResponseStream())
-            {
-                using (StreamReader reader = new StreamReader(stream))
-                {
-                    using (var jsonTextReader = new JsonTextReader(reader))
-                    {
-                        Deser deser = new Deser();
-                        var serializer = new Newtonsoft.Json.JsonSerializer();
-                        //var aa = serializer.Deserialize(jsonTextReader);
-                        deser = serializer.Deserialize<Deser>(jsonTextReader);
-                        Deser.Print(deser);
-                        //Console.WriteLine(aa);
-                        //Console.WriteLine(aa.ToString());
-                        Console.ReadKey();
-                    }
-                }
-            }
+            //using (Stream stream = response.GetResponseStream())
+            //{
+            //    using (StreamReader reader = new StreamReader(stream))
+            //    {
+            //        using (var jsonTextReader = new JsonTextReader(reader))
+            //        {
+            //            //Deser deser = new Deser(); //nice
+            //            //var serializer = new Newtonsoft.Json.JsonSerializer(); //nice
+
+            //            ////var aa = serializer.Deserialize(jsonTextReader);
+
+            //            //deser = serializer.Deserialize<Deser>(jsonTextReader); //nice
+
+            //            //Deser.Print(deser); //nice
+
+            //            //Console.WriteLine(aa);
+            //            //Console.WriteLine(aa.ToString());
+
+            //            //Console.ReadKey(); //nice
+            //        }
+            //    }
+            //}
             response.Close();
 
 
