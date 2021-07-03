@@ -22,13 +22,6 @@ body {
     max-width: 100%;*/
 }
 
-/*input::-webkit-outer-spin-button,
-input::-webkit-inner-spin-button {
-     display: none; <- Crashes Chrome on hover 
-    -webkit-appearance: none;
-    margin: 0;  <-- Apparently some margin are still there even though it's hidden 
-}*/
-
 .wrapper {
     display: flex;
     min-height: 100%;
@@ -214,6 +207,11 @@ input[type="password"] {
     height: 27px;
     background: rgba(20, 20, 20, .2);
     outline: none;
+}
+
+.label-requested-fields {
+    color: red;
+    font-weight: 900;
 }
 
 .pglogbut {

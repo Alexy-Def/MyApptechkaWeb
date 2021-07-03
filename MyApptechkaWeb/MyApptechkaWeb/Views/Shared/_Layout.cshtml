@@ -72,7 +72,8 @@
 
                     <form action="/User/Registration" method="post" id="login-or-registration" class="loginformstyle">
                         <div class="for-reg hide">
-                            <div>Логин:</div>
+                            <div>Логин: <span class="label-requested-fields">*</span></div>
+                            
                             <input name="Login"
                                    class="inputFields for-reg login-for-reg"
                                    type="text"
@@ -81,19 +82,19 @@
                             <div id="for-json-result"></div>
                         </div>
                         <div class="for-reg hide">
-                            <div class="text-for-input for-reg">Пароль:</div>
+                            <div class="text-for-input for-reg">Пароль: <span class="label-requested-fields">*</span></div>
                             <input name="Password"
                                    class="inputFields password-for-reg" type="password"
                                    @*placeholder="@Resource.Layout_Password"*@ />
                         </div>
                         <div class="confirmPassword for-reg hide">
-                            <div class="text-for-input">Подтвердить пароль:</div>
+                            <div class="text-for-input">Подтвердить пароль: <span class="label-requested-fields">*</span></div>
                             <input name="ConfirmPassword"
                                    class="inputFields confirm-password-for-reg" type="password"
                                    @*placeholder="@Resource.Layout_Password"*@ />
                         </div>
                         <div class="phoneNumber for-reg hide">
-                            <div class="text-for-input">Номер телефона:</div>
+                            <div class="text-for-input">Номер телефона: <span class="label-requested-fields">*</span></div>
                             <input name="Phone"
                                    class="inputFields phone-for-reg"
                                    type="text"
