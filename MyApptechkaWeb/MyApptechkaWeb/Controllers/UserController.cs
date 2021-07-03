@@ -72,7 +72,7 @@ namespace MyApptechkaWeb.Controllers
             phone = phone.Trim(new Char[] { ' ', '+' });
             var generatedCode = _smsService.CreateCodeFromSms();
 
-            _smsService.SendSMS(phone, $"Код подтверждения регистрации на сервисе MyApptechka: {generatedCode}");
+            _smsService.SendSMS(phone, $"[Test] Код подтверждения регистрации на сервисе MyApptechka: {generatedCode}");
 
             
             return Json(generatedCode);

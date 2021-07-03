@@ -1,7 +1,7 @@
 $(document).ready(function () {
     $('.login-for-reg').keyup(function () {
         var name = $(this).val();
-        IsUserExist('#for-json-result', name);
+        IsUserExist('#for-json-result', '.login-for-reg', name);
 
         //function showIcon(iconName) {
         //	$('#registration-block .icon').addClass('hide');
@@ -11,10 +11,10 @@ $(document).ready(function () {
 
     $('.registration-page .repeat-login').keyup(function () {
         var name = $(this).val();
-        IsUserExist('.validation-mess-login', name);
+        IsUserExist('.validation-mess-login', '.repeat-login', name);
     })
 
-    function IsUserExist(selector, name) {
+    function IsUserExist(validSelector, inputSelector, name) {
         //var name = $(this).val();
 
         if (name != '') {
@@ -32,10 +32,12 @@ $(document).ready(function () {
             console.log("answer = " + answer);
             if (answer) {
                 //showIcon('close');
-                $(selector).text("This user exists");
+                $(validSelector).text("This user exists");
+                $(inputSelector).css('border', '2px solid red');
             } else {
                 //showIcon('ok');
-                $(selector).text(" ");
+                $(validSelector).text(" ");
+                $(inputSelector).css('border', '0px saddlebrown');
             }
         });
     }

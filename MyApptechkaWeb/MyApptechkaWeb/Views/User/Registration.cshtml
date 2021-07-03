@@ -11,8 +11,9 @@
         <form action="/User/Registration" method="post">
             <div class="repeat-reg-blocks">
                 <div>Логин: <span class="label-requested-fields">*</span></div>
-                @Html.TextBoxFor(x => x.Login, new { @class = "inputFields repeat-login" })
-                @Html.ValidationMessageFor(x => x.Login, "This user exists", new { @class = "validation-message validation-mess-login" })
+                @Html.TextBoxFor(x => x.Login, new { @class = "inputFields repeat-login", @autocomplete = "off" })
+                @Html.ValidationMessageFor(x => x.Login, "This user exists",
+                    new { @class = "validation-message validation-mess-login" })
             </div>
             <div class="repeat-reg-blocks">
                 <div>Пароль: <span class="label-requested-fields">*</span></div>
