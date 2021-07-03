@@ -1,6 +1,21 @@
 $(document).ready(function () {
     $('.login-for-reg').keyup(function () {
         var name = $(this).val();
+        IsUserExist('#for-json-result', name);
+
+        //function showIcon(iconName) {
+        //	$('#registration-block .icon').addClass('hide');
+        //	$(`#registration-block .icon.${iconName}`).removeClass('hide');
+        //}
+    });
+
+    $('.registration-page .repeat-login').keyup(function () {
+        var name = $(this).val();
+        IsUserExist('.validation-mess-login', name);
+    })
+
+    function IsUserExist(selector, name) {
+        //var name = $(this).val();
 
         if (name != '') {
             var url = '/User/IsUserExist?name=' + name;
@@ -17,18 +32,13 @@ $(document).ready(function () {
             console.log("answer = " + answer);
             if (answer) {
                 //showIcon('close');
-                $('#for-json-result').text("User existed!");
+                $(selector).text("This user exists");
             } else {
                 //showIcon('ok');
-                $('#for-json-result').text(" ");
+                $(selector).text(" ");
             }
         });
-
-        //function showIcon(iconName) {
-        //	$('#registration-block .icon').addClass('hide');
-        //	$(`#registration-block .icon.${iconName}`).removeClass('hide');
-        //}
-    });
+    }
 
     $('.switcher-reg-btn').click(function () {
         var inputsWithInfo = [
@@ -80,7 +90,7 @@ $(document).ready(function () {
             generatedCode = generatedCodeAnswer;
         });
 
-        setTimeout(test, 6000);
+        setTimeout(test, 4000);
 
         function test() {
             $('.spinner-reg').addClass('hide');
@@ -126,6 +136,7 @@ $(document).ready(function () {
     $('.confirmation-code-btn').click(function () {
         $('.reg-btn').trigger('click');
     })
+
 
     //$('.popup-cover').click(function () {
     //	$('.nice-popup').addClass('hide');

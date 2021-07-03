@@ -1,0 +1,24 @@
+﻿.registration-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.registration-page-title {
+    text-align: center;
+    font-size: 16pt;
+    color: darkred;
+    margin-bottom: 25px;
+}
+
+.repeat-reg-blocks {
+    display: flex;
+    flex-direction: column;
+    font-size: 14pt;
+    margin: 15px 0;
+}
+
+.validation-mess-login {
+    font-size:11pt;
+    color: red;
+}

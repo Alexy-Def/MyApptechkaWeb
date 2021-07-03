@@ -204,6 +204,7 @@ body {
     border-right: none;
     color: black;
     outline: none;
+    border-radius: 5px;
 }
 
 input[type="text"],
@@ -216,6 +217,10 @@ input[type="password"] {
 .label-requested-fields {
     color: red;
     font-weight: 900;
+}
+
+#for-json-result {
+    color: red;
 }
 
 .pglogbut {
@@ -232,6 +237,10 @@ input[type="password"] {
     .pglogbut:hover {
         background: rgba(20, 20, 20, .4);
     }
+
+.registration-page .pglogbut {
+    width: 270px;
+}
 
 .confirmation-reg-popup-cover {
     height: 100vh;
