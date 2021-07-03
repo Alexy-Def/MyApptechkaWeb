@@ -29,10 +29,12 @@ $(document).ready(function () {
     $('.registration-btn').click(function () {
         var login = $('.login-for-reg').val();
         var phone = $('.phone-for-reg').val();
+        var generatedCode = '';
 
         var url = '/User/SendingSmsCode?login=' + login + '&phone=' + phone;
-        $.get(url).done(function (generatedCode) {
-            console.log(generatedCode);
+        $.get(url).done(function (generatedCodeAnswer) {
+            console.log(generatedCodeAnswer);
+            generatedCode = generatedCodeAnswer;
         });
 
         var arr = ['.test1', '.test2', '.test3', '.test4'];
@@ -43,7 +45,7 @@ $(document).ready(function () {
             $(`${arr[i]}`).keyup(function () {
                 this.value = this.value.replace(/[^0-9]/g, '');
                 $(this).next().focus();
-                if (IsFilledInputWithCodeFromSms() == true) {
+                if (IsFilledInputWithCodeFromSms(generatedCode) == true) {
                     $('.confirmation-code-btn').attr("disabled", false);
                     //$('.confirmation-code-btn').addClass('registration-btn-open');
                     $('.confirmation-code-btn').removeClass('hide');
@@ -56,15 +58,17 @@ $(document).ready(function () {
             })
         }
 
-        function IsFilledInputWithCodeFromSms() {
+        function IsFilledInputWithCodeFromSms(generatedCode) {
             var counter = 0;
+            var code = '';
             for (var k = 0; k < 4; k++) {
                 if ($(`${arr[k]}`).val().length == 1) {
                     counter++;
+                    code = code + $(`${arr[k]}`).val();
                 }
             }
 
-            return counter == 4 ?? false;
+            return (counter == 4 && generatedCode == code) ?? false;
         }
     })
 

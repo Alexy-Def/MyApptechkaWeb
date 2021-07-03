@@ -74,8 +74,7 @@ namespace MyApptechkaWeb.Controllers
 
             _smsService.SendSMS(phone, $"Код подтверждения регистрации на сервисе MyApptechka: {generatedCode}");
 
-            //var isExistUserWithTheName =
-            //    _userRepository.Get(name) != null;
+            
             return Json(generatedCode);
         }
     }
