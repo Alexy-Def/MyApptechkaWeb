@@ -69,9 +69,10 @@ namespace MyApptechkaWeb.Controllers
 
         public JsonResult SendingSmsCode(string login, string phone)
         {
+            phone = phone.Trim(new Char[] { ' ', '+' });
             var generatedCode = _smsService.CreateCodeFromSms();
 
-            _smsService.SendSMS(phone, $"TestRegistration on service. Code: {generatedCode}");
+            _smsService.SendSMS(phone, $"Код подтверждения регистрации на сервисе MyApptechka: {generatedCode}");
 
             //var isExistUserWithTheName =
             //    _userRepository.Get(name) != null;

@@ -31,8 +31,8 @@ $(document).ready(function () {
         var phone = $('.phone-for-reg').val();
 
         var url = '/User/SendingSmsCode?login=' + login + '&phone=' + phone;
-        $.get(url).done(function (answer) {
-            console.log(answer);
+        $.get(url).done(function (generatedCode) {
+            console.log(generatedCode);
         });
 
         var arr = ['.test1', '.test2', '.test3', '.test4'];
@@ -41,6 +41,7 @@ $(document).ready(function () {
         $('.test1').focus();
         for (var i = 0; i < 4; i++) {
             $(`${arr[i]}`).keyup(function () {
+                this.value = this.value.replace(/[^0-9]/g, '');
                 $(this).next().focus();
                 if (IsFilledInputWithCodeFromSms() == true) {
                     $('.confirmation-code-btn').attr("disabled", false);
@@ -66,6 +67,10 @@ $(document).ready(function () {
             return counter == 4 ?? false;
         }
     })
+
+    //$('body').on('input', '.input-number', function () {
+    //    this.value = this.value.replace(/[^0-9]/g, '');
+    //});
 
     $('.confirmation-code-btn').click(function () {
         $('.reg-btn').trigger('click');
