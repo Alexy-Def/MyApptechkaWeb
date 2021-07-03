@@ -74,6 +74,10 @@ body {
     display: none;
 }
 
+.spinner-reg.hide {
+    display: none;
+}
+
 .nice-popup {
     position: fixed;
     width: 100%;
@@ -272,6 +276,16 @@ input[type="password"] {
         box-shadow: 0 0 30px;
         border: 4px solid;
     }
+
+.spinner-reg {
+    display: flex;
+    align-items: center;
+    margin-top: 15px;
+}
+
+.spinner-reg-text {
+    margin-left: 5px;
+}
 
 .confirmation-reg-text {
     margin: 20px 0;

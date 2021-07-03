@@ -61,48 +61,55 @@ $(document).ready(function () {
     })
 
     $('.registration-btn').click(function () {
-        var login = $('.login-for-reg').val();
-        var phone = $('.phone-for-reg').val();
-        var generatedCode = '';
+        $('.spinner-reg').removeClass('hide');
+        setTimeout(test, 3000);
 
-        var url = '/User/SendingSmsCode?login=' + login + '&phone=' + phone;
-        $.get(url).done(function (generatedCodeAnswer) {
-            console.log(generatedCodeAnswer);
-            generatedCode = generatedCodeAnswer;
-        });
+        function test() {
+            $('.spinner-reg').addClass('hide');
 
-        var arr = ['.test1', '.test2', '.test3', '.test4'];
-        $('.confirmation-reg-popup-cover').removeClass('hide');
-        $('.confirmation-reg').removeClass('hide');
-        $('.test1').focus();
-        for (var i = 0; i < 4; i++) {
-            $(`${arr[i]}`).keyup(function () {
-                this.value = this.value.replace(/[^0-9]/g, '');
-                $(this).next().focus();
-                if (IsFilledInputWithCodeFromSms(generatedCode) == true) {
-                    $('.confirmation-code-btn').attr("disabled", false);
-                    //$('.confirmation-code-btn').addClass('registration-btn-open');
-                    $('.confirmation-code-btn').removeClass('hide');
-                }
-                else {
-                    $('.confirmation-code-btn').attr("disabled", true);
-                    //$('.confirmation-code-btn').removeClass('registration-btn-open');
-                    $('.confirmation-code-btn').addClass('hide');
-                }
-            })
-        }
+            var login = $('.login-for-reg').val();
+            var phone = $('.phone-for-reg').val();
+            var generatedCode = '';
 
-        function IsFilledInputWithCodeFromSms(generatedCode) {
-            var counter = 0;
-            var code = '';
-            for (var k = 0; k < 4; k++) {
-                if ($(`${arr[k]}`).val().length == 1) {
-                    counter++;
-                    code = code + $(`${arr[k]}`).val();
-                }
+            var url = '/User/SendingSmsCode?login=' + login + '&phone=' + phone;
+            $.get(url).done(function (generatedCodeAnswer) {
+                console.log(generatedCodeAnswer);
+                generatedCode = generatedCodeAnswer;
+            });
+
+            var arr = ['.test1', '.test2', '.test3', '.test4'];
+            $('.confirmation-reg-popup-cover').removeClass('hide');
+            $('.confirmation-reg').removeClass('hide');
+            $('.test1').focus();
+            for (var i = 0; i < 4; i++) {
+                $(`${arr[i]}`).keyup(function () {
+                    this.value = this.value.replace(/[^0-9]/g, '');
+                    $(this).next().focus();
+                    if (IsFilledInputWithCodeFromSms(generatedCode) == true) {
+                        $('.confirmation-code-btn').attr("disabled", false);
+                        //$('.confirmation-code-btn').addClass('registration-btn-open');
+                        $('.confirmation-code-btn').removeClass('hide');
+                    }
+                    else {
+                        $('.confirmation-code-btn').attr("disabled", true);
+                        //$('.confirmation-code-btn').removeClass('registration-btn-open');
+                        $('.confirmation-code-btn').addClass('hide');
+                    }
+                })
             }
 
-            return (counter == 4 && generatedCode == code) ?? false;
+            function IsFilledInputWithCodeFromSms(generatedCode) {
+                var counter = 0;
+                var code = '';
+                for (var k = 0; k < 4; k++) {
+                    if ($(`${arr[k]}`).val().length == 1) {
+                        counter++;
+                        code = code + $(`${arr[k]}`).val();
+                    }
+                }
+
+                return (counter == 4 && generatedCode == code) ?? false;
+            }
         }
     })
 

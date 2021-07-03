@@ -1,0 +1,16 @@
+﻿﻿.icon {
+    display: flex;
+    align-items: center;
+}
+
+.icon::before {
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+    content: ' ';
+    background-size: contain;
+}
+
+.spinner::before {
+    background-image: url('../image/icon/spinner.gif');
+}
