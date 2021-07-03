@@ -40,6 +40,20 @@ $(document).ready(function () {
         });
     }
 
+    $('.repeat-confirmation-password').keyup(function () {
+        var password = $('.repeat-password').val();
+        var repeatPassword = $('.repeat-confirmation-password').val();
+
+        if (password != repeatPassword) {
+            $('.validation-mess-repet-password').text("Password mismatch");
+            $('.repeat-confirmation-password').css('border', '2px solid red');
+        }
+        else {
+            $('.validation-mess-repet-password').text(" ");
+            $('.repeat-confirmation-password').css('border', '0px saddlebrown');
+        }
+    })
+
     $('.switcher-reg-btn').click(function () {
         var inputsWithInfo = [
             '.login-for-reg',

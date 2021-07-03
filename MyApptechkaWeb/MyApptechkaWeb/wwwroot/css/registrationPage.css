@@ -18,7 +18,7 @@
     margin: 15px 0;
 }
 
-.validation-mess-login {
-    font-size:11pt;
+.validation-message {
+    font-size: 11pt;
     color: red;
 }
