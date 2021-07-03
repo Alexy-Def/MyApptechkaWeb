@@ -48,6 +48,13 @@ $(document).ready(function () {
             }
         })
 
+        $(window).keydown(function (event) {
+            if (event.keyCode == 13) {
+                event.preventDefault();
+                return false;
+            }
+        });
+
         function IsFilledInputWithRegInfo() {
             var counter = 0;
             for (var k = 0; k < 4; k++) {
@@ -62,25 +69,28 @@ $(document).ready(function () {
 
     $('.registration-btn').click(function () {
         $('.spinner-reg').removeClass('hide');
-        setTimeout(test, 3000);
+
+        var login = $('.login-for-reg').val();
+        var phone = $('.phone-for-reg').val();
+        var generatedCode = '';
+
+        var url = '/User/SendingSmsCode?login=' + login + '&phone=' + phone;
+        $.get(url).done(function (generatedCodeAnswer) {
+            console.log(generatedCodeAnswer);
+            generatedCode = generatedCodeAnswer;
+        });
+
+        setTimeout(test, 6000);
 
         function test() {
             $('.spinner-reg').addClass('hide');
 
-            var login = $('.login-for-reg').val();
-            var phone = $('.phone-for-reg').val();
-            var generatedCode = '';
+            
 
-            var url = '/User/SendingSmsCode?login=' + login + '&phone=' + phone;
-            $.get(url).done(function (generatedCodeAnswer) {
-                console.log(generatedCodeAnswer);
-                generatedCode = generatedCodeAnswer;
-            });
-
-            var arr = ['.test1', '.test2', '.test3', '.test4'];
+            var arr = ['.code-input1', '.code-input2', '.code-input3', '.code-input4'];
             $('.confirmation-reg-popup-cover').removeClass('hide');
             $('.confirmation-reg').removeClass('hide');
-            $('.test1').focus();
+            $('.code-input1').focus();
             for (var i = 0; i < 4; i++) {
                 $(`${arr[i]}`).keyup(function () {
                     this.value = this.value.replace(/[^0-9]/g, '');
