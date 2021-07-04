@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using MyApptechkaWeb.EfStuff.Model;
@@ -94,13 +95,19 @@ namespace MyApptechkaWeb.Controllers
             return RedirectToAction("Index", "Home");
         }
 
-            public JsonResult SendingSmsCode(string phone)
+        public async Task<IActionResult> Logout()
+        {
+            await HttpContext.SignOutAsync();
+            return RedirectToAction("Index", "Home");
+        }
+
+        public JsonResult SendingSmsCode(string phone)
         {
             phone = _smsService.ConvertToDefaultPhoneNumber(phone);
             var generatedCode = _smsService.CreateCodeFromSms();
 
             _smsService.SendSMS(phone, $"[Test] Код подтверждения регистрации на сервисе MyApptechka: {generatedCode}");
-            
+
             return Json(generatedCode);
         }
     }
