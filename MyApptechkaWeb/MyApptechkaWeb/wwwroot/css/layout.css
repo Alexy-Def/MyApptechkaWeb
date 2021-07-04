@@ -31,6 +31,12 @@ body {
     min-height: 100vh;
 }
 
+.content {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
 .container {
     max-width: 1200px;
     margin: 0px auto;
