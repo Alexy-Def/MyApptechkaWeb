@@ -137,8 +137,17 @@
                             <li><a href="" class="menu-link"></a></li>
                             @if (User.Identity.IsAuthenticated)
                             {
-                                <li><a href="" class="menu-link">Мои аптечки</a></li>
-                                <li><a href="" class="menu-link">Личный кабинет</a></li>
+                                <li><a href="" class="menu-link">Аптечки</a></li>
+                                <li>
+                                    <a href="" class="menu-link">
+                                        <div class="block-profile-header">
+                                            <span class="">
+                                                <img class="avatar-header" src="/image/avatar/default-avatar.png" />
+                                            </span>
+                                            Личный кабинет
+                                        </div>
+                                    </a>
+                                </li>
                             }
 
                         </ul>

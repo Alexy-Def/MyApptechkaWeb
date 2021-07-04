@@ -400,6 +400,16 @@ input[type="password"] {
     flex: 5;
 }
 
+.block-profile-header {
+    display: flex;
+    align-items: center;
+}
+
+.avatar-header {
+    height: 30px;
+    width: 30px;
+}
+
 .menu-header-fourth {
     height: 100%;
     flex: 1;
@@ -430,6 +440,7 @@ input[type="password"] {
 .menu-list {
     display: flex;
     justify-content: space-evenly;
+    align-items: center;
 }
 
 .footer {
