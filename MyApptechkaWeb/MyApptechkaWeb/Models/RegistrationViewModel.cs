@@ -19,5 +19,6 @@ namespace MyApptechkaWeb.Models
         [StringLength(13, ErrorMessage = "13 символов надо")]
         [Phone]
         public string Phone { get; set; }
+        public bool IsUserExist { get; set; }
     }
 }

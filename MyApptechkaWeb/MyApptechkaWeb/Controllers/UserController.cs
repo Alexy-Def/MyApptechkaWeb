@@ -43,6 +43,10 @@ namespace MyApptechkaWeb.Controllers
         {
             if (!ModelState.IsValid)
             {
+                if (_userService.IsUserExist(model.Login))
+                {
+                    model.IsUserExist = true;
+                }
                 return View(model);
             }
 
@@ -60,8 +64,9 @@ namespace MyApptechkaWeb.Controllers
             }
             else
             {
-                ModelState.AddModelError(nameof(RegistrationViewModel.Login),
-                    "Такой пользователь уже существует");
+                //ModelState.AddModelError(nameof(RegistrationViewModel.Login),
+                //    "Такой пользователь уже существует");
+                model.IsUserExist = true;
             }
 
             return View(model);
@@ -103,10 +108,10 @@ namespace MyApptechkaWeb.Controllers
             return RedirectToAction("Index", "Home");
         }
 
-        public JsonResult IsUserExist(string name)
+        public JsonResult IsUserExist(string login)
         {
             var isExistUserWithTheName =
-                _userRepository.Get(name) != null;
+                _userRepository.Get(login) != null;
             return Json(isExistUserWithTheName);
         }
 

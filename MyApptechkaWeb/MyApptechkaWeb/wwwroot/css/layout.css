@@ -219,6 +219,10 @@ input[type="password"] {
     font-weight: 900;
 }
 
+.red-border-input {
+    border: 2px solid red;
+}
+
 #for-json-result {
     color: red;
 }

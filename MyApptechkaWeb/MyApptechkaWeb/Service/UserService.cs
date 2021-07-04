@@ -42,5 +42,11 @@ namespace MyApptechkaWeb.Service
             var id = long.Parse(idStr);
             return _userRepository.Get(id);
         }
+        public bool IsUserExist(string login)
+        {
+            var isExistUserWithTheName =
+                _userRepository.Get(login) != null;
+            return isExistUserWithTheName;
+        }
     }
 }

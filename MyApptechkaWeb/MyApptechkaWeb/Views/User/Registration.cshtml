@@ -11,9 +11,19 @@
         <form action="/User/Registration" method="post">
             <div class="repeat-reg-blocks">
                 <div>Логин: <span class="label-requested-fields">*</span></div>
-                @Html.TextBoxFor(x => x.Login, new { @class = "inputFields repeat-login", @autocomplete = "off" })
-                @Html.ValidationMessageFor(x => x.Login, "Введенный логин занят",
+                @if (Model.IsUserExist == true)
+                {
+                    @Html.TextBoxFor(x => x.Login, 
+                        new { @class = "inputFields repeat-login red-border-input", @autocomplete = "off" })
+                    @Html.ValidationMessageFor(x => x.Login, "Введенный логин занят",
+                        new { @class = "validation-message validation-mess-login" })
+                }
+                else
+                {
+                    @Html.TextBoxFor(x => x.Login, new { @class = "inputFields repeat-login", @autocomplete = "off" })
+                    @Html.ValidationMessageFor(x => x.Login, "",
                     new { @class = "validation-message validation-mess-login" })
+                }
             </div>
             <div class="repeat-reg-blocks">
                 <div>Пароль: <span class="label-requested-fields">*</span></div>
@@ -22,10 +32,21 @@
             </div>
             <div class="repeat-reg-blocks">
                 <div>Подтвердить пароль: <span class="label-requested-fields">*</span></div>
-                @Html.TextBoxFor(x => x.ConfirmPassword, new { type = "password", @class = "inputFields repeat-confirmation-password" })
-                @Html.ValidationMessageFor(x => x.ConfirmPassword, "Пароли не совпадают", new { @class = "validation-message validation-mess-repet-password" })
+                @if (Model.Password != Model.ConfirmPassword)
+                {
+                    @Html.TextBoxFor(x => x.ConfirmPassword, 
+                        new { type = "password", @class = "inputFields repeat-confirmation-password red-border-input" })
+                    @Html.ValidationMessageFor(x => x.ConfirmPassword, "Пароли не совпадают", new { @class = "validation-message validation-mess-repet-password" })
+                }
+                else
+                {
+                    @Html.TextBoxFor(x => x.ConfirmPassword, new { type = "password", @class = "inputFields repeat-confirmation-password" })
+                    @Html.ValidationMessageFor(x => x.ConfirmPassword, "", new { @class = "validation-message validation-mess-repet-password" })
+                }
+
             </div>
             @Html.HiddenFor(x => x.Phone)
+            @Html.HiddenFor(x => x.IsUserExist)
             <div>
                 <button class="pglogbut" type="submit">Зарегистрироваться</button>
             </div>

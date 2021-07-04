@@ -1,7 +1,7 @@
 $(document).ready(function () {
     $('.login-for-reg').keyup(function () {
-        var name = $(this).val();
-        IsUserExist('#for-json-result', '.login-for-reg', name);
+        var login = $(this).val();
+        IsUserExist('#for-json-result', '.login-for-reg', login);
 
         //function showIcon(iconName) {
         //	$('#registration-block .icon').addClass('hide');
@@ -10,21 +10,21 @@ $(document).ready(function () {
     });
 
     $('.registration-page .repeat-login').keyup(function () {
-        var name = $(this).val();
-        IsUserExist('.validation-mess-login', '.repeat-login', name);
+        var login = $(this).val();
+        IsUserExist('.validation-mess-login', '.repeat-login', login);
     })
 
-    function IsUserExist(validSelector, inputSelector, name) {
+    function IsUserExist(validSelector, inputSelector, login) {
         //var name = $(this).val();
 
-        if (name != '') {
-            var url = '/User/IsUserExist?name=' + name;
+        if (login != '') {
+            var url = '/User/IsUserExist?login=' + login;
         }
 
 
         //showIcon('spinner');
         $.get(url).done(function (answer) {
-            if (name == '') {
+            if (login == '') {
                 answer = false;
             }
 
@@ -33,11 +33,11 @@ $(document).ready(function () {
             if (answer) {
                 //showIcon('close');
                 $(validSelector).text("Введенный логин занят");
-                $(inputSelector).css('border', '2px solid red');
+                $(inputSelector).addClass('red-border-input');
             } else {
                 //showIcon('ok');
                 $(validSelector).text(" ");
-                $(inputSelector).css('border', '0px saddlebrown');
+                $(inputSelector).removeClass('red-border-input');
             }
         });
     }
@@ -48,11 +48,11 @@ $(document).ready(function () {
 
         if (password != repeatPassword) {
             $('.validation-mess-repet-password').text("Пароли не совпадают");
-            $('.repeat-confirmation-password').css('border', '2px solid red');
+            $('.repeat-confirmation-password').addClass('red-border-input');
         }
         else {
             $('.validation-mess-repet-password').text(" ");
-            $('.repeat-confirmation-password').css('border', '0px saddlebrown');
+            $('.repeat-confirmation-password').removeClass('red-border-input');
         }
     })
 
