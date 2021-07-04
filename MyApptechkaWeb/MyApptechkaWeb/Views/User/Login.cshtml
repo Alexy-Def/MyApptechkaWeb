@@ -1,0 +1,35 @@
+﻿@model LoginViewModel
+
+@{
+    Layout = "_Layout";
+}
+
+<div class="registration-page">
+    <div class="registration-page-title">Не все поля заполнены правильно. <br />Пожалуйста, перепроверьте введенную информацию, и повторите попытку входа</div>
+
+    <div class="repeat-reg-form">
+        <form action="/User/Login" method="post">
+            <div class="repeat-reg-blocks">
+                <div>Логин: <span class="label-requested-fields">*</span></div>
+                @Html.TextBoxFor(x => x.Login, new { @class = "inputFields", @autocomplete = "off" })
+                @Html.ValidationMessageFor(x => x.Login, "This user is wrong",
+                    new { @class = "validation-message" })
+            </div>
+            <div class="repeat-reg-blocks">
+                <div>Пароль: <span class="label-requested-fields">*</span></div>
+                @Html.TextBoxFor(x => x.Password, new { type = "password", @class = "inputFields repeat-password" })
+                @Html.ValidationMessageFor(x => x.Password, "Password is wrong")
+            </div>
+            @*<div class="repeat-reg-blocks">
+                <div>Подтвердить пароль: <span class="label-requested-fields">*</span></div>
+                @Html.TextBoxFor(x => x.ConfirmPassword, new { type = "password", @class = "inputFields repeat-confirmation-password" })
+                @Html.ValidationMessageFor(x => x.ConfirmPassword, "Password mismatch", new { @class = "validation-message validation-mess-repet-password" })
+            </div>*@
+            @*@Html.HiddenFor(x => x.ConfirmPassword)
+            @Html.HiddenFor(x => x.Phone)*@
+            <div>
+                <button class="pglogbut" type="submit">Войти</button>
+            </div>
+        </form>
+    </div>
+</div>

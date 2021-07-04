@@ -67,7 +67,34 @@ namespace MyApptechkaWeb.Controllers
             return Json(isExistUserWithTheName);
         }
 
-        public JsonResult SendingSmsCode(string phone)
+        [HttpGet]
+        public IActionResult Login()
+        {
+            var model = new LoginViewModel();
+            //var returnUrl = Request.Query["ReturnUrl"];
+            //model.ReturnUrl = returnUrl;
+            return View(model);
+        }
+
+        [HttpPost]
+        public IActionResult Login(LoginViewModel model)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View(model);
+            }
+
+            var user = _userRepository.Get(model.Login);
+
+            if (user == null || user.Password != model.Password)
+            {
+                return View(model);
+            }
+
+            return RedirectToAction("Index", "Home");
+        }
+
+            public JsonResult SendingSmsCode(string phone)
         {
             phone = _smsService.ConvertToDefaultPhoneNumber(phone);
             var generatedCode = _smsService.CreateCodeFromSms();

@@ -30,6 +30,7 @@ $(document).ready(function () {
         $('.for-login').removeClass('hide');
         $('.login-block').addClass('login-block-login');
         $('.login-block').removeClass('login-block-reg');
+        $('.registration-btn').addClass('hide');
     });
 
     $('.switcher-reg-btn').click(function () {
