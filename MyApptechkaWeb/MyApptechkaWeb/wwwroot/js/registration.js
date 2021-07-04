@@ -56,6 +56,34 @@ $(document).ready(function () {
         }
     })
 
+    $('.log-in').click(function () {
+        var inputsWithInfoLogin = [
+            '.login-for-login',
+            '.password-for-login'];
+
+        $('.input-for-login').keyup(function () {
+            if ((IsFilledInputWithLoginInfo() == true)) {
+                $('.login-but').attr("disabled", false);
+                $('.login-but').addClass('login-btn-open');
+            }
+            else {
+                $('.login-but').attr("disabled", true);
+                $('.login-but').removeClass('login-btn-open');
+            }
+        })
+
+        function IsFilledInputWithLoginInfo() {
+            var counter = 0;
+            for (var k = 0; k < 2; k++) {
+                if ($(`${inputsWithInfoLogin[k]}`).val().length != 0) {
+                    counter++;
+                }
+            }
+
+            return counter == 2 ?? false;
+        }
+    })
+
     $('.switcher-reg-btn').click(function () {
         var inputsWithInfo = [
             '.login-for-reg',
@@ -111,7 +139,7 @@ $(document).ready(function () {
         function test() {
             $('.spinner-reg').addClass('hide');
 
-            
+
 
             var arr = ['.code-input1', '.code-input2', '.code-input3', '.code-input4'];
             $('.confirmation-reg-popup-cover').removeClass('hide');

@@ -11,6 +11,8 @@ namespace MyApptechkaWeb.Models
         [Required]
         public string Password { get; set; }
         
+        public bool IsUserNotExist { get; set; }
+        public bool IsWrongPassword { get; set; }
         //[Required(ErrorMessage = "test message")]
         //[Compare(nameof(Password))]
         //public string ConfirmPassword { get; set; }

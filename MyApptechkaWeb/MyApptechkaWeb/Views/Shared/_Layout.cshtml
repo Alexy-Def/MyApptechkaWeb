@@ -34,7 +34,7 @@
                         <div class="for-login">
                             <div>Логин:</div>
                             <input name="Login"
-                                   class="inputFields" id="test"
+                                   class="inputFields input-for-login login-for-login" id="test"
                                    type="text"
                                    autocomplete="off"
                                    @*placeholder="@Resource.Layout_Login"*@ />
@@ -42,34 +42,38 @@
                         <div class="for-login">
                             <div class="text-for-input">Пароль:</div>
                             <input name="Password"
-                                   class="inputFields" type="password"
+                                   class="inputFields input-for-login password-for-login" type="password"
                                    @*placeholder="@Resource.Layout_Password"*@ />
                         </div>
                         <!--<div class="confirmPassword hide">
-                        <div>Подтвердить пароль:</div>
-                        <input name="ConfirmPassword"
-                               class="inputFields" type="password"-->
+    <div>Подтвердить пароль:</div>
+    <input name="ConfirmPassword"
+           class="inputFields" type="password"-->
                         @*placeholder="@Resource.Layout_Password"*@
                         <!--/>
-                        </div>
-                        <div class="phoneNumber hide">
-                            <div>Номер телефона:</div>
-                            <input name="PhoneNumber"
-                                   class="inputFields" type="text"-->
+    </div>
+    <div class="phoneNumber hide">
+        <div>Номер телефона:</div>
+        <input name="PhoneNumber"
+               class="inputFields" type="text"-->
                         @*placeholder="@Resource.Layout_Password"*@
                         <!--/>
-                        </div>-->
+    </div>-->
 
-                        <div class="login-but for-login">
-                            <input class="pglogbut" type="submit"
-                                   value="Войти" />
-                        </div>
+                        <button class="login-but for-login" disabled>
+                            
+                                 Войти
+                        </button>
+
+                        @*<button class="registration-btn hide" disabled>
+                            Отправить код на указанный номер телефона для подтверждения регистрации
+                        </button>*@
 
                         @*<div class="or">or</div>*@
                         @*<div class="registration-but">
-                                <input class="pglogbut reg hide" type="submit"
-                                       value="Зарегистрироваться" />
-                            </div>*@
+            <input class="pglogbut reg hide" type="submit"
+                   value="Зарегистрироваться" />
+        </div>*@
                     </form>
 
                     <form action="/User/Registration" method="post" id="login-or-registration" class="loginformstyle">

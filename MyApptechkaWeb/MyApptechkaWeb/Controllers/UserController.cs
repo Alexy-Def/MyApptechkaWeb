@@ -93,6 +93,14 @@ namespace MyApptechkaWeb.Controllers
 
             if (user == null || user.Password != model.Password)
             {
+                if (user == null)
+                {
+                    model.IsUserNotExist = true;
+                }
+                else
+                {
+                    model.IsWrongPassword = true;
+                }
                 return View(model);
             }
 

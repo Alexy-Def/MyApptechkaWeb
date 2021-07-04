@@ -12,7 +12,7 @@
         <form action="/User/Registration" method="post">
             <div class="repeat-reg-blocks">
                 <div>Логин: <span class="label-requested-fields">*</span></div>
-                @if (Model.IsUserExist == true)
+                @if (Model.IsUserExist)
                 {
                     @Html.TextBoxFor(x => x.Login, 
                         new { @class = "inputFields repeat-login red-border-input", @autocomplete = "off" })
