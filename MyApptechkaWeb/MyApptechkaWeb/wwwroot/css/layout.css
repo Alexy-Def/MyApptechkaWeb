@@ -382,10 +382,21 @@ input[type="password"] {
     height: 100%;
     flex: 2;
     align-items: center;
+    font-weight: 700;
+    font-size: 13pt;
+    font-family: cursive;
+    padding: 0 10px;
+    margin: 0 10px;
+}
+
+.main-logo {
+    margin-left: 15px;
+    height: 40px;
+    width: 40px;
 }
 
 .menu-header-third {
-    height: 100%;
+    /*height: 100%;*/
     flex: 5;
 }
 
