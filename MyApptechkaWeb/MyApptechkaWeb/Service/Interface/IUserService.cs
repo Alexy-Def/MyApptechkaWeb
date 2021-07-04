@@ -12,5 +12,6 @@ namespace MyApptechkaWeb.Service.Interface
         ClaimsPrincipal GetPrincipal(User user);
         User GetCurrent();
         bool IsUserExist(string login);
+        string GetAvatarUrl();
     }
 }

@@ -48,5 +48,12 @@ namespace MyApptechkaWeb.Service
                 _userRepository.Get(login) != null;
             return isExistUserWithTheName;
         }
+        public string GetAvatarUrl()
+        {
+            var userAvatar = GetCurrent()?.AvatarUrl;
+            return !string.IsNullOrWhiteSpace(userAvatar)
+                ? userAvatar
+                : "/image/avatar/default-avatar.png";
+        }
     }
 }

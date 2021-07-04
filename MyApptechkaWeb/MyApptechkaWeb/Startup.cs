@@ -113,6 +113,7 @@ namespace MyApptechkaWeb
             var configExpression = new MapperConfigurationExpression();
 
             MapBoth<RegistrationViewModel, User>(configExpression);
+            MapBoth<ProfileViewModel, User>(configExpression);
 
             var mapperConfiguration = new MapperConfiguration(configExpression);
             var mapper = new Mapper(mapperConfiguration);

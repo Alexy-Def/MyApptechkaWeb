@@ -1,3 +1,7 @@
+@using MyApptechkaWeb.Service.Interface
+@inject IUserService userService
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,6 +13,7 @@
     <link rel="stylesheet" href="~/css/layout.css?v=3" />
     <link rel="stylesheet" href="~/css/icon.css?v=1" />
     <link rel="stylesheet" href="~/css/registrationPage.css" />
+    <link rel="stylesheet" href="~/css/profile.css" />
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/js/layout.js?v=1"></script>
     <script src="~/js/registration.js?v=1"></script>
@@ -139,10 +144,10 @@
                             {
                                 <li><a href="" class="menu-link"> Аптечки</a></li>
                                 <li>
-                                    <a href="" class="menu-link">
+                                    <a href="/User/Profile" class="menu-link">
                                         <div class="block-profile-header">
                                             <span class="">
-                                                <img class="avatar-header" src="/image/avatar/default-avatar.png" />
+                                                <img class="avatar-header" src="@userService.GetAvatarUrl()" />
                                             </span>
                                             Личный кабинет
                                         </div>
