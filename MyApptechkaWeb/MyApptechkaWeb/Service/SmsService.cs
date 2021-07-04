@@ -14,6 +14,27 @@ namespace MyApptechkaWeb.Service
         private const string USERNAME = "193197322";
         private const string PASSWORD = "aA8M8yAdl9sMs";
 
+        public string ConvertToDefaultPhoneNumber(string phone)
+        {
+            phone = phone.Trim(new Char[] { ' ', '+' });
+
+            for (int i = 0; i < phone.Length; i++)
+            {
+                if (phone[i] == ' ')
+                {
+                    phone = phone.Remove(i--, 1);
+                }
+            }
+
+            if (phone[0] == '8' && phone[1] == '0')
+            {
+                phone = phone.Remove(0, 2);
+                phone = phone.Insert(0, "375");
+            }
+
+            return phone;
+        }
+
         public int CreateCodeFromSms()
         {
             var random = new Random();
