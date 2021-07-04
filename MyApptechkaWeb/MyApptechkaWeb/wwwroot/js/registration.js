@@ -28,11 +28,11 @@ $(document).ready(function () {
                 answer = false;
             }
 
-            //����� ����� �����
+            //Когда придёт ответ
             console.log("answer = " + answer);
             if (answer) {
                 //showIcon('close');
-                $(validSelector).text("This user exists");
+                $(validSelector).text("Введенный логин занят");
                 $(inputSelector).css('border', '2px solid red');
             } else {
                 //showIcon('ok');
@@ -47,7 +47,7 @@ $(document).ready(function () {
         var repeatPassword = $('.repeat-confirmation-password').val();
 
         if (password != repeatPassword) {
-            $('.validation-mess-repet-password').text("Password mismatch");
+            $('.validation-mess-repet-password').text("Пароли не совпадают");
             $('.repeat-confirmation-password').css('border', '2px solid red');
         }
         else {
