@@ -20,6 +20,7 @@ using System.Reflection;
 using System.Threading.Tasks;
 using MyApptechkaWeb.Service.Interface;
 using MyApptechkaWeb.Service;
+using Microsoft.AspNetCore.Http;
 
 namespace MyApptechkaWeb
 {
@@ -55,6 +56,7 @@ namespace MyApptechkaWeb
             RegisterService(services);
 
             services.AddControllersWithViews();
+            services.AddHttpContextAccessor();
         }
 
         private void RegisterService(IServiceCollection services)
@@ -62,6 +64,12 @@ namespace MyApptechkaWeb
             services.AddScoped<ISmsService>(diContainer =>
                 new SmsService()
             );
+
+            services.AddScoped<IUserService>(diContainer =>
+                new UserService(
+                    diContainer.GetService<IUserRepository>(),
+                    diContainer.GetService<IHttpContextAccessor>()
+            ));
         }
 
         private void RegistrationRepositories(IServiceCollection services)

@@ -1,0 +1,34 @@
+﻿using Microsoft.AspNetCore.Http;
+using MyApptechkaWeb.EfStuff.Model;
+using MyApptechkaWeb.EfStuff.Repositories.IRepository;
+using MyApptechkaWeb.Service.Interface;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+
+namespace MyApptechkaWeb.Service
+{
+    public class UserService : IUserService
+    {
+        private IHttpContextAccessor _contextAccessor;
+        private IUserRepository _userRepository;
+        public UserService(IUserRepository userRepository, IHttpContextAccessor contextAccessor)
+        {
+            _userRepository = userRepository;
+            _contextAccessor = contextAccessor;
+        }
+        public User GetCurrent()
+        {
+            var idStr = _contextAccessor.HttpContext.User
+                ?.Claims.SingleOrDefault(x => x.Type == "Id")?.Value;
+            if (string.IsNullOrEmpty(idStr))
+            {
+                return null;
+            }
+
+            var id = long.Parse(idStr);
+            return _userRepository.Get(id);
+        }
+    }
+}
