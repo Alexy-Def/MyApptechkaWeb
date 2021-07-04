@@ -12,5 +12,6 @@ namespace MyApptechkaWeb.EfStuff.Model
         public string Password { get; set; }
 
         public string Phone { get; set; }
+        public string AvatarUrl { get; set; }
     }
 }

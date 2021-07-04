@@ -132,5 +132,13 @@ namespace MyApptechkaWeb.Controllers
 
             return Json(generatedCode);
         }
+
+        public IActionResult Profile()
+        {
+            var user = _userService.GetCurrent();
+
+
+            return View();
+        }
     }
 }
