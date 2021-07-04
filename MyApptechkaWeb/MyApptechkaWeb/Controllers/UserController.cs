@@ -46,7 +46,7 @@ namespace MyApptechkaWeb.Controllers
             if (isUserUniq)
             {
                 var user = _mapper.Map<User>(model);
-                user.Phone = user.Phone.Trim(new Char[] { ' ', '+' });
+                user.Phone = _smsService.ConvertToDefaultPhoneNumber(user.Phone);
                 _userRepository.Save(user);
 
                 return RedirectToAction("Index", "Home");
@@ -67,13 +67,12 @@ namespace MyApptechkaWeb.Controllers
             return Json(isExistUserWithTheName);
         }
 
-        public JsonResult SendingSmsCode(string login, string phone)
+        public JsonResult SendingSmsCode(string phone)
         {
-            phone = phone.Trim(new Char[] { ' ', '+' });
+            phone = _smsService.ConvertToDefaultPhoneNumber(phone);
             var generatedCode = _smsService.CreateCodeFromSms();
 
             _smsService.SendSMS(phone, $"[Test] Код подтверждения регистрации на сервисе MyApptechka: {generatedCode}");
-
             
             return Json(generatedCode);
         }
