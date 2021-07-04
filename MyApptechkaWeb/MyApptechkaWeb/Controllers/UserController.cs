@@ -20,12 +20,15 @@ namespace MyApptechkaWeb.Controllers
         private IUserRepository _userRepository;
         private IMapper _mapper;
         private ISmsService _smsService;
+        private IUserService _userService;
 
-        public UserController(IUserRepository userRepository, IMapper mapper, ISmsService smsService)
+        public UserController(IUserRepository userRepository, IMapper mapper, ISmsService smsService,
+            IUserService userService)
         {
             _userRepository = userRepository;
             _mapper = mapper;
             _smsService = smsService;
+            _userService = userService;
         }
 
         [HttpGet]
@@ -36,7 +39,7 @@ namespace MyApptechkaWeb.Controllers
         }
 
         [HttpPost]
-        public IActionResult Registration(RegistrationViewModel model)
+        public async Task<IActionResult> Registration(RegistrationViewModel model)
         {
             if (!ModelState.IsValid)
             {
@@ -50,6 +53,9 @@ namespace MyApptechkaWeb.Controllers
                 user.Phone = _smsService.ConvertToDefaultPhoneNumber(user.Phone);
                 _userRepository.Save(user);
 
+                await HttpContext.SignInAsync(
+                    _userService.GetPrincipal(user));
+
                 return RedirectToAction("Index", "Home");
             }
             else
@@ -59,13 +65,6 @@ namespace MyApptechkaWeb.Controllers
             }
 
             return View(model);
-        }
-
-        public JsonResult IsUserExist(string name)
-        {
-            var isExistUserWithTheName =
-                _userRepository.Get(name) != null;
-            return Json(isExistUserWithTheName);
         }
 
         [HttpGet]
@@ -78,7 +77,7 @@ namespace MyApptechkaWeb.Controllers
         }
 
         [HttpPost]
-        public IActionResult Login(LoginViewModel model)
+        public async Task<IActionResult> Login(LoginViewModel model)
         {
             if (!ModelState.IsValid)
             {
@@ -92,6 +91,9 @@ namespace MyApptechkaWeb.Controllers
                 return View(model);
             }
 
+            await HttpContext.SignInAsync(
+                _userService.GetPrincipal(user));
+
             return RedirectToAction("Index", "Home");
         }
 
@@ -99,6 +101,13 @@ namespace MyApptechkaWeb.Controllers
         {
             await HttpContext.SignOutAsync();
             return RedirectToAction("Index", "Home");
+        }
+
+        public JsonResult IsUserExist(string name)
+        {
+            var isExistUserWithTheName =
+                _userRepository.Get(name) != null;
+            return Json(isExistUserWithTheName);
         }
 
         public JsonResult SendingSmsCode(string phone)

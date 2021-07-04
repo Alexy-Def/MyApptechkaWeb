@@ -5,6 +5,7 @@ using MyApptechkaWeb.Service.Interface;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Claims;
 using System.Threading.Tasks;
 
 namespace MyApptechkaWeb.Service
@@ -17,6 +18,17 @@ namespace MyApptechkaWeb.Service
         {
             _userRepository = userRepository;
             _contextAccessor = contextAccessor;
+        }
+        public ClaimsPrincipal GetPrincipal(User user)
+        {
+            var claims = new List<Claim>();
+            claims.Add(new Claim("Id", user.Id.ToString()));
+            claims.Add(new Claim(
+                ClaimTypes.AuthenticationMethod,
+                Startup.AuthMethod));
+            var claimsIdentity = new ClaimsIdentity(claims, Startup.AuthMethod);
+            var principal = new ClaimsPrincipal(claimsIdentity);
+            return principal;
         }
         public User GetCurrent()
         {

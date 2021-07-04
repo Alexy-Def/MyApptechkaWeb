@@ -373,6 +373,11 @@ input[type="password"] {
     align-items: center;
 }
 
+.log-out {
+    height: 100%;
+    align-items: center;
+}
+
 .header .link {
     display: flex;
     cursor: pointer;
