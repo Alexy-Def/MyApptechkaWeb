@@ -9,6 +9,7 @@ using MyApptechkaWeb.Service.Interface;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.IO;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
@@ -21,14 +22,16 @@ namespace MyApptechkaWeb.Controllers
         private IMapper _mapper;
         private ISmsService _smsService;
         private IUserService _userService;
+        private IPathHelperService _pathHelperService;
 
         public UserController(IUserRepository userRepository, IMapper mapper, ISmsService smsService,
-            IUserService userService)
+            IUserService userService, IPathHelperService pathHelperService)
         {
             _userRepository = userRepository;
             _mapper = mapper;
             _smsService = smsService;
             _userService = userService;
+            _pathHelperService = pathHelperService;
         }
 
         [HttpGet]
@@ -132,13 +135,34 @@ namespace MyApptechkaWeb.Controllers
 
             return Json(generatedCode);
         }
-
+        
+        [HttpGet]
         public IActionResult Profile()
         {
             var user = _userService.GetCurrent();
 
 
             return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> UpdateUserAvatar(UpdateAvatarViewModel viewModel)
+        {
+            var user = _userService.GetCurrent();
+
+            if (viewModel.Avatar != null)
+            {
+                var pathTo = _pathHelperService.GetPathToAvatarByUser(user.Id);
+                using (var fileStream = new FileStream(pathTo, FileMode.OpenOrCreate))
+                {
+                    await viewModel.Avatar.CopyToAsync(fileStream);
+                }
+                user.AvatarUrl = _pathHelperService.GetAvatarUrlByUser(user.Id);
+
+                _userRepository.Save(user);
+            }
+
+            return RedirectToAction("Profile");
         }
     }
 }

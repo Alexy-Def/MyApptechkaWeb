@@ -70,6 +70,11 @@ namespace MyApptechkaWeb
                     diContainer.GetService<IUserRepository>(),
                     diContainer.GetService<IHttpContextAccessor>()
             ));
+
+            services.AddScoped<IPathHelperService>(diContainer =>
+                new PathHelperService(
+                    diContainer.GetService<IWebHostEnvironment>()
+            ));
         }
 
         private void RegistrationRepositories(IServiceCollection services)

@@ -1,34 +1,25 @@
 ﻿.title-profile-page {
-    margin: 30px 0 10px;
+    margin: 30px 0 15px;
     font-size: 22pt;
     text-align: center;
     font-weight: 600;
 }
 
-.avatar-profile-page {
-    text-align: center;
-    margin: 30px 0 40px;
-    font-size: 20pt;
-    font-weight: 600;
-}
-
-.avatar-profile-page {
-    height: 150px;
-    width: 150px;
-}
-
 .separated-row {
     display: flex;
     width: 100%;
-    height: 100%;
-    margin: 30px 0;
+    /*height: 100%;*/
+    padding: 20px 0;
     align-items: center;
+    border-bottom: 2px solid;
 }
 
 .left-column {
     flex: 1;
     padding-right: 25px;
-    text-align: end;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
     height: 100%;
     font-size: 15pt;
     font-style: italic;
@@ -44,9 +35,30 @@
 }
 
 .avatar-profile-page-block {
-    margin-right: 35px;
+    height: 200px;
+    width: 200px;
+    text-align: inherit;
+}
+
+.avatar-profile-page {
+    text-align: center;
+    font-size: 20pt;
+    font-weight: 600;
+    height: 100%;
+    width: auto;
 }
 
 .test-wrapper {
+
+}
+
+/*=======================================================
+Addition classes form each separated row:
+=======================================================*/
+
+.avatar-row {
+    height: 250px;
+}
+.change-password-row {
 
 }
