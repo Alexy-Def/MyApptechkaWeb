@@ -1,0 +1,49 @@
+﻿@model LoginViewModel
+
+@{
+    Layout = "_Layout";
+}
+
+<div class="registration-page">
+    <div class="pre-reg-page-title">Авторизация</div>
+    <div class="registration-page-title">Пожалуйста, заполните обязательные поля в соответствии с требованиями,<br /> и войдите</div>
+
+    <div class="repeat-reg-form">
+        <form action="/User/Login" method="post">
+            <div class="repeat-reg-blocks">
+                <div>Логин: <span class="label-requested-fields">*</span></div>
+                @if (Model.IsUserNotExist)
+                {
+                    @Html.TextBoxFor(x => x.Login, new { @class = "inputFields red-border-input", @autocomplete = "off" })
+                    @Html.ValidationMessageFor(x => x.Login, "Такого пользователя не существует",
+                        new { @class = "validation-message" })
+                }
+                else
+                {
+                    @Html.TextBoxFor(x => x.Login, new { @class = "inputFields", @autocomplete = "off" })
+                    @Html.ValidationMessageFor(x => x.Login, "",
+                        new { @class = "validation-message" })
+                }
+            </div>
+            <div class="repeat-reg-blocks">
+                <div>Пароль: <span class="label-requested-fields">*</span></div>
+                @if (Model.IsWrongPassword)
+                {
+                    @Html.TextBoxFor(x => x.Password, 
+                        new { type = "password", @class = "inputFields repeat-password red-border-input" })
+                    @Html.ValidationMessageFor(x => x.Password, "Неверный пароль")
+                }
+                else
+                {
+                    @Html.TextBoxFor(x => x.Password, new { type = "password", @class = "inputFields repeat-password" })
+                    @Html.ValidationMessageFor(x => x.Password, "")
+                }
+            </div>
+            @Html.HiddenFor(x => x.IsUserNotExist)
+            @Html.HiddenFor(x => x.IsWrongPassword)
+            <div>
+                <button class="pglogbut" type="submit">Войти</button>
+            </div>
+        </form>
+    </div>
+</div>

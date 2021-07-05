@@ -20,11 +20,13 @@ using System.Reflection;
 using System.Threading.Tasks;
 using MyApptechkaWeb.Service.Interface;
 using MyApptechkaWeb.Service;
+using Microsoft.AspNetCore.Http;
 
 namespace MyApptechkaWeb
 {
     public class Startup
     {
+        public const string AuthMethod = "MyApptechkaCookie";
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
@@ -38,6 +40,14 @@ namespace MyApptechkaWeb
             var connectionString = Configuration.GetValue<string>("connectionString");
             services.AddDbContext<MyApptechkaDbContext>(x => x.UseSqlServer(connectionString));
 
+            services.AddAuthentication(AuthMethod)
+                .AddCookie(AuthMethod, config =>
+                {
+                    config.Cookie.Name = "MyApptechka";
+                    config.LoginPath = "/User/Login";
+                    config.AccessDeniedPath = "/User/AccessDenied";
+                });
+
             services.AddScoped<IUserRepository>(diContainer =>
                 new UserRepository(diContainer.GetService<MyApptechkaDbContext>()));
 
@@ -46,6 +56,7 @@ namespace MyApptechkaWeb
             RegisterService(services);
 
             services.AddControllersWithViews();
+            services.AddHttpContextAccessor();
         }
 
         private void RegisterService(IServiceCollection services)
@@ -53,6 +64,12 @@ namespace MyApptechkaWeb
             services.AddScoped<ISmsService>(diContainer =>
                 new SmsService()
             );
+
+            services.AddScoped<IUserService>(diContainer =>
+                new UserService(
+                    diContainer.GetService<IUserRepository>(),
+                    diContainer.GetService<IHttpContextAccessor>()
+            ));
         }
 
         private void RegistrationRepositories(IServiceCollection services)
@@ -96,6 +113,7 @@ namespace MyApptechkaWeb
             var configExpression = new MapperConfigurationExpression();
 
             MapBoth<RegistrationViewModel, User>(configExpression);
+            MapBoth<ProfileViewModel, User>(configExpression);
 
             var mapperConfiguration = new MapperConfiguration(configExpression);
             var mapper = new Mapper(mapperConfiguration);
@@ -125,6 +143,8 @@ namespace MyApptechkaWeb
             app.UseStaticFiles();
 
             app.UseRouting();
+
+            app.UseAuthentication();
 
             app.UseAuthorization();
 

@@ -4,11 +4,18 @@
     align-items: center;
 }
 
+.pre-reg-page-title {
+    font-size: 22pt;
+    color: black;
+    margin-bottom: 25px;
+}
+
 .registration-page-title {
     text-align: center;
     font-size: 16pt;
     color: darkred;
     margin-bottom: 25px;
+    font-style: italic;
 }
 
 .repeat-reg-blocks {

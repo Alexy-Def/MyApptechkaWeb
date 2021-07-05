@@ -1,0 +1,52 @@
+﻿.title-profile-page {
+    margin: 30px 0 10px;
+    font-size: 22pt;
+    text-align: center;
+    font-weight: 600;
+}
+
+.avatar-profile-page {
+    text-align: center;
+    margin: 30px 0 40px;
+    font-size: 20pt;
+    font-weight: 600;
+}
+
+.avatar-profile-page {
+    height: 150px;
+    width: 150px;
+}
+
+.separated-row {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    margin: 30px 0;
+    align-items: center;
+}
+
+.left-column {
+    flex: 1;
+    padding-right: 25px;
+    text-align: end;
+    height: 100%;
+    font-size: 15pt;
+    font-style: italic;
+    border-right: 1px solid;
+}
+
+.right-column {
+    flex: 3;
+    display: flex;
+    align-items: center;
+    font-size: 15pt;
+    padding-left: 25px;
+}
+
+.avatar-profile-page-block {
+    margin-right: 35px;
+}
+
+.test-wrapper {
+
+}

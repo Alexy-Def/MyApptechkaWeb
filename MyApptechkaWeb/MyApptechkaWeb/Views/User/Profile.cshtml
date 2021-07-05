@@ -1,0 +1,27 @@
+﻿@model ProfileViewModel
+
+@using MyApptechkaWeb.Service.Interface
+@inject IUserService userService
+
+@{
+    Layout = "_Layout";
+}
+
+
+<div class="title-profile-page">Личный кабинет пользователя</div>
+<div class="test-wrapper">
+    <div class="separated-row">
+        <div class="left-column">Фото профиля:</div>
+        <div class="right-column">
+            <div class="avatar-profile-page-block">
+                <img class="avatar-profile-page" src="@userService.GetAvatarUrl()" />
+            </div>
+            <div>Изменить аватар</div>
+        </div>
+    </div>
+</div>
+
+<div class="separated-row">
+    <div class="left-column">Изменение пароля</div>
+    <div class="right-column">Изменить пароль</div>
+</div>

@@ -1,7 +1,7 @@
 $(document).ready(function () {
     $('.login-for-reg').keyup(function () {
-        var name = $(this).val();
-        IsUserExist('#for-json-result', '.login-for-reg', name);
+        var login = $(this).val();
+        IsUserExist('#for-json-result', '.login-for-reg', login);
 
         //function showIcon(iconName) {
         //	$('#registration-block .icon').addClass('hide');
@@ -10,34 +10,34 @@ $(document).ready(function () {
     });
 
     $('.registration-page .repeat-login').keyup(function () {
-        var name = $(this).val();
-        IsUserExist('.validation-mess-login', '.repeat-login', name);
+        var login = $(this).val();
+        IsUserExist('.validation-mess-login', '.repeat-login', login);
     })
 
-    function IsUserExist(validSelector, inputSelector, name) {
+    function IsUserExist(validSelector, inputSelector, login) {
         //var name = $(this).val();
 
-        if (name != '') {
-            var url = '/User/IsUserExist?name=' + name;
+        if (login != '') {
+            var url = '/User/IsUserExist?login=' + login;
         }
 
 
         //showIcon('spinner');
         $.get(url).done(function (answer) {
-            if (name == '') {
+            if (login == '') {
                 answer = false;
             }
 
-            //����� ����� �����
+            //Когда придёт ответ
             console.log("answer = " + answer);
             if (answer) {
                 //showIcon('close');
-                $(validSelector).text("This user exists");
-                $(inputSelector).css('border', '2px solid red');
+                $(validSelector).text("Введенный логин занят");
+                $(inputSelector).addClass('red-border-input');
             } else {
                 //showIcon('ok');
                 $(validSelector).text(" ");
-                $(inputSelector).css('border', '0px saddlebrown');
+                $(inputSelector).removeClass('red-border-input');
             }
         });
     }
@@ -47,12 +47,40 @@ $(document).ready(function () {
         var repeatPassword = $('.repeat-confirmation-password').val();
 
         if (password != repeatPassword) {
-            $('.validation-mess-repet-password').text("Password mismatch");
-            $('.repeat-confirmation-password').css('border', '2px solid red');
+            $('.validation-mess-repet-password').text("Пароли не совпадают");
+            $('.repeat-confirmation-password').addClass('red-border-input');
         }
         else {
             $('.validation-mess-repet-password').text(" ");
-            $('.repeat-confirmation-password').css('border', '0px saddlebrown');
+            $('.repeat-confirmation-password').removeClass('red-border-input');
+        }
+    })
+
+    $('.log-in').click(function () {
+        var inputsWithInfoLogin = [
+            '.login-for-login',
+            '.password-for-login'];
+
+        $('.input-for-login').keyup(function () {
+            if ((IsFilledInputWithLoginInfo() == true)) {
+                $('.login-but').attr("disabled", false);
+                $('.login-but').addClass('login-btn-open');
+            }
+            else {
+                $('.login-but').attr("disabled", true);
+                $('.login-but').removeClass('login-btn-open');
+            }
+        })
+
+        function IsFilledInputWithLoginInfo() {
+            var counter = 0;
+            for (var k = 0; k < 2; k++) {
+                if ($(`${inputsWithInfoLogin[k]}`).val().length != 0) {
+                    counter++;
+                }
+            }
+
+            return counter == 2 ?? false;
         }
     })
 
@@ -111,7 +139,7 @@ $(document).ready(function () {
         function test() {
             $('.spinner-reg').addClass('hide');
 
-            
+
 
             var arr = ['.code-input1', '.code-input2', '.code-input3', '.code-input4'];
             $('.confirmation-reg-popup-cover').removeClass('hide');

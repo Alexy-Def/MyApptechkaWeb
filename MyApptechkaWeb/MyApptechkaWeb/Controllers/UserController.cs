@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using MyApptechkaWeb.EfStuff.Model;
@@ -19,12 +20,15 @@ namespace MyApptechkaWeb.Controllers
         private IUserRepository _userRepository;
         private IMapper _mapper;
         private ISmsService _smsService;
+        private IUserService _userService;
 
-        public UserController(IUserRepository userRepository, IMapper mapper, ISmsService smsService)
+        public UserController(IUserRepository userRepository, IMapper mapper, ISmsService smsService,
+            IUserService userService)
         {
             _userRepository = userRepository;
             _mapper = mapper;
             _smsService = smsService;
+            _userService = userService;
         }
 
         [HttpGet]
@@ -35,10 +39,14 @@ namespace MyApptechkaWeb.Controllers
         }
 
         [HttpPost]
-        public IActionResult Registration(RegistrationViewModel model)
+        public async Task<IActionResult> Registration(RegistrationViewModel model)
         {
             if (!ModelState.IsValid)
             {
+                if (_userService.IsUserExist(model.Login))
+                {
+                    model.IsUserExist = true;
+                }
                 return View(model);
             }
 
@@ -49,21 +57,69 @@ namespace MyApptechkaWeb.Controllers
                 user.Phone = _smsService.ConvertToDefaultPhoneNumber(user.Phone);
                 _userRepository.Save(user);
 
+                await HttpContext.SignInAsync(
+                    _userService.GetPrincipal(user));
+
                 return RedirectToAction("Index", "Home");
             }
             else
             {
-                ModelState.AddModelError(nameof(RegistrationViewModel.Login),
-                    "Такой пользователь уже существует");
+                //ModelState.AddModelError(nameof(RegistrationViewModel.Login),
+                //    "Такой пользователь уже существует");
+                model.IsUserExist = true;
             }
 
             return View(model);
         }
 
-        public JsonResult IsUserExist(string name)
+        [HttpGet]
+        public IActionResult Login()
+        {
+            var model = new LoginViewModel();
+            //var returnUrl = Request.Query["ReturnUrl"];
+            //model.ReturnUrl = returnUrl;
+            return View(model);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Login(LoginViewModel model)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View(model);
+            }
+
+            var user = _userRepository.Get(model.Login);
+
+            if (user == null || user.Password != model.Password)
+            {
+                if (user == null)
+                {
+                    model.IsUserNotExist = true;
+                }
+                else
+                {
+                    model.IsWrongPassword = true;
+                }
+                return View(model);
+            }
+
+            await HttpContext.SignInAsync(
+                _userService.GetPrincipal(user));
+
+            return RedirectToAction("Index", "Home");
+        }
+
+        public async Task<IActionResult> Logout()
+        {
+            await HttpContext.SignOutAsync();
+            return RedirectToAction("Index", "Home");
+        }
+
+        public JsonResult IsUserExist(string login)
         {
             var isExistUserWithTheName =
-                _userRepository.Get(name) != null;
+                _userRepository.Get(login) != null;
             return Json(isExistUserWithTheName);
         }
 
@@ -73,8 +129,16 @@ namespace MyApptechkaWeb.Controllers
             var generatedCode = _smsService.CreateCodeFromSms();
 
             _smsService.SendSMS(phone, $"[Test] Код подтверждения регистрации на сервисе MyApptechka: {generatedCode}");
-            
+
             return Json(generatedCode);
+        }
+
+        public IActionResult Profile()
+        {
+            var user = _userService.GetCurrent();
+
+
+            return View();
         }
     }
 }

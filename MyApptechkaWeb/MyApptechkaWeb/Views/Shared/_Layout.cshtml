@@ -1,4 +1,8 @@
-﻿<!DOCTYPE html>
+@using MyApptechkaWeb.Service.Interface
+@inject IUserService userService
+
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -9,6 +13,7 @@
     <link rel="stylesheet" href="~/css/layout.css?v=3" />
     <link rel="stylesheet" href="~/css/icon.css?v=1" />
     <link rel="stylesheet" href="~/css/registrationPage.css" />
+    <link rel="stylesheet" href="~/css/profile.css" />
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/js/layout.js?v=1"></script>
     <script src="~/js/registration.js?v=1"></script>
@@ -28,72 +33,49 @@
                     @*</div>*@
                 </div>
                 <div class="login-direction">
-
-
                     <form action="/User/Login" method="post" id="login-or-registration" class="loginformstyle">
                         <div class="for-login">
                             <div>Логин:</div>
                             <input name="Login"
-                                   class="inputFields" id="test"
+                                   class="inputFields input-for-login login-for-login"
+                                   id="test"
                                    type="text"
                                    autocomplete="off"
-                                   @*placeholder="@Resource.Layout_Login"*@ />
+                                   placeholder="User" />
                         </div>
                         <div class="for-login">
                             <div class="text-for-input">Пароль:</div>
                             <input name="Password"
-                                   class="inputFields" type="password"
-                                   @*placeholder="@Resource.Layout_Password"*@ />
-                        </div>
-                        <!--<div class="confirmPassword hide">
-                        <div>Подтвердить пароль:</div>
-                        <input name="ConfirmPassword"
-                               class="inputFields" type="password"-->
-                        @*placeholder="@Resource.Layout_Password"*@
-                        <!--/>
-                        </div>
-                        <div class="phoneNumber hide">
-                            <div>Номер телефона:</div>
-                            <input name="PhoneNumber"
-                                   class="inputFields" type="text"-->
-                        @*placeholder="@Resource.Layout_Password"*@
-                        <!--/>
-                        </div>-->
-
-                        <div class="login-but for-login">
-                            <input class="pglogbut" type="submit"
-                                   value="Войти" />
+                                   class="inputFields input-for-login password-for-login"
+                                   type="password" />
                         </div>
 
-                        @*<div class="or">or</div>*@
-                        @*<div class="registration-but">
-                                <input class="pglogbut reg hide" type="submit"
-                                       value="Зарегистрироваться" />
-                            </div>*@
+                        <button class="login-but for-login" disabled>
+                            Войти
+                        </button>
                     </form>
 
                     <form action="/User/Registration" method="post" id="login-or-registration" class="loginformstyle">
                         <div class="for-reg hide">
                             <div>Логин: <span class="label-requested-fields">*</span></div>
-                            
                             <input name="Login"
                                    class="inputFields for-reg login-for-reg"
                                    type="text"
                                    autocomplete="off"
-                                   @*placeholder="@Resource.Layout_Login"*@ />
+                                   placeholder="User" />
                             <div id="for-json-result"></div>
                         </div>
                         <div class="for-reg hide">
                             <div class="text-for-input for-reg">Пароль: <span class="label-requested-fields">*</span></div>
                             <input name="Password"
-                                   class="inputFields password-for-reg" type="password"
-                                   @*placeholder="@Resource.Layout_Password"*@ />
+                                   class="inputFields password-for-reg"
+                                   type="password" />
                         </div>
                         <div class="confirmPassword for-reg hide">
                             <div class="text-for-input">Подтвердить пароль: <span class="label-requested-fields">*</span></div>
                             <input name="ConfirmPassword"
-                                   class="inputFields confirm-password-for-reg" type="password"
-                                   @*placeholder="@Resource.Layout_Password"*@ />
+                                   class="inputFields confirm-password-for-reg"
+                                   type="password" />
                         </div>
                         <div class="phoneNumber for-reg hide">
                             <div class="text-for-input">Номер телефона: <span class="label-requested-fields">*</span></div>
@@ -102,20 +84,13 @@
                                    type="text"
                                    maxlength="13"
                                    autocomplete="off"
-                                   @*placeholder="@Resource.Layout_Password"*@ />
+                                   placeholder="+375290000000" />
                         </div>
 
-                        @*<div class="login-but">
-                                <input class="pglogbut login" type="submit"
-                                       value="Войти" />
-                            </div>*@
-
-                        @*<div class="or">or</div>*@
                         <div>
                             <input class="pglogbut reg-btn hide" type="submit"
                                    value="Зарегистрироваться" />
                         </div>
-
                     </form>
                     <button class="registration-btn hide" disabled>
                         Отправить код на указанный номер телефона для подтверждения регистрации
@@ -124,7 +99,6 @@
                         <span class="icon spinner"></span>
                         <div class="spinner-reg-text">Пожалуйста, подождите...</div>
                     </div>
-                    
                 </div>
             </div>
 
@@ -133,9 +107,9 @@
                 <div class="confirmation-reg-text">Введите код подтверждения из СМС:</div>
                 <div class="inputs-for-code-reg">
                     <input class="code-from-sms-reg code-input1" name="testtest" maxlength="1" autofocus />
-                    <input class="code-from-sms-reg code-input2" maxlength="1"/>
-                    <input class="code-from-sms-reg code-input3" maxlength="1"/>
-                    <input class="code-from-sms-reg code-input4" maxlength="1"/>
+                    <input class="code-from-sms-reg code-input2" maxlength="1" />
+                    <input class="code-from-sms-reg code-input3" maxlength="1" />
+                    <input class="code-from-sms-reg code-input4" maxlength="1" />
                 </div>
                 <button class="confirmation-code-btn confirmation-code-btn-open hide" disabled>Подтвердить регистрацию</button>
             </div>
@@ -149,24 +123,55 @@
                             <li><a href="" class="menu-link">О проекте</a></li>
                             <li><a href="" class="menu-link">Инструкции</a></li>
                             <li><a href="" class="menu-link">Контакты</a></li>
+                            <li><a href="" class="menu-link"></a></li>
+                            <li><a href="" class="menu-link"></a></li>
+                            <li><a href="" class="menu-link"></a></li>
                         </ul>
                     </nav>
                     <a class="menu-header-second link" href="/Home/Index">
                         <div>
                             MyApptechka
                         </div>
+                        <span>
+                            <img class="main-logo" src="~/image/main-logo.png" />
+                        </span>
                     </a>
                     <nav class="menu-header-third">
                         <ul class="menu-list">
-                            <li><a href="" class="menu-link">О проекте</a></li>
-                            <li><a href="" class="menu-link">Инструкции</a></li>
-                            <li><a href="" class="menu-link">Контакты</a></li>
+                            <li><a href="" class="menu-link"></a></li>
+                            <li><a href="" class="menu-link"></a></li>
+                            @if (User.Identity.IsAuthenticated)
+                            {
+                                <li><a href="" class="menu-link"> Аптечки</a></li>
+                                <li>
+                                    <a href="/User/Profile" class="menu-link">
+                                        <div class="block-profile-header">
+                                            <span class="">
+                                                <img class="avatar-header" src="@userService.GetAvatarUrl()" />
+                                            </span>
+                                            Личный кабинет
+                                        </div>
+                                    </a>
+                                </li>
+                            }
+
                         </ul>
                     </nav>
                     <div class="menu-header-fourth">
-                        <div class="link log-in">
-                            Войти
-                        </div>
+                        @if (User.Identity.IsAuthenticated)
+                        {
+                            <a href="/User/Logout">
+                                <div class="link log-out">
+                                    Выйти
+                                </div>
+                            </a>
+                        }
+                        else
+                        {
+                            <div class="link log-in">
+                                Войти
+                            </div>
+                        }
                     </div>
                 </div>
             </div>

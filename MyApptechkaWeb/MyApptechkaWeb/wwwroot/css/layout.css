@@ -31,6 +31,12 @@ body {
     min-height: 100vh;
 }
 
+.content {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
 .container {
     max-width: 1200px;
     margin: 0px auto;
@@ -219,6 +225,10 @@ input[type="password"] {
     font-weight: 900;
 }
 
+.red-border-input {
+    border: 2px solid red;
+}
+
 #for-json-result {
     color: red;
 }
@@ -276,14 +286,37 @@ input[type="password"] {
 .registration-btn-open {
     color: black;
     background-color: limegreen;
-    border: 3px solid;
+    border: 2px solid;
     box-shadow: 0 0 20px;
     cursor: pointer;
 }
 
     .registration-btn-open:hover {
         box-shadow: 0 0 30px;
-        border: 4px solid;
+        border: 3px solid;
+    }
+
+.login-but {
+    color: gray;
+    background-color: lightgray;
+    width: 120px;
+    height: 40px;
+    margin-top: 25px;
+    font-size: 13pt;
+    border-radius: 5px;
+}
+
+.login-btn-open {
+    color: black;
+    background-color: limegreen;
+    border: 2px solid;
+    box-shadow: 0 0 20px;
+    cursor: pointer;
+}
+
+    .login-btn-open:hover {
+        box-shadow: 0 0 30px;
+        border: 3px solid;
     }
 
 .spinner-reg {
@@ -335,10 +368,10 @@ input[type="password"] {
         transition: 100ms;
     }
 
-    .header {
-        height: 60px;
-        background-color: aquamarine;
-    }
+.header {
+    height: 60px;
+    background-color: aquamarine;
+}
 
 .header-full {
     height: 100%;
@@ -355,11 +388,32 @@ input[type="password"] {
     height: 100%;
     flex: 2;
     align-items: center;
+    font-weight: 700;
+    font-size: 13pt;
+    font-family: cursive;
+    padding: 0 10px;
+    margin: 0 10px;
+}
+
+.main-logo {
+    margin-left: 15px;
+    height: 40px;
+    width: 40px;
 }
 
 .menu-header-third {
-    height: 100%;
+    /*height: 100%;*/
     flex: 5;
+}
+
+.block-profile-header {
+    display: flex;
+    align-items: center;
+}
+
+.avatar-header {
+    height: 30px;
+    width: 30px;
 }
 
 .menu-header-fourth {
@@ -369,6 +423,11 @@ input[type="password"] {
 }
 
 .log-in {
+    height: 100%;
+    align-items: center;
+}
+
+.log-out {
     height: 100%;
     align-items: center;
 }
@@ -387,6 +446,7 @@ input[type="password"] {
 .menu-list {
     display: flex;
     justify-content: space-evenly;
+    align-items: center;
 }
 
 .footer {
