@@ -37,6 +37,7 @@
 .avatar-profile-page-block {
     height: 200px;
     width: 200px;
+    margin-right: 10px;
     text-align: inherit;
 }
 
@@ -60,5 +61,5 @@ Addition classes form each separated row:
     height: 250px;
 }
 .change-password-row {
-
+    height: 50px;
 }
