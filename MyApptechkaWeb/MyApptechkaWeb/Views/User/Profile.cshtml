@@ -9,19 +9,23 @@
 
 
 <div class="title-profile-page">Личный кабинет пользователя</div>
-<div class="test-wrapper">
-    <div class="separated-row">
-        <div class="left-column">Фото профиля:</div>
-        <div class="right-column">
-            <div class="avatar-profile-page-block">
-                <img class="avatar-profile-page" src="@userService.GetAvatarUrl()" />
-            </div>
-            <div>Изменить аватар</div>
+<div class="separated-row avatar-row">
+    <div class="left-column">Фото профиля:</div>
+    <div class="right-column">
+        <div class="avatar-profile-page-block">
+            <img class="avatar-profile-page" src="@userService.GetAvatarUrl()" />
         </div>
+        <form action="/User/UpdateUserAvatar" method="post" enctype="multipart/form-data">
+            <div>Изменить аватар:</div>
+            <input type="file" name="@nameof(UpdateAvatarViewModel.Avatar)" />
+            <input type="submit" value="Обновить фото профиля" />
+        </form>
     </div>
 </div>
 
-<div class="separated-row">
-    <div class="left-column">Изменение пароля</div>
-    <div class="right-column">Изменить пароль</div>
+<div class="separated-row change-password-row">
+    <div class="left-column">Изменение пароля:</div>
+    <div class="right-column">
+        Изменить пароль
+    </div>
 </div>
