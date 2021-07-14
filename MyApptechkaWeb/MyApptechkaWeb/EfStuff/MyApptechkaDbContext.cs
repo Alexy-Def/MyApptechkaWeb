@@ -45,6 +45,10 @@ namespace MyApptechkaWeb.EfStuff
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<User>()
+                .HasMany(x => x.Aptechkas)
+                .WithOne(x => x.Owner);
+
             //modelBuilder.Entity<User>()
             //    .HasMany(user => user.MyRockets)
             //    .WithOne(rocket => rocket.Author);
@@ -110,7 +114,7 @@ namespace MyApptechkaWeb.EfStuff
             //modelBuilder.Entity<Order>()
             //    .HasMany(x => x.Rockets)
             //    .WithMany(x => x.OrderedBy);
-            
+
 
             base.OnModelCreating(modelBuilder);
         }

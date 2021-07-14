@@ -12,5 +12,6 @@ namespace MyApptechkaWeb.EfStuff.Model
         public string Color { get; set; }
         public string AdditionalDescription { get; set; }
         public string AptechkaPictureUrl { get; set; }
+        public virtual User Owner { get; set; }
     }
 }

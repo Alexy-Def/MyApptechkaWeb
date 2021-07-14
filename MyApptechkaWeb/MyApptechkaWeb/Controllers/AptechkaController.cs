@@ -46,6 +46,7 @@ namespace MyApptechkaWeb.Controllers
 
             var user = _userService.GetCurrent();
             var newAptechka = _mapper.Map<Aptechka>(viewModel);
+            newAptechka.Owner = user;
             _aptechkaRepository.Save(newAptechka);
 
             if (viewModel.AptechkaPicture != null)
