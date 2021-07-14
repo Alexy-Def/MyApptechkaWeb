@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace MyApptechkaWeb.EfStuff.Repositories
 {
-    public class AptechkaRepository : BaseRepository<User>, IAptechkaRepository
+    public class AptechkaRepository : BaseRepository<Aptechka>, IAptechkaRepository
     {
         public AptechkaRepository(MyApptechkaDbContext myApptechkaDbContext)
             : base(myApptechkaDbContext)

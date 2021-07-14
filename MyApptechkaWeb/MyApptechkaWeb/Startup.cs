@@ -119,6 +119,7 @@ namespace MyApptechkaWeb
 
             MapBoth<RegistrationViewModel, User>(configExpression);
             MapBoth<ProfileViewModel, User>(configExpression);
+            MapBoth<AddAptechkaViewModel, Aptechka>(configExpression);
 
             var mapperConfiguration = new MapperConfiguration(configExpression);
             var mapper = new Mapper(mapperConfiguration);

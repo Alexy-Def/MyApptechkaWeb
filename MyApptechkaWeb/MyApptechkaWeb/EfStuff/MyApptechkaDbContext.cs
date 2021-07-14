@@ -14,6 +14,8 @@ namespace MyApptechkaWeb.EfStuff
         public MyApptechkaDbContext(DbContextOptions options) : base(options) { }
 
         public DbSet<User> Users { get; set; }
+        public DbSet<Aptechka> Aptechkas { get; set; }
+
         //public DbSet<Rocket> Rockets { get; set; }
         //public DbSet<Questionary> Questionaries { get; set; }
         //public DbSet<BankAccount> BankAccount { get; set; }

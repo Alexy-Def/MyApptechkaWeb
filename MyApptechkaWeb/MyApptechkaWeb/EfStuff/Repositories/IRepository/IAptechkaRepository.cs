@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MyApptechkaWeb.EfStuff.Repositories.IRepository
 {
-    public interface IAptechkaRepository : IBaseRepository<User>
+    public interface IAptechkaRepository : IBaseRepository<Aptechka>
     {
         //public User Get(string login);
     }
