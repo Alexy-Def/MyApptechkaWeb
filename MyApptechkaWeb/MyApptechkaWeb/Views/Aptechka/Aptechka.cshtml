@@ -1,44 +1,57 @@
-﻿
+﻿@model AddAptechkaViewModel
+
+
 <div class="aptechka-temp-popup hide">
     <div class="aptechka-temp-popup-cover"></div>
     <div class="add-aptechka-block">
         <div class="title-add-aptechka">Добавление новой аптечки</div>
 
-        <form action="/Aptechka/AddAptechka" method="post">
+        <form action="/Aptechka/Aptechka" method="post" enctype="multipart/form-data">
             <div class="separated-row-add-aptechka">
                 <div class="left-column-add-aptechka">Название:</div>
                 <div class="right-column-add-aptechka">
-                    <input />
+                    <input 
+                           name="Name"
+                           type="text"
+                           autocomplete="off"/>
                 </div>
             </div>
 
             <div class="separated-row-add-aptechka">
                 <div class="left-column-add-aptechka">Расположение:</div>
                 <div class="right-column-add-aptechka">
-                    <input />
+                    <input name="Location"
+                           type="text"
+                           autocomplete="off" />
                 </div>
             </div>
 
             <div class="separated-row-add-aptechka">
                 <div class="left-column-add-aptechka">Цвет:</div>
                 <div class="right-column-add-aptechka">
-                    <input />
+                    <input name="Color"
+                           type="text"
+                           autocomplete="off" />
                 </div>
             </div>
 
             <div class="separated-row-add-aptechka">
                 <div class="left-column-add-aptechka">Доп. описание:</div>
                 <div class="right-column-add-aptechka">
-                    <input />
+                    <input name="AdditionalDescription"
+                           type="text"
+                           autocomplete="off" />
                 </div>
             </div>
 
             <div class="separated-row-add-aptechka">
                 <div class="left-column-add-aptechka">Фото аптечки:</div>
                 <div class="right-column-add-aptechka">
-                    <input />
+                    <input type="file" name="@nameof(AddAptechkaViewModel.AptechkaPicture)" />
                 </div>
             </div>
+
+            <input type="submit" value="Добавить аптечку" />
         </form>
     </div>
 </div>
