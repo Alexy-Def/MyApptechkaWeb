@@ -1,5 +1,19 @@
 ﻿@model AddAptechkaViewModel
 
+@using MyApptechkaWeb.Service
+@using AutoMapper
+
+@inject UserService userService
+@inject IMapper mapper
+
+@{ 
+    var user = userService.GetCurrent();
+    var aptechkas = new List<AddAptechkaViewModel>();
+    foreach (var apteckaDb in user.Aptechkas)
+    {
+        aptechkas.Add(mapper.Map<AddAptechkaViewModel>(apteckaDb));
+    }
+}
 
 <div class="aptechka-temp-popup hide">
     <div class="aptechka-temp-popup-cover"></div>
