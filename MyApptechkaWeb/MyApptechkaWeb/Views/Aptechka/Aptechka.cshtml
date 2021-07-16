@@ -6,7 +6,7 @@
 @inject UserService userService
 @inject IMapper mapper
 
-@{ 
+@{
     var user = userService.GetCurrent();
     var aptechkas = new List<AddAptechkaViewModel>();
     foreach (var apteckaDb in user.Aptechkas)
@@ -24,10 +24,9 @@
             <div class="separated-row-add-aptechka">
                 <div class="left-column-add-aptechka">Название:</div>
                 <div class="right-column-add-aptechka">
-                    <input 
-                           name="Name"
+                    <input name="Name"
                            type="text"
-                           autocomplete="off"/>
+                           autocomplete="off" />
                 </div>
             </div>
 
@@ -78,4 +77,11 @@
         <div class="symbol-plus">+</div>
         <div class="template-text">Добавить аптечку</div>
     </div>
+
+    @foreach (var aptechka in aptechkas)
+    {
+        <div class="single-aptechka">
+            Тут аптечка
+        </div>
+    }
 </div>

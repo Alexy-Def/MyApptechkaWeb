@@ -33,7 +33,12 @@ namespace MyApptechkaWeb.Controllers
         [HttpGet]
         public IActionResult Aptechka()
         {
-            return View();
+            var user = _userService.GetCurrent();
+            var aptechkas = user.Aptechkas.SingleOrDefault();
+
+            var viewModel = _mapper.Map<AddAptechkaViewModel>(aptechkas);
+
+            return View(viewModel);
         }
 
         [HttpPost]

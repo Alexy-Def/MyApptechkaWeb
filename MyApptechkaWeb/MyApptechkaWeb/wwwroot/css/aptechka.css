@@ -104,3 +104,9 @@
     font-size: 15pt;
     padding-left: 25px;
 }
+
+.single-aptechka {
+    height: 200px;
+    width: 200px;
+    background-color: green;
+}
