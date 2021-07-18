@@ -67,5 +67,16 @@ namespace MyApptechkaWeb.Controllers
 
             return View();
         }
+
+        [HttpGet]
+        public IActionResult Aptechka(long id)
+        {
+            var user = _userService.GetCurrent();
+            var openedAptechka = user.Aptechkas.SingleOrDefault(x => x.Id == id);
+
+            var viewModel = _mapper.Map<AddAptechkaViewModel>(openedAptechka);
+
+            return View(viewModel);
+        }
     }
 }
