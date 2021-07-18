@@ -31,7 +31,7 @@ namespace MyApptechkaWeb.Controllers
         }
 
         [HttpGet]
-        public IActionResult Aptechka()
+        public IActionResult Aptechkas()
         {
             //var user = _userService.GetCurrent();
             //var aptechkas = user.Aptechkas.SingleOrDefault();
@@ -42,7 +42,7 @@ namespace MyApptechkaWeb.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Aptechka(AddAptechkaViewModel viewModel)
+        public async Task<IActionResult> Aptechkas(AddAptechkaViewModel viewModel)
         {
             if (!ModelState.IsValid)
             {
