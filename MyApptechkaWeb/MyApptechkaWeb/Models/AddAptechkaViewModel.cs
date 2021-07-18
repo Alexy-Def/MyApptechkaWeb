@@ -7,6 +7,7 @@ namespace MyApptechkaWeb.Models
 {
     public class AddAptechkaViewModel
     {
+        public long Id { get; set; }
         [Required]
         public string Name { get; set; }
         [Required]

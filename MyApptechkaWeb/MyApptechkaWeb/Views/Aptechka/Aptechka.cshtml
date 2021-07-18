@@ -1,9 +1,9 @@
 ﻿@model AddAptechkaViewModel
 
-@using MyApptechkaWeb.Service
+@using MyApptechkaWeb.Service.Interface
 @using AutoMapper
 
-@inject UserService userService
+@inject IUserService userService
 @inject IMapper mapper
 
 @{
@@ -14,74 +14,77 @@
         aptechkas.Add(mapper.Map<AddAptechkaViewModel>(apteckaDb));
     }
 }
+<div class="aptechka-container">
+    <div class="aptechka-temp-popup hide">
+        <div class="aptechka-temp-popup-cover"></div>
+        <div class="add-aptechka-block">
+            <div class="title-add-aptechka">Добавление новой аптечки</div>
 
-<div class="aptechka-temp-popup hide">
-    <div class="aptechka-temp-popup-cover"></div>
-    <div class="add-aptechka-block">
-        <div class="title-add-aptechka">Добавление новой аптечки</div>
-
-        <form action="/Aptechka/Aptechka" method="post" enctype="multipart/form-data">
-            <div class="separated-row-add-aptechka">
-                <div class="left-column-add-aptechka">Название:</div>
-                <div class="right-column-add-aptechka">
-                    <input name="Name"
-                           type="text"
-                           autocomplete="off" />
+            <form action="/Aptechka/Aptechka" method="post" enctype="multipart/form-data">
+                <div class="separated-row-add-aptechka">
+                    <div class="left-column-add-aptechka">Название:</div>
+                    <div class="right-column-add-aptechka">
+                        <input name="Name"
+                               type="text"
+                               autocomplete="off" />
+                    </div>
                 </div>
-            </div>
 
-            <div class="separated-row-add-aptechka">
-                <div class="left-column-add-aptechka">Расположение:</div>
-                <div class="right-column-add-aptechka">
-                    <input name="Location"
-                           type="text"
-                           autocomplete="off" />
+                <div class="separated-row-add-aptechka">
+                    <div class="left-column-add-aptechka">Расположение:</div>
+                    <div class="right-column-add-aptechka">
+                        <input name="Location"
+                               type="text"
+                               autocomplete="off" />
+                    </div>
                 </div>
-            </div>
 
-            <div class="separated-row-add-aptechka">
-                <div class="left-column-add-aptechka">Цвет:</div>
-                <div class="right-column-add-aptechka">
-                    <input name="Color"
-                           type="text"
-                           autocomplete="off" />
+                <div class="separated-row-add-aptechka">
+                    <div class="left-column-add-aptechka">Цвет:</div>
+                    <div class="right-column-add-aptechka">
+                        <input name="Color"
+                               type="text"
+                               autocomplete="off" />
+                    </div>
                 </div>
-            </div>
 
-            <div class="separated-row-add-aptechka">
-                <div class="left-column-add-aptechka">Доп. описание:</div>
-                <div class="right-column-add-aptechka">
-                    <input name="AdditionalDescription"
-                           type="text"
-                           autocomplete="off" />
+                <div class="separated-row-add-aptechka">
+                    <div class="left-column-add-aptechka">Доп. описание:</div>
+                    <div class="right-column-add-aptechka">
+                        <input name="AdditionalDescription"
+                               type="text"
+                               autocomplete="off" />
+                    </div>
                 </div>
-            </div>
 
-            <div class="separated-row-add-aptechka">
-                <div class="left-column-add-aptechka">Фото аптечки:</div>
-                <div class="right-column-add-aptechka">
-                    <input type="file" name="@nameof(AddAptechkaViewModel.AptechkaPicture)" />
+                <div class="separated-row-add-aptechka">
+                    <div class="left-column-add-aptechka">Фото аптечки:</div>
+                    <div class="right-column-add-aptechka">
+                        <input type="file" name="@nameof(AddAptechkaViewModel.AptechkaPicture)" />
+                    </div>
                 </div>
-            </div>
 
-            <input type="submit" value="Добавить аптечку" />
-        </form>
-    </div>
-</div>
-
-<div class="test">
-    Аптечки
-</div>
-<div>
-    <div class="template-aptechka">
-        <div class="symbol-plus">+</div>
-        <div class="template-text">Добавить аптечку</div>
-    </div>
-
-    @foreach (var aptechka in aptechkas)
-    {
-        <div class="single-aptechka">
-            Тут аптечка
+                <input type="submit" value="Добавить аптечку" />
+            </form>
         </div>
-    }
+    </div>
+
+    <div class="title-aptechkas">
+        Мои аптечки
+    </div>
+    <div class="all-aptechkas">
+        <div class="template-aptechka">
+            <div class="symbol-plus">+</div>
+            <div class="template-text">Добавить аптечку</div>
+        </div>
+
+        @foreach (var aptechka in aptechkas)
+        {
+            <a href="/Account/Index?id=@aptechka.Id">
+                <div class="single-aptechka">
+                    Тут аптечка
+                </div>
+            </a>
+        }
+    </div>
 </div>
