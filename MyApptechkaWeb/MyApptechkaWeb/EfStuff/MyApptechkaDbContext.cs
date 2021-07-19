@@ -15,6 +15,7 @@ namespace MyApptechkaWeb.EfStuff
 
         public DbSet<User> Users { get; set; }
         public DbSet<Aptechka> Aptechkas { get; set; }
+        public DbSet<Drug> Drugs { get; set; }
 
         //public DbSet<Rocket> Rockets { get; set; }
         //public DbSet<Questionary> Questionaries { get; set; }
