@@ -75,8 +75,21 @@ namespace MyApptechkaWeb.Controllers
             var openedAptechka = user.Aptechkas.SingleOrDefault(x => x.Id == id);
 
             var viewModel = _mapper.Map<AddAptechkaViewModel>(openedAptechka);
+            var drugmodel = new DrugViewModel();
+            drugmodel.AptechkaOwner = openedAptechka;
+            return View(drugmodel);
+        }
 
-            return View(viewModel);
+        [HttpPost]
+        public IActionResult AddDrug(DrugViewModel viewModel)
+        {
+            var user = _userService.GetCurrent();
+            var aptechka = _aptechkaRepository.Get(viewModel.AptechkaOwner.Id);
+            viewModel.AptechkaOwner = aptechka;
+            var aptechkaName = viewModel.AptechkaOwner.Name;
+            
+
+            return View();
         }
     }
 }

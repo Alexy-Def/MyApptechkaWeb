@@ -16,5 +16,6 @@ namespace MyApptechkaWeb.Models
         public string ExpiryDate { get; set; }
         public string Residue { get; set; }
         public string AdditionalDescription { get; set; }
+        public Aptechka AptechkaOwner { get; set; }
     }
 }

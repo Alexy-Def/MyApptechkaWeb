@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Http;
 using MyApptechkaWeb.EfStuff.Model;
 using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace MyApptechkaWeb.Models
@@ -16,5 +17,6 @@ namespace MyApptechkaWeb.Models
         public string AdditionalDescription { get; set; }
         public IFormFile AptechkaPicture { get; set; }
         public User Owner { get; set; }
+        public List<DrugViewModel> Drugs { get; set; }
     }
 }
