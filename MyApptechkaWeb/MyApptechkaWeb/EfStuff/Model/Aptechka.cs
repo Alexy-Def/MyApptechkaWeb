@@ -13,6 +13,6 @@ namespace MyApptechkaWeb.EfStuff.Model
         public string AdditionalDescription { get; set; }
         public string AptechkaPictureUrl { get; set; }
         public virtual User Owner { get; set; }
-        //public virtual List<Drug> Drugs { get; set; }
+        public virtual List<Drug> Drugs { get; set; }
     }
 }

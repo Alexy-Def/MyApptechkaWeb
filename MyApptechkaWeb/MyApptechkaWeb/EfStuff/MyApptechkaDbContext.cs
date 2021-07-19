@@ -50,6 +50,10 @@ namespace MyApptechkaWeb.EfStuff
                 .HasMany(x => x.Aptechkas)
                 .WithOne(x => x.Owner);
 
+            modelBuilder.Entity<Aptechka>()
+                .HasMany(x => x.Drugs)
+                .WithOne(x => x.AptechkaOwner);
+
             //modelBuilder.Entity<User>()
             //    .HasMany(user => user.MyRockets)
             //    .WithOne(rocket => rocket.Author);
