@@ -17,6 +17,5 @@ namespace MyApptechkaWeb.Models
         public string AdditionalDescription { get; set; }
         public IFormFile AptechkaPicture { get; set; }
         public User Owner { get; set; }
-        public List<DrugViewModel> Drugs { get; set; }
     }
 }

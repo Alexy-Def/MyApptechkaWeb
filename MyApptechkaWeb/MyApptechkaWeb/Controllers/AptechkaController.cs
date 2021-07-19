@@ -76,10 +76,22 @@ namespace MyApptechkaWeb.Controllers
             var user = _userService.GetCurrent();
             var openedAptechka = user.Aptechkas.SingleOrDefault(x => x.Id == id);
 
-            var viewModel = _mapper.Map<AddAptechkaViewModel>(openedAptechka);
-            var drugmodel = new DrugViewModel();
-            drugmodel.AptechkaOwner = openedAptechka;
-            return View(drugmodel);
+            //var viewModel = _mapper.Map<AddAptechkaViewModel>(openedAptechka);
+            var finalDrugModel = new List<DrugViewModel>();
+            var drugs = _drugRepository
+                .GetAll()
+                .Where(x => x.AptechkaOwner.Id == id)
+                .Select(x => finalDrugModel.Add(_mapper.Map<DrugViewModel>(x)));
+            
+            //finalDrugModel = _mapper.Map<DrugViewModel>(drugs);
+
+            //drugs.Select(x => _mapper.Map<DrugViewModel>(x));
+
+            //finalDrugModel
+            //    .Where(x => x.AptechkaOwner.Id == id)
+            //    .Select(_mapper.Map<DrugViewModel>(x))
+            //finalDrugModel.AptechkaOwner = openedAptechka;
+            return View(finalDrugModel);
         }
 
         [HttpPost]
@@ -94,7 +106,7 @@ namespace MyApptechkaWeb.Controllers
             _drugRepository.Save(dbModel);
             
 
-            return RedirectToAction("Aptechka/id=4");
+            return RedirectToAction("Aptechka", new { id = viewModel.AptechkaOwner.Id });
         }
     }
 }
