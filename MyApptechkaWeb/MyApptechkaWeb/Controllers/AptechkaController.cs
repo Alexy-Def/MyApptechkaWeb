@@ -18,14 +18,16 @@ namespace MyApptechkaWeb.Controllers
     {
         private IUserService _userService;
         private IAptechkaRepository _aptechkaRepository;
+        private IDrugRepository _drugRepository;
         private IPathHelperService _pathHelperService;
         private IMapper _mapper;
 
-        public AptechkaController(IUserService userService, IAptechkaRepository aptechkaRepository, 
-            IPathHelperService pathHelperService, IMapper mapper)
+        public AptechkaController(IUserService userService, IAptechkaRepository aptechkaRepository,
+            IDrugRepository drugRepository, IPathHelperService pathHelperService, IMapper mapper)
         {
             _userService = userService;
             _aptechkaRepository = aptechkaRepository;
+            _drugRepository = drugRepository;
             _pathHelperService = pathHelperService;
             _mapper = mapper;
         }
@@ -87,9 +89,12 @@ namespace MyApptechkaWeb.Controllers
             var aptechka = _aptechkaRepository.Get(viewModel.AptechkaOwner.Id);
             viewModel.AptechkaOwner = aptechka;
             var aptechkaName = viewModel.AptechkaOwner.Name;
+
+            var dbModel = _mapper.Map<Drug>(viewModel);
+            _drugRepository.Save(dbModel);
             
 
-            return View();
+            return RedirectToAction("Aptechka/id=4");
         }
     }
 }
