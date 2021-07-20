@@ -1,5 +1,5 @@
-﻿@*@model AddAptechkaViewModel*@
-@model DrugViewModel
+﻿@model AddAptechkaViewModel
+@*@model DrugViewModel*@
 
 @using MyApptechkaWeb.Service.Interface
 @using AutoMapper
@@ -17,22 +17,28 @@
     }*@
 
 <div>
-    Это аптечка: @Model.AptechkaOwner.Name и ее цвет: @Model.AptechkaOwner.Color
+    Это аптечка: @Model.Name и ее цвет: @Model.Color
 </div>
 
 <div>
     <form action="/Aptechka/AddDrug" method="post">
-        @Html.HiddenFor(x => x.AptechkaOwner.Id)
+        <input type="hidden" name="AptechkaOwnerId" value="@Model.Id" />
         <div>
             Name: <input name="Name" type="text" autocomplete="off" />
         </div>
         <div>
             Form: <input name="Form" type="text" autocomplete="off" />
         </div>
-        <input type="submit" value="Добавить аптечку" />
+        <input type="submit" value="Добавить лекарство" />
     </form>
 </div>
 
+@foreach (var drug in Model.Drugs)
+{
+    <div>
+        Name: @drug.Name, Form: @drug.Form
+    </div>
+}
 
 @*<div class="aptechka-container">
         <div class="aptechka-temp-popup hide">

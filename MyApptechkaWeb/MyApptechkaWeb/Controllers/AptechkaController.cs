@@ -76,13 +76,14 @@ namespace MyApptechkaWeb.Controllers
             var user = _userService.GetCurrent();
             var openedAptechka = user.Aptechkas.SingleOrDefault(x => x.Id == id);
 
-            //var viewModel = _mapper.Map<AddAptechkaViewModel>(openedAptechka);
-            var finalDrugModel = new List<DrugViewModel>();
-            var drugs = _drugRepository
+            var viewModel = _mapper.Map<AddAptechkaViewModel>(openedAptechka);
+            //var finalDrugModel = new List<DrugViewModel>();
+            viewModel.Drugs = _drugRepository
                 .GetAll()
                 .Where(x => x.AptechkaOwner.Id == id)
-                .Select(x => finalDrugModel.Add(_mapper.Map<DrugViewModel>(x)));
-            
+                .Select(x => _mapper.Map<DrugViewModel>(x))
+                .ToList();
+
             //finalDrugModel = _mapper.Map<DrugViewModel>(drugs);
 
             //drugs.Select(x => _mapper.Map<DrugViewModel>(x));
@@ -91,22 +92,23 @@ namespace MyApptechkaWeb.Controllers
             //    .Where(x => x.AptechkaOwner.Id == id)
             //    .Select(_mapper.Map<DrugViewModel>(x))
             //finalDrugModel.AptechkaOwner = openedAptechka;
-            return View(finalDrugModel);
+            return View(viewModel);
         }
 
         [HttpPost]
         public IActionResult AddDrug(DrugViewModel viewModel)
         {
             var user = _userService.GetCurrent();
-            var aptechka = _aptechkaRepository.Get(viewModel.AptechkaOwner.Id);
-            viewModel.AptechkaOwner = aptechka;
-            var aptechkaName = viewModel.AptechkaOwner.Name;
+            var aptechka = _aptechkaRepository.Get(viewModel.AptechkaOwnerId);
+            //viewModel.AptechkaOwner = aptechka;
+            //var aptechkaName = viewModel.AptechkaOwner.Name;
 
             var dbModel = _mapper.Map<Drug>(viewModel);
+            dbModel.AptechkaOwner = aptechka;
             _drugRepository.Save(dbModel);
             
 
-            return RedirectToAction("Aptechka", new { id = viewModel.AptechkaOwner.Id });
+            return RedirectToAction("Aptechka", new { id = viewModel.AptechkaOwnerId });
         }
     }
 }

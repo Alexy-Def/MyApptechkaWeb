@@ -20,7 +20,7 @@
         <div class="add-aptechka-block">
             <div class="title-add-aptechka">Добавление новой аптечки</div>
 
-            <form action="/Aptechka/Aptechka" method="post" enctype="multipart/form-data">
+            <form action="/Aptechka/Aptechkas" method="post" enctype="multipart/form-data">
                 <div class="separated-row-add-aptechka">
                     <div class="left-column-add-aptechka">Название:</div>
                     <div class="right-column-add-aptechka">
@@ -82,7 +82,7 @@
         {
             <a href="/Aptechka/Aptechka?id=@aptechka.Id">
                 <div class="single-aptechka">
-                    Тут аптечка
+                    @aptechka.Name
                 </div>
             </a>
         }
