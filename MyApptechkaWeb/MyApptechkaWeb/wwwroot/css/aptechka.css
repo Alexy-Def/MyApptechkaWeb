@@ -1,3 +1,59 @@
 ﻿.aptechka-container {
+    min-height: 600px;
+    min-width: 1200px;
+    background-color: red;
+    display: flex;
+    flex-direction: row;
+}
 
+.left-block-aptechka {
+    background-color: green;
+    height: 100%;
+    width: 600px;
+    display: flex;
+    flex-direction: column;
+}
+
+.right-block-aptechka {
+    background-color: orange;
+    min-height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-left: 2px solid;
+}
+
+.info-about-current-aptechka {
+    background-color: pink;
+    height: 300px;
+    width: 100%;
+}
+
+.add-new-drug {
+    background-color: green;
+    height: 300px;
+    width: 100%;
+}
+
+.title-for-drugs {
+    font-size: 18pt;
+    font-style: italic;
+    margin-bottom: 10px;
+}
+
+.drugs-list {
+
+}
+
+.separate-row-for-drug {
+    display: flex;
+}
+
+.drug-name {
+    width: 150px;
+}
+
+.drug-form {
+    width: 150px;
 }

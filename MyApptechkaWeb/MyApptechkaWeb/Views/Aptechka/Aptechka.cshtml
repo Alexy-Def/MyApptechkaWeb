@@ -5,39 +5,41 @@
 @using AutoMapper
 
 <div class="aptechka-container">
-    <div>
-        <div>
-
+    <div class="left-block-aptechka">
+        <div class="add-new-drug">
+            <div>
+                <form action="/Aptechka/AddDrug" method="post">
+                    <input type="hidden" name="AptechkaOwnerId" value="@Model.Id" />
+                    <div>
+                        Name: <input name="Name" type="text" autocomplete="off" />
+                    </div>
+                    <div>
+                        Form: <input name="Form" type="text" autocomplete="off" />
+                    </div>
+                    <input type="submit" value="Добавить лекарство" />
+                </form>
+            </div>
         </div>
-        <div>
-
+        <div class="info-about-current-aptechka">
+            Текст
         </div>
     </div>
-    <div>
-
+    <div class="right-block-aptechka">
+        <div class="title-for-drugs">
+            Список лекарств в аптечке"@Model.Name"
+        </div>
+        <div class="drugs-list">
+            @foreach (var drug in Model.Drugs)
+            {
+            <div class="separate-row-for-drug">
+                <div class="drug-name">
+                    Name: @drug.Name
+                </div>
+                <div class="drug-form">
+                    Form: @drug.Form
+                </div>
+            </div>
+            }
+        </div>
     </div>
 </div>
-
-<div>
-    Это аптечка: @Model.Name и ее цвет: @Model.Color
-</div>
-
-<div>
-    <form action="/Aptechka/AddDrug" method="post">
-        <input type="hidden" name="AptechkaOwnerId" value="@Model.Id" />
-        <div>
-            Name: <input name="Name" type="text" autocomplete="off" />
-        </div>
-        <div>
-            Form: <input name="Form" type="text" autocomplete="off" />
-        </div>
-        <input type="submit" value="Добавить лекарство" />
-    </form>
-</div>
-
-@foreach (var drug in Model.Drugs)
-{
-    <div>
-        Name: @drug.Name, Form: @drug.Form
-    </div>
-}
