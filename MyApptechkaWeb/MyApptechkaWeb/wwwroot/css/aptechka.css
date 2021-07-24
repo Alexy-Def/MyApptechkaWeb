@@ -1,9 +1,10 @@
 ﻿.aptechka-container {
     min-height: 600px;
-    min-width: 1200px;
+    min-width: 1300px;
     background-color: red;
     display: flex;
     flex-direction: row;
+    padding: 15px 0;
 }
 
 .left-block-aptechka {
@@ -34,26 +35,97 @@
     background-color: green;
     height: 300px;
     width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .title-for-drugs {
     font-size: 18pt;
     font-style: italic;
-    margin-bottom: 10px;
+    margin: 15px 15px 10px 15px;
+    text-align: center;
+}
+
+.title-for-add-drug {
+    font-size: 16pt;
+    font-style: italic;
+    margin: 10px 0;
 }
 
 .drugs-list {
-
 }
 
 .separate-row-for-drug {
     display: flex;
 }
 
+.separate-row-for-add-drug {
+    display: flex;
+}
+
+.drug-index-number {
+    width: 50px;
+    border: 1px solid;
+}
+
 .drug-name {
-    width: 150px;
+    width: 230px;
+    border: 1px solid;
 }
 
 .drug-form {
-    width: 150px;
+    width: 130px;
+    border: 1px solid;
+}
+
+.drug-purpose {
+    width: 120px;
+    border: 1px solid;
+}
+
+.drug-expirydate {
+    width: 120px;
+    border: 1px solid;
+}
+
+.drug-residue {
+    width: 90px;
+    border: 1px solid;
+}
+
+.text-field-for-add-drug {
+    width: 170px;
+}
+
+.input-field-for-add-drug {
+}
+
+.inputs-for-add-drug {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.button-for-add-drug {
+    width: 200px;
+    margin-top: 15px;
+}
+
+
+
+.info-aptechka-block {
+
+}
+
+.separated-row-info-aptechka {
+
+}
+
+.left-column-info-aptechka {
+
+}
+
+.right-column-info-aptechka {
+
 }
