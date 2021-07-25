@@ -80,9 +80,30 @@
 
         @foreach (var aptechka in aptechkas)
         {
-            <a href="/Aptechka/Aptechka?id=@aptechka.Id">
+            <a href="/Aptechka/Aptechka?id=@aptechka.Id" class="link-to-aptechka">
                 <div class="single-aptechka">
-                    @aptechka.Name
+                    <div class="info-aptechka-block">
+                        <div class="separated-row-info-aptechka">
+                            <div class="left-column-info-aptechka">Name:</div>
+                            <div class="right-column-info-aptechka">@aptechka.Name</div>
+                        </div>
+                        <div class="separated-row-info-aptechka">
+                            <div class="left-column-info-aptechka">Location:</div>
+                            <div class="right-column-info-aptechka">@aptechka.Location</div>
+                        </div>
+                        <div class="separated-row-info-aptechka">
+                            <div class="left-column-info-aptechka">Color:</div>
+                            <div class="right-column-info-aptechka">@aptechka.Color</div>
+                        </div>
+                        <div class="separated-row-info-aptechka">
+                            <div class="left-column-info-aptechka">Description:</div>
+                            <div class="right-column-info-aptechka">@aptechka.AdditionalDescription</div>
+                        </div>
+                        <div class="separated-row-info-aptechka">
+                            <div class="left-column-info-aptechka">Photo:</div>
+                            <div class="right-column-info-aptechka"></div>
+                        </div>
+                    </div>
                 </div>
             </a>
         }
