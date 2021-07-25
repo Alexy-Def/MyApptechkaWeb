@@ -115,17 +115,18 @@
 
 
 .info-aptechka-block {
-
+    padding: 15px;
 }
 
 .separated-row-info-aptechka {
-
+    display: flex;
+    margin: 4px 0px;
 }
 
 .left-column-info-aptechka {
-
+    width: 130px;
 }
 
 .right-column-info-aptechka {
-
+    width: 250px;
 }
