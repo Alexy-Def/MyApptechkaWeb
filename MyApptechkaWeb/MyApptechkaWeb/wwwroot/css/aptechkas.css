@@ -1,0 +1,174 @@
+﻿.aptechkas-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.aptechka-temp-popup {
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 5;
+}
+
+    .aptechka-temp-popup.hide {
+        display: none;
+    }
+
+.aptechka-temp-popup-cover {
+    height: 100vh;
+    width: 100%;
+    background: black;
+    opacity: 0.7;
+    position: absolute;
+    z-index: 10;
+    position: fixed;
+}
+
+.template-aptechka {
+    margin: 10px;
+    height: 300px;
+    width: 300px;
+    background-color: #7288f4de;
+    border-radius: 2em;
+    border: 3px black;
+    border-style: dashed;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+    cursor: pointer;
+    transition: 300ms;
+}
+
+    .template-aptechka:hover {
+        background-color: #b5c1fbde;
+        color: black;
+    }
+
+.symbol-plus {
+    font-size: 45pt;
+    border: 3px solid;
+    height: 58px;
+    width: 58px;
+    border-radius: 35px;
+}
+
+.template-text {
+    font-size: 17pt;
+    margin-top: 15px;
+}
+
+.add-aptechka-block {
+    height: 500px;
+    width: 600px;
+    background-color: #cdcdcd;
+    z-index: 20;
+    border-radius: 1em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+.title-add-aptechka {
+    font-size: 20pt;
+    margin-bottom: 15px;
+}
+
+.title-aptechkas {
+    font-size: 25pt;
+    margin: 50px 0 15px;
+}
+
+.all-aptechkas {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.separated-row-add-aptechka {
+    display: flex;
+    width: 100%;
+    /*height: 100%;*/
+    padding: 20px 0;
+    align-items: center;
+    border-bottom: 2px solid;
+}
+
+.left-column-add-aptechka {
+    flex: 1;
+    padding-right: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    height: 100%;
+    font-size: 15pt;
+    font-style: italic;
+    border-right: 1px solid;
+}
+
+.right-column-add-aptechka {
+    flex: 2;
+    display: flex;
+    align-items: center;
+    font-size: 15pt;
+    padding-left: 25px;
+}
+
+.single-aptechka {
+    height: 300px;
+    width: 300px;
+    background-color: #dfffe2c7;
+    color: black;
+    border-radius: 30px;
+    border: 3px solid;
+    /* overflow: hidden scroll; */
+    display: flex;
+    align-items: center;
+}
+}
+
+    .single-aptechka .left-column-info-aptechka {
+        width: 110px;
+    }
+
+    .single-aptechka .right-column-info-aptechka {
+        width: 149px;
+    }
+
+::-webkit-scrollbar {
+    width: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background-color: #18aaaa;
+}
+
+::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.2);
+    border-radius: 10px;
+    background-color: #f9f9fd;
+}
+
+.link-to-aptechka {
+    margin: 10px;
+    border-radius: 30px;
+    transition: 200ms;
+}
+
+    .link-to-aptechka:hover {
+        background-color: black;
+    }
+
+    .info-aptechka-block {
+        padding: 15px;
+    }

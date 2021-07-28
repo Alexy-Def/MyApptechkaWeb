@@ -13,5 +13,6 @@ namespace MyApptechkaWeb.EfStuff.Model
 
         public string Phone { get; set; }
         public string AvatarUrl { get; set; }
+        public virtual List<Aptechka> Aptechkas { get; set; }
     }
 }

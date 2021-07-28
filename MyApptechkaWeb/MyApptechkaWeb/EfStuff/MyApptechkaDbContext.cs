@@ -14,6 +14,9 @@ namespace MyApptechkaWeb.EfStuff
         public MyApptechkaDbContext(DbContextOptions options) : base(options) { }
 
         public DbSet<User> Users { get; set; }
+        public DbSet<Aptechka> Aptechkas { get; set; }
+        public DbSet<Drug> Drugs { get; set; }
+
         //public DbSet<Rocket> Rockets { get; set; }
         //public DbSet<Questionary> Questionaries { get; set; }
         //public DbSet<BankAccount> BankAccount { get; set; }
@@ -43,6 +46,14 @@ namespace MyApptechkaWeb.EfStuff
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<User>()
+                .HasMany(x => x.Aptechkas)
+                .WithOne(x => x.Owner);
+
+            modelBuilder.Entity<Aptechka>()
+                .HasMany(x => x.Drugs)
+                .WithOne(x => x.AptechkaOwner);
+
             //modelBuilder.Entity<User>()
             //    .HasMany(user => user.MyRockets)
             //    .WithOne(rocket => rocket.Author);
@@ -108,15 +119,15 @@ namespace MyApptechkaWeb.EfStuff
             //modelBuilder.Entity<Order>()
             //    .HasMany(x => x.Rockets)
             //    .WithMany(x => x.OrderedBy);
-            
+
 
             base.OnModelCreating(modelBuilder);
         }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            //optionsBuilder.UseLazyLoadingProxies();
-            //base.OnConfiguring(optionsBuilder);
+            optionsBuilder.UseLazyLoadingProxies();
+            base.OnConfiguring(optionsBuilder);
         }
     }
 }

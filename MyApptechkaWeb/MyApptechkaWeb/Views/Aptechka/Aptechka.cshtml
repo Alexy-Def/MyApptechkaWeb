@@ -1,0 +1,128 @@
+﻿@model AddAptechkaViewModel
+@*@model DrugViewModel*@
+
+@using MyApptechkaWeb.Service.Interface
+@using AutoMapper
+
+<div class="aptechka-container">
+    <div class="left-block-aptechka">
+        <div class="add-new-drug">
+            <div class="title-for-add-drug">
+                Добавить лекарство
+            </div>
+            <div>
+                <form action="/Aptechka/AddDrug" method="post" class="inputs-for-add-drug">
+                    <input type="hidden" name="AptechkaOwnerId" value="@Model.Id" />
+                    <div class="separate-row-for-add-drug">
+                        <div class="text-field-for-add-drug">Name: </div>
+                        <div><input name="Name" class="input-field-for-add-drug" type="text" autocomplete="off" /></div>
+                    </div>
+                    <div class="separate-row-for-add-drug">
+                        <div class="text-field-for-add-drug">Form: </div>
+                        <div><input name="Form" class="input-field-for-add-drug" type="text" autocomplete="off" /></div>
+                    </div>
+                    <div class="separate-row-for-add-drug">
+                        <div class="text-field-for-add-drug">Purpose: </div>
+                        <div><input name="Purpose" class="input-field-for-add-drug" type="text" autocomplete="off" /></div>
+                    </div>
+                    <div class="separate-row-for-add-drug">
+                        <div class="text-field-for-add-drug">Expiry date: </div>
+                        <div><input name="ExpiryDate" class="input-field-for-add-drug" type="text" autocomplete="off" /></div>
+                    </div>
+                    <div class="separate-row-for-add-drug">
+                        <div class="text-field-for-add-drug">Residue: </div>
+                        <div><input name="Residue" class="input-field-for-add-drug" type="text" autocomplete="off" /></div>
+                    </div>
+                    <div class="separate-row-for-add-drug">
+                        <div class="text-field-for-add-drug">Additional description: </div>
+                        <div><input name="AdditionalDescription" class="input-field-for-add-drug" type="text" autocomplete="off" /></div>
+                    </div>
+                    <input class="button-for-add-drug" type="submit" value="Добавить лекарство" />
+                </form>
+            </div>
+        </div>
+        <div class="info-about-current-aptechka">
+            <div class="info-aptechka-block">
+                <div class="separated-row-info-aptechka">
+                    <div class="left-column-info-aptechka">Name:</div>
+                    <div class="right-column-info-aptechka">@Model.Name</div>
+                </div>
+                <div class="separated-row-info-aptechka">
+                    <div class="left-column-info-aptechka">Location:</div>
+                    <div class="right-column-info-aptechka">@Model.Location</div>
+                </div>
+                <div class="separated-row-info-aptechka">
+                    <div class="left-column-info-aptechka">Color:</div>
+                    <div class="right-column-info-aptechka">@Model.Color</div>
+                </div>
+                <div class="separated-row-info-aptechka">
+                    <div class="left-column-info-aptechka">Description:</div>
+                    <div class="right-column-info-aptechka">@Model.AdditionalDescription</div>
+                </div>
+                <div class="separated-row-info-aptechka">
+                    <div class="left-column-info-aptechka">Photo:</div>
+                    <div class="right-column-info-aptechka"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="right-block-aptechka">
+        @if (Model.Drugs.Count != 0)
+        {
+            <div class="title-for-drugs">
+                Список лекарств в аптечке"@Model.Name"
+            </div>
+            <div class="drugs-list">
+                <div class="separate-row-for-drug">
+                    <div class="drug-index-number">
+                        №
+                    </div>
+                    <div class="drug-name">
+                        Name
+                    </div>
+                    <div class="drug-form">
+                        Form
+                    </div>
+                    <div class="drug-purpose">
+                        Purpose
+                    </div>
+                    <div class="drug-expirydate">
+                        ExpiryDate
+                    </div>
+                    <div class="drug-residue">
+                        Residue
+                    </div>
+                </div>
+                @for (int i = 0; i < Model.Drugs.Count; i++)
+                {
+                    <div class="separate-row-for-drug">
+                        <div class="drug-index-number">
+                            @(i+1)
+                        </div>
+                        <div class="drug-name">
+                            @Model.Drugs[i].Name
+                        </div>
+                        <div class="drug-form">
+                            @Model.Drugs[i].Form
+                        </div>
+                        <div class="drug-purpose">
+                            @Model.Drugs[i].Purpose
+                        </div>
+                        <div class="drug-expirydate">
+                            @Model.Drugs[i].ExpiryDate
+                        </div>
+                        <div class="drug-residue">
+                            @Model.Drugs[i].Residue
+                        </div>
+                    </div>
+                }
+            </div>
+        }
+        else
+        {
+            <div class="title-for-drugs">
+                В аптечку не добавлено ни одного лекарства. Добавьте лекарство для отображения списка.
+            </div>
+        }
+    </div>
+</div>

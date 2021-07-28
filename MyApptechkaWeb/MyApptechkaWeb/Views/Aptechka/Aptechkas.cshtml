@@ -1,0 +1,111 @@
+﻿@model AddAptechkaViewModel
+
+@using MyApptechkaWeb.Service.Interface
+@using AutoMapper
+
+@inject IUserService userService
+@inject IMapper mapper
+
+@{
+    var user = userService.GetCurrent();
+    var aptechkas = new List<AddAptechkaViewModel>();
+    foreach (var apteckaDb in user.Aptechkas)
+    {
+        aptechkas.Add(mapper.Map<AddAptechkaViewModel>(apteckaDb));
+    }
+}
+<div class="aptechkas-container">
+    <div class="aptechka-temp-popup hide">
+        <div class="aptechka-temp-popup-cover"></div>
+        <div class="add-aptechka-block">
+            <div class="title-add-aptechka">Добавление новой аптечки</div>
+
+            <form action="/Aptechka/Aptechkas" method="post" enctype="multipart/form-data">
+                <div class="separated-row-add-aptechka">
+                    <div class="left-column-add-aptechka">Название:</div>
+                    <div class="right-column-add-aptechka">
+                        <input name="Name"
+                               type="text"
+                               autocomplete="off" />
+                    </div>
+                </div>
+
+                <div class="separated-row-add-aptechka">
+                    <div class="left-column-add-aptechka">Расположение:</div>
+                    <div class="right-column-add-aptechka">
+                        <input name="Location"
+                               type="text"
+                               autocomplete="off" />
+                    </div>
+                </div>
+
+                <div class="separated-row-add-aptechka">
+                    <div class="left-column-add-aptechka">Цвет:</div>
+                    <div class="right-column-add-aptechka">
+                        <input name="Color"
+                               type="text"
+                               autocomplete="off" />
+                    </div>
+                </div>
+
+                <div class="separated-row-add-aptechka">
+                    <div class="left-column-add-aptechka">Доп. описание:</div>
+                    <div class="right-column-add-aptechka">
+                        <input name="AdditionalDescription"
+                               type="text"
+                               autocomplete="off" />
+                    </div>
+                </div>
+
+                <div class="separated-row-add-aptechka">
+                    <div class="left-column-add-aptechka">Фото аптечки:</div>
+                    <div class="right-column-add-aptechka">
+                        <input type="file" name="@nameof(AddAptechkaViewModel.AptechkaPicture)" />
+                    </div>
+                </div>
+
+                <input type="submit" value="Добавить аптечку" />
+            </form>
+        </div>
+    </div>
+
+    <div class="title-aptechkas">
+        Мои аптечки
+    </div>
+    <div class="all-aptechkas">
+        <div class="template-aptechka">
+            <div class="symbol-plus">+</div>
+            <div class="template-text">Добавить аптечку</div>
+        </div>
+
+        @foreach (var aptechka in aptechkas)
+        {
+            <a href="/Aptechka/Aptechka?id=@aptechka.Id" class="link-to-aptechka">
+                <div class="single-aptechka">
+                    <div class="info-aptechka-block">
+                        <div class="separated-row-info-aptechka">
+                            <div class="left-column-info-aptechka">Name:</div>
+                            <div class="right-column-info-aptechka">@aptechka.Name</div>
+                        </div>
+                        <div class="separated-row-info-aptechka">
+                            <div class="left-column-info-aptechka">Location:</div>
+                            <div class="right-column-info-aptechka">@aptechka.Location</div>
+                        </div>
+                        <div class="separated-row-info-aptechka">
+                            <div class="left-column-info-aptechka">Color:</div>
+                            <div class="right-column-info-aptechka">@aptechka.Color</div>
+                        </div>
+                        <div class="separated-row-info-aptechka">
+                            <div class="left-column-info-aptechka">Description:</div>
+                            <div class="right-column-info-aptechka">@aptechka.AdditionalDescription</div>
+                        </div>
+                        <div class="separated-row-info-aptechka">
+                            <div class="left-column-info-aptechka">Photo:</div>
+                            <div class="right-column-info-aptechka"></div>
+                        </div>
+                    </div>
+                </div>
+            </a>
+        }
+    </div>
+</div>

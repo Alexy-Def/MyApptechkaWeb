@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using MyApptechkaWeb.EfStuff;
 
 namespace MyApptechkaWeb.Migrations
 {
     [DbContext(typeof(MyApptechkaDbContext))]
-    partial class MyApptechkaDbContextModelSnapshot : ModelSnapshot
+    [Migration("20210714124432_VirtualPropertyToAptechka")]
+    partial class VirtualPropertyToAptechka
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -51,41 +53,6 @@ namespace MyApptechkaWeb.Migrations
                     b.ToTable("Aptechkas");
                 });
 
-            modelBuilder.Entity("MyApptechkaWeb.EfStuff.Model.Drug", b =>
-                {
-                    b.Property<long>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("bigint")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("AdditionalDescription")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<long?>("AptechkaOwnerId")
-                        .HasColumnType("bigint");
-
-                    b.Property<string>("ExpiryDate")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Form")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Name")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Purpose")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Residue")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("AptechkaOwnerId");
-
-                    b.ToTable("Drugs");
-                });
-
             modelBuilder.Entity("MyApptechkaWeb.EfStuff.Model.User", b =>
                 {
                     b.Property<long>("Id")
@@ -117,15 +84,6 @@ namespace MyApptechkaWeb.Migrations
                         .HasForeignKey("OwnerId");
 
                     b.Navigation("Owner");
-                });
-
-            modelBuilder.Entity("MyApptechkaWeb.EfStuff.Model.Drug", b =>
-                {
-                    b.HasOne("MyApptechkaWeb.EfStuff.Model.Aptechka", "AptechkaOwner")
-                        .WithMany()
-                        .HasForeignKey("AptechkaOwnerId");
-
-                    b.Navigation("AptechkaOwner");
                 });
 
             modelBuilder.Entity("MyApptechkaWeb.EfStuff.Model.User", b =>

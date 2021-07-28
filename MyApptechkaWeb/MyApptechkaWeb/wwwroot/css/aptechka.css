@@ -1,0 +1,139 @@
+﻿.aptechka-container {
+    min-height: 600px;
+    min-width: 1300px;
+    /*background-color: red;*/
+    display: flex;
+    flex-direction: row;
+    padding: 15px 0;
+}
+
+.left-block-aptechka {
+    /*background-color: green;*/
+    height: 100%;
+    width: 600px;
+    display: flex;
+    flex-direction: column;
+}
+
+.right-block-aptechka {
+    /*background-color: orange;*/
+    min-height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-left: 4px solid;
+}
+
+.info-about-current-aptechka {
+    /*background-color: pink;*/
+    height: 300px;
+    width: 100%;
+}
+
+.add-new-drug {
+    /*background-color: green;*/
+    height: 300px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-bottom: 4px solid;
+}
+
+.title-for-drugs {
+    font-size: 18pt;
+    font-style: italic;
+    margin: 10px 15px;
+    text-align: center;
+}
+
+.title-for-add-drug {
+    font-size: 16pt;
+    font-style: italic;
+    margin: 10px 0;
+}
+
+.drugs-list {
+}
+
+.separate-row-for-drug {
+    display: flex;
+}
+
+.separate-row-for-add-drug {
+    display: flex;
+}
+
+.drug-index-number {
+    width: 50px;
+    border: 1px solid;
+}
+
+.drug-name {
+    width: 230px;
+    border: 1px solid;
+}
+
+.drug-form {
+    width: 130px;
+    border: 1px solid;
+}
+
+.drug-purpose {
+    width: 120px;
+    border: 1px solid;
+}
+
+.drug-expirydate {
+    width: 120px;
+    border: 1px solid;
+}
+
+.drug-residue {
+    width: 90px;
+    border: 1px solid;
+}
+
+.text-field-for-add-drug {
+    width: 170px;
+}
+
+.input-field-for-add-drug {
+}
+
+.inputs-for-add-drug {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.button-for-add-drug {
+    width: 200px;
+    margin-top: 15px;
+}
+
+.info-about-current-aptechka .info-aptechka-block {
+    padding: 15px;
+    border: 2px solid;
+    margin: 15px;
+    border-radius: 15px;
+    background-color: #c9f3bfcc;
+}
+
+.separated-row-info-aptechka {
+    display: flex;
+    margin: 3px 0px;
+    padding-bottom: 3px;
+    border-bottom: 1px solid;
+}
+
+.left-column-info-aptechka {
+    width: 120px;
+    border-right: 1px solid;
+    margin-right: 5px;
+}
+
+.right-column-info-aptechka {
+    width: 250px;
+}

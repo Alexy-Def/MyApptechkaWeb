@@ -3,6 +3,11 @@
 @using MyApptechkaWeb.Service.Interface
 @inject IUserService userService
 
+@{ 
+    var user = userService.GetCurrent();
+
+}
+
 @{
     Layout = "_Layout";
 }
