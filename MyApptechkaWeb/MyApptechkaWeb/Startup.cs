@@ -40,6 +40,9 @@ namespace MyApptechkaWeb
             var connectionString = Configuration.GetValue<string>("connectionString");
             services.AddDbContext<MyApptechkaDbContext>(x => x.UseSqlServer(connectionString));
 
+            //var connectionStrings = Configuration.GetConnectionString("AnyName");
+            //services.AddDbContext<MyApptechkaDbContext>(x => x.UseSqlServer(connectionStrings));
+
             services.AddAuthentication(AuthMethod)
                 .AddCookie(AuthMethod, config =>
                 {
