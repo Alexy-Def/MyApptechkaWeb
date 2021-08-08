@@ -110,12 +110,20 @@ namespace MyApptechkaWeb.Controllers
             return RedirectToAction("Aptechka", new { id = viewModel.AptechkaOwnerId });
         }
 
+        [HttpGet]
         public IActionResult Drug(long id)
         {
             var drugDbModel = _drugRepository.Get(id);
             var viewModel = _mapper.Map<DrugViewModel>(drugDbModel);
 
             return View(viewModel);
+        }
+
+        public IActionResult DeleteDrug(long idDrug, long idAptechka)
+        {
+            _drugRepository.Remove(idDrug);
+
+            return RedirectToAction("Aptechka", new { id = idAptechka });
         }
     }
 }

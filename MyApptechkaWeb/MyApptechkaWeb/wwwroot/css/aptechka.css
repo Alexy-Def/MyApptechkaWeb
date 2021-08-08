@@ -68,31 +68,37 @@
 .drug-index-number {
     width: 50px;
     border: 1px solid;
+    padding: 3px;
 }
 
 .drug-name {
     width: 230px;
     border: 1px solid;
+    padding: 3px;
 }
 
 .drug-form {
     width: 130px;
     border: 1px solid;
+    padding: 3px;
 }
 
 .drug-purpose {
     width: 120px;
     border: 1px solid;
+    padding: 3px;
 }
 
 .drug-expirydate {
     width: 120px;
     border: 1px solid;
+    padding: 3px;
 }
 
 .drug-residue {
     width: 90px;
     border: 1px solid;
+    padding: 3px;
 }
 
 .text-field-for-add-drug {

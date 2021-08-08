@@ -51,17 +51,24 @@ a:visited {
     margin-left: 20px;
 }
 
-.btn-edit-drug {
+.btn-action-drug {
     display: flex;
+    padding: 10px;
+    border-radius: 4px;
 }
 
-.btn-delete-drug {
-    display: flex;
-    margin-top: 10px;
-}
+    .btn-action-drug:hover {
+        border: 2px solid;
+        padding: 8px;
+        background-color: #92c0f86e;
+    }
 
-.text-btn-action-drug {
-    margin-right: 10px;
+    /*.btn-delete-drug {
     display: flex;
-    align-items: center;
-}
+    padding: 10px;
+}*/
+    .text-btn-action-drug {
+        margin-right: 10px;
+        display: flex;
+        align-items: center;
+    }

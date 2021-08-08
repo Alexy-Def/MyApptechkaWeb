@@ -2,16 +2,16 @@
 
 <div class="drug-container">
     <div class="left-block-drug">
-        <a href="">
-            <div class="btn-edit-drug">
-                <div class="text-btn-action-drug">Изменить лекарство</div>
-                <img src="../image/icon/edit.svg" class="img-edit-drug" />
+        <div class="btn-action-drug">
+            <div class="text-btn-action-drug">Изменить лекарство</div>
+            <img src="../image/icon/edit.svg" class="img-edit-drug" />
+        </div>
+        <a href="/Aptechka/DeleteDrug?idDrug=@Model.Id&idAptechka=@Model.AptechkaOwnerId">
+            <div class="btn-action-drug">
+                <div class="text-btn-action-drug">Удалить лекарство</div>
+                <img src="../image/icon/delete.svg" class="img-delete-drug" />
             </div>
         </a>
-        <div class="btn-delete-drug">
-            <div class="text-btn-action-drug">Удалить лекарство</div>
-            <img src="../image/icon/delete.svg" class="img-delete-drug" />
-        </div>
     </div>
     <div class="right-block-drug">
         <div class="title-about-drug"></div>
