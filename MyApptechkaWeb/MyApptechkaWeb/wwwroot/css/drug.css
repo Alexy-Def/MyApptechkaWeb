@@ -17,13 +17,18 @@ a:visited {
 
 .left-block-drug {
     display: flex;
+    flex-direction: column;
     flex: 1;
+    padding-right: 30px;
+    align-items: flex-end;
 }
 
 .right-block-drug {
     display: flex;
     flex-direction: column;
     flex: 1;
+    padding-left: 30px;
+    border-left: 1px solid;
 }
 
 .title-about-drug {
@@ -35,9 +40,28 @@ a:visited {
 }
 
 .name-property-info-drug {
-
+    font-style: italic;
+    margin: 10px 0px;
+    padding-top: 10px;
+    border-top: dashed;
+    font-weight: 700;
 }
 
 .text-property-info-drug {
+    margin-left: 20px;
+}
 
+.btn-edit-drug {
+    display: flex;
+}
+
+.btn-delete-drug {
+    display: flex;
+    margin-top: 10px;
+}
+
+.text-btn-action-drug {
+    margin-right: 10px;
+    display: flex;
+    align-items: center;
 }
