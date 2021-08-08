@@ -1,6 +1,6 @@
 ﻿.drug-container {
     min-height: 600px;
-    min-width: 1300px;
+    width: 100%;
     /*background-color: red;*/
     display: flex;
     flex-direction: row;
@@ -34,15 +34,10 @@ a:visited {
     font-size: 13pt;
 }
 
-.separate-row-info-about-drug {
-    display: flex;
-    margin: 15px 0;
+.name-property-info-drug {
+
 }
 
-.left-column-info-drug {
-    width: 115px;
-}
+.text-property-info-drug {
 
-.right-column-info-drug {
-    width: 300px;
 }
