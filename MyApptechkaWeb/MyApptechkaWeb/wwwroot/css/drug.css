@@ -1,0 +1,48 @@
+﻿.drug-container {
+    min-height: 600px;
+    min-width: 1300px;
+    /*background-color: red;*/
+    display: flex;
+    flex-direction: row;
+    padding: 15px 0;
+}
+
+a {
+    color: black;
+}
+
+a:visited {
+    color: black;
+}
+
+.left-block-drug {
+    display: flex;
+    flex: 1;
+}
+
+.right-block-drug {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.title-about-drug {
+
+}
+
+.info-about-drug {
+    font-size: 13pt;
+}
+
+.separate-row-info-about-drug {
+    display: flex;
+    margin: 15px 0;
+}
+
+.left-column-info-drug {
+    width: 115px;
+}
+
+.right-column-info-drug {
+    width: 300px;
+}
