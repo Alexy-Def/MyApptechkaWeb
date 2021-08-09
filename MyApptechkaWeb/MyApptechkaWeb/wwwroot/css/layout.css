@@ -66,6 +66,14 @@ body {
     .container {
         max-width: none;
     }
+
+        .container .aptechka-container .right-block-aptechka {
+            width: 525px;
+        }
+
+    .drug-form {
+        display: none;
+    }
 }
 
 /*=================================================*/
@@ -81,8 +89,52 @@ body {
     }
 }
 
-@media (max-width: 1329px) {
+@media (max-width: 850px) {
+    .drugs-list {
+        font-size: 9pt;
+    }
 
+        .drugs-list .drug-index-number {
+            width: 30px;
+        }
+
+        .drugs-list .drug-name {
+            width: 175px;
+        }
+
+        .drugs-list .drug-form {
+            width: 110px;
+        }
+
+        .drugs-list .drug-purpose {
+            width: 110px;
+        }
+
+        .drugs-list .drug-expirydate {
+            width: 85px;
+        }
+
+        .drugs-list .drug-residue {
+            width: 80px;
+        }
+
+    .aptechka-container .right-block-aptechka {
+        width: 640px;
+    }
+}
+
+@media (max-width: 580px) {
+    .drug-expirydate {
+        display: none;
+    }
+
+    .container .aptechka-container .right-block-aptechka {
+        width: 435px;
+    }
+
+    .right-block-aptechka .title-for-drugs {
+        font-size: 14pt;
+    }
 }
 
 .hide {
