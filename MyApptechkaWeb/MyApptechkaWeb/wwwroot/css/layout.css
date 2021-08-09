@@ -199,6 +199,24 @@ body {
     }
 }
 
+@media (max-width: 407px) {
+    .drug-container .right-block-drug {
+        border-left: 0px solid;
+        padding: 0 15px 15px 15px;
+        border-bottom: 7px double;
+    }
+
+    .drug-container .left-block-drug {
+        align-items: center;
+        padding: 15px;
+    }
+}
+
+::-webkit-scrollbar {
+    width: 0px;
+    background: rgba(255, 255, 255, 0.0);
+}
+
 .hide {
     display: none;
 }
