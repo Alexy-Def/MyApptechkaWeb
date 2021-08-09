@@ -68,6 +68,23 @@ body {
     }
 }
 
+/*=================================================*/
+
+@media (max-width: 1329px) {
+    .aptechka-container .right-block-aptechka {
+        border-left: 0px solid;
+        border-top: 4px solid;
+    }
+
+    .info-about-current-aptechka {
+        margin-bottom: 10px;
+    }
+}
+
+@media (max-width: 1329px) {
+
+}
+
 .hide {
     display: none;
 }

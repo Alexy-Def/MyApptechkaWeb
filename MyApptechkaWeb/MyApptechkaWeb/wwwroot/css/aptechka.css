@@ -1,16 +1,18 @@
 ﻿.aptechka-container {
     min-height: 600px;
-    min-width: 1300px;
+    /*min-width: 1300px;*/
     /*background-color: red;*/
     display: flex;
     flex-direction: row;
     padding: 15px 0;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
 .left-block-aptechka {
     /*background-color: green;*/
     height: 100%;
-    width: 600px;
+    width: 440px;
     display: flex;
     flex-direction: column;
 }
@@ -18,7 +20,7 @@
 .right-block-aptechka {
     /*background-color: orange;*/
     min-height: 100%;
-    width: 100%;
+    width: 855px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -27,7 +29,7 @@
 
 .info-about-current-aptechka {
     /*background-color: pink;*/
-    height: 300px;
+    /*height: 300px;*/
     width: 100%;
 }
 
