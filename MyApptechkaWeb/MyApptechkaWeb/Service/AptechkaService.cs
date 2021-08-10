@@ -12,18 +12,18 @@ namespace MyApptechkaWeb.Service
 {
     public class AptechkaService : IAptechkaService
     {
-        private IUserService _userService;
-        public AptechkaService(IUserService userService)
+        private IAptechkaRepository _aptechkaRepository;
+        public AptechkaService(IAptechkaRepository aptechkaRepository)
         {
-            _userService = userService;
+            _aptechkaRepository = aptechkaRepository;
         }
         
-        public string GetAptechkaPictureUrl()
+        public string GetAptechkaPictureUrl(long idAptechka)
         {
-            var userAvatar = _userService.GetCurrent()?.AvatarUrl;
-            return !string.IsNullOrWhiteSpace(userAvatar)
-                ? userAvatar
-                : "/image/avatar/default-avatar.png";
+            var aptechkaPicture = _aptechkaRepository.Get(idAptechka)?.AptechkaPictureUrl;
+            return !string.IsNullOrWhiteSpace(aptechkaPicture)
+                ? aptechkaPicture
+                : "";
         }
     }
 }

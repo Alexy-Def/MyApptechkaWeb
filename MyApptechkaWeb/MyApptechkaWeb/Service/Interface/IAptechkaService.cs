@@ -5,6 +5,6 @@ namespace MyApptechkaWeb.Service.Interface
 {
     public interface IAptechkaService
     {
-        string GetAptechkaPictureUrl();
+        string GetAptechkaPictureUrl(long idAptechka);
     }
 }
