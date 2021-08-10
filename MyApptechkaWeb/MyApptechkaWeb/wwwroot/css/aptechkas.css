@@ -108,8 +108,9 @@
     padding-right: 25px;
     display: flex;
     align-items: center;
-    justify-content: flex-end;
+    /*justify-content: flex-end;*/
     height: 100%;
+    width: 200px;
     font-size: 15pt;
     font-style: italic;
     border-right: 1px solid;
@@ -123,18 +124,42 @@
     padding-left: 25px;
 }
 
-.single-aptechka {
-    height: 300px;
-    width: 300px;
-    background-color: #dfffe2c7;
-    color: black;
-    border-radius: 30px 0 0 30px;
-    border: 3px solid;
-    overflow: hidden scroll;
-    display: flex;
-    /* align-items: center; */
-    overflow-y: inherit;
+.input-add-aptechka {
+    width: 245px;
 }
+
+.btn-add-aptechka {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.btn-input-add-aptechka {
+    height: 35px;
+    width: 170px;
+    border-radius: 3px;
+    background: linear-gradient(to top, black, 5%, #2e8f3ab3);
+    color: white;
+    font-weight: 600;
+    font-size: 12pt;
+    cursor: pointer;
+}
+
+    .btn-input-add-aptechka:hover {
+        background: linear-gradient(to top, black, 5%, #2e8f3a);
+    }
+
+    .single-aptechka {
+        height: 300px;
+        width: 300px;
+        background-color: #dfffe2c7;
+        color: black;
+        border-radius: 30px 0 0 30px;
+        border: 3px solid;
+        overflow: hidden scroll;
+        display: flex;
+        /* align-items: center; */
+        overflow-y: inherit;
+    }
 }
 
     .single-aptechka .left-column-info-aptechka {
