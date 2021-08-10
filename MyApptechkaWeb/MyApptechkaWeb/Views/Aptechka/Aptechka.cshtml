@@ -4,6 +4,8 @@
 @using MyApptechkaWeb.Service.Interface
 @using AutoMapper
 
+@inject IAptechkaService aptechkaService
+
 <div class="aptechka-container">
     <div class="left-block-aptechka">
         <div class="add-new-drug">
@@ -61,7 +63,9 @@
                 </div>
                 <div class="separated-row-info-aptechka">
                     <div class="left-column-info-aptechka">Photo:</div>
-                    <div class="right-column-info-aptechka"></div>
+                    <div class="right-column-info-aptechka">
+                        <img class="avatar-profile-page" src="@aptechkaService.GetAptechkaPictureUrl(Model.Id)" />
+                    </div>
                 </div>
             </div>
         </div>
