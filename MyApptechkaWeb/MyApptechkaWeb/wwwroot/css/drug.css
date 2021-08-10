@@ -1,0 +1,75 @@
+﻿.drug-container {
+    min-height: 600px;
+    width: 100%;
+    /*background-color: red;*/
+    display: flex;
+    flex-direction: row;
+    padding: 15px 0;
+    flex-wrap: wrap-reverse;
+}
+
+a {
+    color: black;
+}
+
+a:visited {
+    color: black;
+}
+
+.left-block-drug {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    padding-right: 30px;
+    align-items: flex-end;
+}
+
+.right-block-drug {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    padding-left: 30px;
+    border-left: 1px solid;
+}
+
+.title-about-drug {
+
+}
+
+.info-about-drug {
+    font-size: 13pt;
+}
+
+.name-property-info-drug {
+    font-style: italic;
+    margin: 10px 0px;
+    padding-top: 10px;
+    border-top: dashed;
+    font-weight: 700;
+}
+
+.text-property-info-drug {
+    margin-left: 20px;
+}
+
+.btn-action-drug {
+    display: flex;
+    padding: 10px;
+    border-radius: 4px;
+}
+
+    .btn-action-drug:hover {
+        border: 2px solid;
+        padding: 8px;
+        background-color: #92c0f86e;
+    }
+
+    /*.btn-delete-drug {
+    display: flex;
+    padding: 10px;
+}*/
+    .text-btn-action-drug {
+        margin-right: 10px;
+        display: flex;
+        align-items: center;
+    }

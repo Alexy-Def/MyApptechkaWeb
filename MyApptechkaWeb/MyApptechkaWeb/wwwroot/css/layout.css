@@ -66,6 +66,155 @@ body {
     .container {
         max-width: none;
     }
+
+        .container .aptechka-container .right-block-aptechka {
+            width: 525px;
+        }
+
+    .drug-form {
+        display: none;
+    }
+}
+
+/*=================================================*/
+
+@media (max-width: 1329px) {
+    .aptechka-container .right-block-aptechka {
+        border-left: 0px solid;
+        border-top: 4px solid;
+    }
+
+    .info-about-current-aptechka {
+        margin-bottom: 10px;
+    }
+}
+
+@media (max-width: 850px) {
+    .drugs-list {
+        font-size: 9pt;
+    }
+
+        .drugs-list .drug-index-number {
+            width: 30px;
+        }
+
+        .drugs-list .drug-name {
+            width: 175px;
+        }
+
+        .drugs-list .drug-form {
+            width: 110px;
+        }
+
+        .drugs-list .drug-purpose {
+            width: 110px;
+        }
+
+        .drugs-list .drug-expirydate {
+            width: 85px;
+        }
+
+        .drugs-list .drug-residue {
+            width: 80px;
+        }
+
+    .aptechka-container .right-block-aptechka {
+        width: 640px;
+    }
+}
+
+@media (max-width: 580px) {
+    .drug-expirydate {
+        display: none;
+    }
+
+    .container .aptechka-container .right-block-aptechka {
+        width: 435px;
+    }
+
+    .right-block-aptechka .title-for-drugs {
+        font-size: 14pt;
+    }
+}
+
+@media (max-width: 480px) {
+    .menu-header-first {
+        display: none;
+    }
+
+    .menu-header-third {
+        display: none;
+    }
+
+    .aptechka-container {
+        font-size: 9pt;
+    }
+
+    .separate-row-for-add-drug .text-field-for-add-drug {
+        width: 100px;
+    }
+
+    .input-field-for-add-drug {
+        width: 110px;
+    }
+
+    .drug-residue {
+        display: none;
+    }
+
+    .separate-row-for-drug .drug-name {
+        width: 110px;
+    }
+
+    .separate-row-for-drug .drug-purpose {
+        width: 85px;
+    }
+
+    .left-block-aptechka .info-about-current-aptechka {
+        width: 250px;
+    }
+
+    .right-block-aptechka .title-for-drugs {
+        font-size: 9pt;
+    }
+
+    .container .aptechka-container .right-block-aptechka {
+        width: 250px;
+    }
+
+    .aptechka-container .left-block-aptechka {
+        width: 250px;
+    }
+
+    .left-block-aptechka .info-about-current-aptechka .info-aptechka-block {
+        margin: 15px 5px;
+    }
+
+    .add-new-drug .title-for-add-drug {
+        font-size: 11pt;
+    }
+
+    .separated-row-info-aptechka .right-column-info-aptechka {
+        width: 225px;
+    }
+}
+
+@media (max-width: 407px) {
+    .drug-container .right-block-drug {
+        border-left: 0px solid;
+        padding: 0 15px 15px 15px;
+        border-bottom: 7px double;
+    }
+
+    .drug-container .left-block-drug {
+        align-items: center;
+        padding: 15px;
+    }
+}
+
+::-webkit-scrollbar {
+    width: 0px;
+    background: rgba(255, 255, 255, 0.0);
 }
 
 .hide {

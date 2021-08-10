@@ -1,0 +1,33 @@
+﻿@model DrugViewModel
+
+<div class="drug-container">
+    <div class="left-block-drug">
+        <div class="btn-action-drug">
+            <div class="text-btn-action-drug">Изменить лекарство</div>
+            <img src="../image/icon/edit.svg" class="img-edit-drug" />
+        </div>
+        <a href="/Aptechka/DeleteDrug?idDrug=@Model.Id&idAptechka=@Model.AptechkaOwnerId">
+            <div class="btn-action-drug">
+                <div class="text-btn-action-drug">Удалить лекарство</div>
+                <img src="../image/icon/delete.svg" class="img-delete-drug" />
+            </div>
+        </a>
+    </div>
+    <div class="right-block-drug">
+        <div class="title-about-drug"></div>
+        <div class="info-about-drug">
+            <div class="name-property-info-drug">Название:</div>
+            <div class="text-property-info-drug">@Model.Name</div>
+            <div class="name-property-info-drug">Форма выпуска:</div>
+            <div class="text-property-info-drug">@Model.Form</div>
+            <div class="name-property-info-drug">Назначение:</div>
+            <div class="text-property-info-drug">@Model.Purpose</div>
+            <div class="name-property-info-drug">Срок истечения годности:</div>
+            <div class="text-property-info-drug">@Model.ExpiryDate</div>
+            <div class="name-property-info-drug">Остаток:</div>
+            <div class="text-property-info-drug">@Model.Residue</div>
+            <div class="name-property-info-drug">Дополнительное описание:</div>
+            <div class="text-property-info-drug">@Model.AdditionalDescription</div>
+        </div>
+    </div>
+</div>

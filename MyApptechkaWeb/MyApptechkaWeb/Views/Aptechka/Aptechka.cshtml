@@ -95,26 +95,28 @@
                 </div>
                 @for (int i = 0; i < Model.Drugs.Count; i++)
                 {
-                    <div class="separate-row-for-drug">
-                        <div class="drug-index-number">
-                            @(i+1)
+                    <a href="/Aptechka/Drug?id=@Model.Drugs[i].Id" class="lint-to-drug">
+                        <div class="separate-row-for-drug">
+                            <div class="drug-index-number">
+                                @(i+1)
+                            </div>
+                            <div class="drug-name">
+                                @Model.Drugs[i].Name
+                            </div>
+                            <div class="drug-form">
+                                @Model.Drugs[i].Form
+                            </div>
+                            <div class="drug-purpose">
+                                @Model.Drugs[i].Purpose
+                            </div>
+                            <div class="drug-expirydate">
+                                @Model.Drugs[i].ExpiryDate
+                            </div>
+                            <div class="drug-residue">
+                                @Model.Drugs[i].Residue
+                            </div>
                         </div>
-                        <div class="drug-name">
-                            @Model.Drugs[i].Name
-                        </div>
-                        <div class="drug-form">
-                            @Model.Drugs[i].Form
-                        </div>
-                        <div class="drug-purpose">
-                            @Model.Drugs[i].Purpose
-                        </div>
-                        <div class="drug-expirydate">
-                            @Model.Drugs[i].ExpiryDate
-                        </div>
-                        <div class="drug-residue">
-                            @Model.Drugs[i].Residue
-                        </div>
-                    </div>
+                    </a>
                 }
             </div>
         }

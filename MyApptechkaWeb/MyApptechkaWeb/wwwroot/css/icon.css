@@ -14,3 +14,13 @@
 .spinner::before {
     background-image: url('../image/icon/spinner.gif');
 }
+
+.img-edit-drug {
+    width: 40px;
+    height: 40px;
+}
+
+.img-delete-drug {
+    width: 40px;
+    height: 40px;
+}
