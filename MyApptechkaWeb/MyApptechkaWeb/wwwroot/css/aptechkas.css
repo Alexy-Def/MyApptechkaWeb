@@ -148,27 +148,28 @@
         background: linear-gradient(to top, black, 5%, #2e8f3a);
     }
 
-    .single-aptechka {
-        height: 300px;
-        width: 300px;
-        background-color: #dfffe2c7;
-        color: black;
-        border-radius: 30px 0 0 30px;
-        border: 3px solid;
-        overflow: hidden scroll;
-        display: flex;
-        /* align-items: center; */
-        overflow-y: inherit;
-    }
+.single-aptechka {
+    height: 300px;
+    width: 300px;
+    background-color: #dfffe2c7;
+    color: black;
+    border-radius: 30px 5px 5px 30px;
+    border: 3px solid;
+    overflow: hidden scroll;
+    display: flex;
+    /* align-items: center; */
+    overflow-y: inherit;
 }
 
-    .single-aptechka .left-column-info-aptechka {
-        width: 110px;
-    }
+}
 
-    .single-aptechka .right-column-info-aptechka {
-        width: 149px;
-    }
+.single-aptechka .left-column-info-aptechka {
+    width: 110px;
+}
+
+.single-aptechka .right-column-info-aptechka {
+    width: 149px;
+}
 
 ::-webkit-scrollbar {
     width: 5px;
@@ -176,7 +177,7 @@
 
 ::-webkit-scrollbar-thumb {
     border-radius: 10px;
-    background-color: #18aaaa;
+    background-color: #1a18aa;
 }
 
 ::-webkit-scrollbar-track {
@@ -187,7 +188,7 @@
 
 .link-to-aptechka {
     margin: 10px;
-    border-radius: 30px 0 0 30px;
+    border-radius: 30px 5px 5px 30px;
     transition: 200ms;
 }
 
@@ -195,6 +196,6 @@
         background-color: black;
     }
 
-    .info-aptechka-block {
-        padding: 15px;
-    }
+.info-aptechka-block {
+    padding: 15px;
+}
