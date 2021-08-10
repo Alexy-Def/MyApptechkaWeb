@@ -65,6 +65,7 @@
 
 .separate-row-for-add-drug {
     display: flex;
+    margin-bottom: 2px;
 }
 
 .drug-index-number {
