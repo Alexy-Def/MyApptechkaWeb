@@ -210,6 +210,10 @@ body {
         align-items: center;
         padding: 15px;
     }
+
+    .container .drug-container {
+        max-width: 355px;
+    }
 }
 
 ::-webkit-scrollbar {
