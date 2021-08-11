@@ -202,8 +202,8 @@ body {
         width: 75px;
     }
 
-    .block-btn-edit-aptechka .link-to-edit-aptechka {
-        margin-left: 0px;
+    .block-btn-edit-aptechka .btn-popup-edit-aptechka.special-for-popup {
+        margin-right: 0px;
     }
 }
 

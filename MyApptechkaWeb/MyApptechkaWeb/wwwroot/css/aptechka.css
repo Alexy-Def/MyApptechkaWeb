@@ -160,6 +160,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    cursor: pointer;
 }
 
     .btn-popup-edit-aptechka:hover {
@@ -188,8 +189,8 @@
     justify-content: center;
 }
 
-.link-to-edit-aptechka {
-    margin-left: 15px;
+.btn-popup-edit-aptechka.special-for-popup {
+    margin-right: 15px;
 }
 
 /*=======================================
