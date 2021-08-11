@@ -13,5 +13,5 @@
 
     $('.aptechka-edit-info-popup-cover').click(function () {
         $('.aptechka-edit-info-popup').addClass('hide');
-    //})
+    })
 })
