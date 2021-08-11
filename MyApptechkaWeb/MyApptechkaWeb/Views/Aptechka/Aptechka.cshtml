@@ -4,7 +4,76 @@
 @using MyApptechkaWeb.Service.Interface
 @using AutoMapper
 
+@inject IAptechkaService aptechkaService
+
 <div class="aptechka-container">
+    <div class="aptechka-edit-info-popup hide">
+        <div class="aptechka-edit-info-popup-cover"></div>
+        <div class="edit-aptechka-block">
+            <div class="title-edit-aptechka">Измененение аптечки</div>
+
+            <form action="/Aptechka/Aptechkas" method="post" enctype="multipart/form-data">
+                @Html.HiddenFor(x => x.Id)
+                <div class="separated-row-edit-aptechka">
+                    <div class="left-column-edit-aptechka">Название:</div>
+                    <div class="right-column-edit-aptechka">
+                        <textarea name="Name"
+                                  type="text"
+                                  autocomplete="off"
+                                  class="input-edit-aptechka">@Model.Name</textarea>
+                    </div>
+                </div>
+
+                <div class="separated-row-edit-aptechka">
+                    <div class="left-column-edit-aptechka">Расположение:</div>
+                    <div class="right-column-edit-aptechka">
+                        <textarea name="Location"
+                                  type="text"
+                                  autocomplete="off"
+                                  class="input-edit-aptechka">@Model.Location</textarea>
+                    </div>
+                </div>
+
+                <div class="separated-row-edit-aptechka">
+                    <div class="left-column-edit-aptechka">Цвет:</div>
+                    <div class="right-column-edit-aptechka">
+                        <textarea name="Color"
+                                  type="text"
+                                  autocomplete="off"
+                                  class="input-edit-aptechka">@Model.Color</textarea>
+                    </div>
+                </div>
+
+                <div class="separated-row-edit-aptechka">
+                    <div class="left-column-edit-aptechka">Доп. описание:</div>
+                    <div class="right-column-edit-aptechka">
+                        <textarea name="AdditionalDescription"
+                                  type="text"
+                                  autocomplete="off"
+                                  class="input-edit-aptechka">@Model.AdditionalDescription</textarea>
+                    </div>
+                </div>
+
+                <div class="separated-row-edit-aptechka">
+                    <div class="left-column-edit-aptechka">Фото аптечки:</div>
+                    <div class="right-column-edit-aptechka">
+                        <input type="file" name="@nameof(AddAptechkaViewModel.AptechkaPicture)" />
+                    </div>
+                </div>
+
+                <div class="btn-edit-aptechka">
+                    <input type="submit" class="btn-input-edit-aptechka" value="Изменить аптечку" />
+                </div>
+            </form>
+        </div>
+    </div>
+
+
+
+
+
+
+
     <div class="left-block-aptechka">
         <div class="add-new-drug">
             <div class="title-for-add-drug">
@@ -44,8 +113,8 @@
         <div class="info-about-current-aptechka">
             <div class="info-aptechka-block">
                 <div class="separated-row-info-aptechka">
-                    <div class="left-column-info-aptechka">Name:</div>
-                    <div class="right-column-info-aptechka">@Model.Name</div>
+                    <div class="left-column-info-aptechka bold-name-aptechka">Name:</div>
+                    <div class="right-column-info-aptechka bold-name-aptechka">@Model.Name</div>
                 </div>
                 <div class="separated-row-info-aptechka">
                     <div class="left-column-info-aptechka">Location:</div>
@@ -61,7 +130,20 @@
                 </div>
                 <div class="separated-row-info-aptechka">
                     <div class="left-column-info-aptechka">Photo:</div>
-                    <div class="right-column-info-aptechka"></div>
+                    <div class="right-column-info-aptechka">
+                        <img class="avatar-profile-page" src="@aptechkaService.GetAptechkaPictureUrl(Model.Id)" />
+                    </div>
+                </div>
+
+                <div class="block-btn-edit-aptechka">
+                    <div class="btn-popup-edit-aptechka special-for-popup">Редактировать</div>
+                    @if (aptechkaService.GetAptechkaPictureUrl(Model.Id) != "")
+                    {
+                        <a href="/Aptechka/DelAptPic?id=@Model.Id">
+                            <div class="btn-popup-edit-aptechka delete-pic-apt">Удалить фото</div>
+                        </a>
+                    }
+                    <div class="btn-popup-edit-aptechka delete-apt">Удалить аптечку</div>
                 </div>
             </div>
         </div>
@@ -70,7 +152,7 @@
         @if (Model.Drugs.Count != 0)
         {
             <div class="title-for-drugs">
-                Список лекарств в аптечке"@Model.Name"
+                Список лекарств в аптечке"@Model.Name" (Всего: @Model.CountDrugs)
             </div>
             <div class="drugs-list">
                 <div class="separate-row-for-drug">

@@ -67,6 +67,11 @@ namespace MyApptechkaWeb.Controllers
             }
             _aptechkaRepository.Save(newAptechka);
 
+            if (viewModel.Id != 0)
+            {
+                return RedirectToAction("Aptechka", new { Id = viewModel.Id });
+            }
+
             return View();
         }
 
@@ -83,6 +88,7 @@ namespace MyApptechkaWeb.Controllers
                 .Where(x => x.AptechkaOwner.Id == id)
                 .Select(x => _mapper.Map<DrugViewModel>(x))
                 .ToList();
+            viewModel.CountDrugs = viewModel.Drugs.Count();
 
             //finalDrugModel = _mapper.Map<DrugViewModel>(drugs);
 
@@ -124,6 +130,15 @@ namespace MyApptechkaWeb.Controllers
             _drugRepository.Remove(idDrug);
 
             return RedirectToAction("Aptechka", new { id = idAptechka });
+        }
+
+        public IActionResult DelAptPic(long id)
+        {
+            var aptechka = _aptechkaRepository.Get(id);
+            aptechka.AptechkaPictureUrl = null;
+            _aptechkaRepository.Save(aptechka);
+
+            return RedirectToAction("Aptechka", new { Id = id });
         }
     }
 }

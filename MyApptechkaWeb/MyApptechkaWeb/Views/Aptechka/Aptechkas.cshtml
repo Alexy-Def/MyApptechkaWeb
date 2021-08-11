@@ -4,6 +4,7 @@
 @using AutoMapper
 
 @inject IUserService userService
+@inject IAptechkaService aptechkaService
 @inject IMapper mapper
 
 @{
@@ -26,7 +27,8 @@
                     <div class="right-column-add-aptechka">
                         <input name="Name"
                                type="text"
-                               autocomplete="off" />
+                               autocomplete="off"
+                               class="input-add-aptechka" />
                     </div>
                 </div>
 
@@ -35,7 +37,8 @@
                     <div class="right-column-add-aptechka">
                         <input name="Location"
                                type="text"
-                               autocomplete="off" />
+                               autocomplete="off"
+                               class="input-add-aptechka" />
                     </div>
                 </div>
 
@@ -44,7 +47,8 @@
                     <div class="right-column-add-aptechka">
                         <input name="Color"
                                type="text"
-                               autocomplete="off" />
+                               autocomplete="off"
+                               class="input-add-aptechka" />
                     </div>
                 </div>
 
@@ -53,7 +57,8 @@
                     <div class="right-column-add-aptechka">
                         <input name="AdditionalDescription"
                                type="text"
-                               autocomplete="off" />
+                               autocomplete="off"
+                               class="input-add-aptechka" />
                     </div>
                 </div>
 
@@ -64,7 +69,9 @@
                     </div>
                 </div>
 
-                <input type="submit" value="Добавить аптечку" />
+                <div class="btn-add-aptechka">
+                    <input type="submit" class="btn-input-add-aptechka" value="Добавить аптечку" />
+                </div>
             </form>
         </div>
     </div>
@@ -84,8 +91,8 @@
                 <div class="single-aptechka">
                     <div class="info-aptechka-block">
                         <div class="separated-row-info-aptechka">
-                            <div class="left-column-info-aptechka">Name:</div>
-                            <div class="right-column-info-aptechka">@aptechka.Name</div>
+                            <div class="left-column-info-aptechka bold-name-aptechka">Name:</div>
+                            <div class="right-column-info-aptechka bold-name-aptechka">@aptechka.Name</div>
                         </div>
                         <div class="separated-row-info-aptechka">
                             <div class="left-column-info-aptechka">Location:</div>
@@ -101,7 +108,9 @@
                         </div>
                         <div class="separated-row-info-aptechka">
                             <div class="left-column-info-aptechka">Photo:</div>
-                            <div class="right-column-info-aptechka"></div>
+                            <div class="right-column-info-aptechka">
+                                <img class="avatar-profile-page" src="@aptechkaService.GetAptechkaPictureUrl(aptechka.Id)" />
+                            </div>
                         </div>
                     </div>
                 </div>

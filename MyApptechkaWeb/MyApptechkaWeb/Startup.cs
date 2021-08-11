@@ -78,6 +78,11 @@ namespace MyApptechkaWeb
                 new PathHelperService(
                     diContainer.GetService<IWebHostEnvironment>()
             ));
+
+            services.AddScoped<IAptechkaService>(diContainer =>
+                new AptechkaService(
+                    diContainer.GetService<IAptechkaRepository>()
+            ));
         }
 
         private void RegistrationRepositories(IServiceCollection services)
