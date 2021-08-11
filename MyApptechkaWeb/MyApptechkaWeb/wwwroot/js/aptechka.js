@@ -6,4 +6,12 @@
     $('.aptechka-temp-popup-cover').click(function () {
         $('.aptechka-temp-popup').addClass('hide');
     })
+
+    $('.btn-popup-edit-aptechka').click(function () {
+        $('.aptechka-edit-info-popup').removeClass('hide');
+    })
+
+    $('.aptechka-edit-info-popup-cover').click(function () {
+        $('.aptechka-edit-info-popup').addClass('hide');
+    //})
 })

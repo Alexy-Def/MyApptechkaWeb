@@ -83,6 +83,7 @@ namespace MyApptechkaWeb.Controllers
                 .Where(x => x.AptechkaOwner.Id == id)
                 .Select(x => _mapper.Map<DrugViewModel>(x))
                 .ToList();
+            viewModel.CountDrugs = viewModel.Drugs.Count();
 
             //finalDrugModel = _mapper.Map<DrugViewModel>(drugs);
 

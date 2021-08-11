@@ -7,6 +7,72 @@
 @inject IAptechkaService aptechkaService
 
 <div class="aptechka-container">
+    <div class="aptechka-edit-info-popup hide">
+        <div class="aptechka-edit-info-popup-cover"></div>
+        <div class="edit-aptechka-block">
+            <div class="title-add-aptechka">Добавление новой аптечки</div>
+
+            <form action="/Aptechka/Aptechkas" method="post" enctype="multipart/form-data">
+                <div class="separated-row-add-aptechka">
+                    <div class="left-column-add-aptechka">Название:</div>
+                    <div class="right-column-add-aptechka">
+                        <input name="Name"
+                               type="text"
+                               autocomplete="off"
+                               class="input-add-aptechka" />
+                    </div>
+                </div>
+
+                <div class="separated-row-add-aptechka">
+                    <div class="left-column-add-aptechka">Расположение:</div>
+                    <div class="right-column-add-aptechka">
+                        <input name="Location"
+                               type="text"
+                               autocomplete="off"
+                               class="input-add-aptechka" />
+                    </div>
+                </div>
+
+                <div class="separated-row-add-aptechka">
+                    <div class="left-column-add-aptechka">Цвет:</div>
+                    <div class="right-column-add-aptechka">
+                        <input name="Color"
+                               type="text"
+                               autocomplete="off"
+                               class="input-add-aptechka" />
+                    </div>
+                </div>
+
+                <div class="separated-row-add-aptechka">
+                    <div class="left-column-add-aptechka">Доп. описание:</div>
+                    <div class="right-column-add-aptechka">
+                        <input name="AdditionalDescription"
+                               type="text"
+                               autocomplete="off"
+                               class="input-add-aptechka" />
+                    </div>
+                </div>
+
+                <div class="separated-row-add-aptechka">
+                    <div class="left-column-add-aptechka">Фото аптечки:</div>
+                    <div class="right-column-add-aptechka">
+                        <input type="file" name="@nameof(AddAptechkaViewModel.AptechkaPicture)" />
+                    </div>
+                </div>
+
+                <div class="btn-add-aptechka">
+                    <input type="submit" class="btn-input-add-aptechka" value="Добавить аптечку" />
+                </div>
+            </form>
+        </div>
+    </div>
+
+
+
+
+
+
+
     <div class="left-block-aptechka">
         <div class="add-new-drug">
             <div class="title-for-add-drug">
@@ -67,6 +133,8 @@
                         <img class="avatar-profile-page" src="@aptechkaService.GetAptechkaPictureUrl(Model.Id)" />
                     </div>
                 </div>
+
+                <div class="btn-popup-edit-aptechka">Редактировать</div>
             </div>
         </div>
     </div>
@@ -74,7 +142,7 @@
         @if (Model.Drugs.Count != 0)
         {
             <div class="title-for-drugs">
-                Список лекарств в аптечке"@Model.Name"
+                Список лекарств в аптечке"@Model.Name" (Всего: @Model.CountDrugs)
             </div>
             <div class="drugs-list">
                 <div class="separate-row-for-drug">
