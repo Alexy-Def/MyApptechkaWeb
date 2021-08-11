@@ -166,10 +166,17 @@
         background-color: #7e6eff9e;
     }
 
+    .btn-popup-edit-aptechka.delete-pic-apt {
+        background-color: #e92f3880;
+    }
+
+.block-btn-edit-aptechka {
+    display: flex;
+}
+
 /*=======================================
 POPUP FOR CHANGING INFO ABOUT APTECHKA
 =======================================*/
-
 .aptechka-edit-info-popup {
     position: fixed;
     width: 100%;

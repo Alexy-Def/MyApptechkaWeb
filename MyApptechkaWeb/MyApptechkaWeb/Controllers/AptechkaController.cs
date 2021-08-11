@@ -126,5 +126,14 @@ namespace MyApptechkaWeb.Controllers
 
             return RedirectToAction("Aptechka", new { id = idAptechka });
         }
+
+        public IActionResult DelAptPic(long id)
+        {
+            var aptechka = _aptechkaRepository.Get(id);
+            aptechka.AptechkaPictureUrl = null;
+            _aptechkaRepository.Save(aptechka);
+
+            return RedirectToAction("Aptechka", new { Id = id });
+        }
     }
 }

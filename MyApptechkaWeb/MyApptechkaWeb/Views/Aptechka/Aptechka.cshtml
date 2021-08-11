@@ -18,9 +18,9 @@
                     <div class="left-column-edit-aptechka">Название:</div>
                     <div class="right-column-edit-aptechka">
                         <textarea name="Name"
-                               type="text"
-                               autocomplete="off"
-                               class="input-edit-aptechka">@Model.Name</textarea>
+                                  type="text"
+                                  autocomplete="off"
+                                  class="input-edit-aptechka">@Model.Name</textarea>
                     </div>
                 </div>
 
@@ -28,9 +28,9 @@
                     <div class="left-column-edit-aptechka">Расположение:</div>
                     <div class="right-column-edit-aptechka">
                         <textarea name="Location"
-                               type="text"
-                               autocomplete="off"
-                               class="input-edit-aptechka">@Model.Location</textarea>
+                                  type="text"
+                                  autocomplete="off"
+                                  class="input-edit-aptechka">@Model.Location</textarea>
                     </div>
                 </div>
 
@@ -38,9 +38,9 @@
                     <div class="left-column-edit-aptechka">Цвет:</div>
                     <div class="right-column-edit-aptechka">
                         <textarea name="Color"
-                               type="text"
-                               autocomplete="off"
-                               class="input-edit-aptechka">@Model.Color</textarea>
+                                  type="text"
+                                  autocomplete="off"
+                                  class="input-edit-aptechka">@Model.Color</textarea>
                     </div>
                 </div>
 
@@ -135,7 +135,15 @@
                     </div>
                 </div>
 
-                <div class="btn-popup-edit-aptechka">Редактировать</div>
+                <div class="block-btn-edit-aptechka">
+                    <div class="btn-popup-edit-aptechka">Редактировать</div>
+                    @if (aptechkaService.GetAptechkaPictureUrl(Model.Id) != "")
+                    {
+                        <a href="/Aptechka/DelAptPic?id=@Model.Id">
+                            <div class="btn-popup-edit-aptechka delete-pic-apt">Удалить фото</div>
+                        </a>
+                    }
+                </div>
             </div>
         </div>
     </div>
