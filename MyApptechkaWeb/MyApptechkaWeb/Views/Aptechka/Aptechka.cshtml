@@ -13,13 +13,14 @@
             <div class="title-edit-aptechka">Измененение аптечки</div>
 
             <form action="/Aptechka/Aptechkas" method="post" enctype="multipart/form-data">
+                @Html.HiddenFor(x => x.Id)
                 <div class="separated-row-edit-aptechka">
                     <div class="left-column-edit-aptechka">Название:</div>
                     <div class="right-column-edit-aptechka">
                         <textarea name="Name"
                                type="text"
                                autocomplete="off"
-                               class="input-edit-aptechka"></textarea>
+                               class="input-edit-aptechka">@Model.Name</textarea>
                     </div>
                 </div>
 
@@ -29,7 +30,7 @@
                         <textarea name="Location"
                                type="text"
                                autocomplete="off"
-                               class="input-edit-aptechka"></textarea>
+                               class="input-edit-aptechka">@Model.Location</textarea>
                     </div>
                 </div>
 
@@ -39,7 +40,7 @@
                         <textarea name="Color"
                                type="text"
                                autocomplete="off"
-                               class="input-edit-aptechka"></textarea>
+                               class="input-edit-aptechka">@Model.Color</textarea>
                     </div>
                 </div>
 
@@ -49,7 +50,7 @@
                         <textarea name="AdditionalDescription"
                                   type="text"
                                   autocomplete="off"
-                                  class="input-edit-aptechka"></textarea>
+                                  class="input-edit-aptechka">@Model.AdditionalDescription</textarea>
                     </div>
                 </div>
 
@@ -61,7 +62,7 @@
                 </div>
 
                 <div class="btn-edit-aptechka">
-                    <input type="submit" class="btn-input-edit-aptechka" value="Добавить аптечку" />
+                    <input type="submit" class="btn-input-edit-aptechka" value="Изменить аптечку" />
                 </div>
             </form>
         </div>

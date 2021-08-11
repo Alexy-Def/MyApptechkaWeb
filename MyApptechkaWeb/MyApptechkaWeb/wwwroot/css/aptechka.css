@@ -197,7 +197,7 @@ POPUP FOR CHANGING INFO ABOUT APTECHKA
 }
 
 .edit-aptechka-block {
-    height: 515px;
+    height: 610px;
     width: 450px;
     background-color: #cdcdcd;
     z-index: 20;
@@ -229,7 +229,7 @@ END POPUP
     align-items: center;
     /*justify-content: flex-end;*/
     height: 100%;
-    width: 200px;
+    width: 240px;
     font-size: 15pt;
     font-style: italic;
     margin-bottom: 5px;
@@ -243,12 +243,14 @@ END POPUP
 }
 
 .input-edit-aptechka {
-    width: 245px;
+    width: 260px;
     background: rgba(20, 20, 20, .2);
     outline: none;
     border: 2px solid;
-    max-height: 50px;
-    max-width: 245px;
+    height: 53px;
+    max-height: 53px;
+    max-width: 260px;
+    font-size: 12pt;
 }
 
 .btn-edit-aptechka {
