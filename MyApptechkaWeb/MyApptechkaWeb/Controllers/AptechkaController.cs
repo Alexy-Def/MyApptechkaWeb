@@ -67,6 +67,11 @@ namespace MyApptechkaWeb.Controllers
             }
             _aptechkaRepository.Save(newAptechka);
 
+            if (viewModel.Id != 0)
+            {
+                return RedirectToAction("Aptechka", new { Id = viewModel.Id });
+            }
+
             return View();
         }
 

@@ -7,7 +7,7 @@
         $('.aptechka-temp-popup').addClass('hide');
     })
 
-    $('.btn-popup-edit-aptechka').click(function () {
+    $('.btn-popup-edit-aptechka.special-for-popup').click(function () {
         $('.aptechka-edit-info-popup').removeClass('hide');
     })
 
