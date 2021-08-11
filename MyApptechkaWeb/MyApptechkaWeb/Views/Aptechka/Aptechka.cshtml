@@ -139,10 +139,11 @@
                     <div class="btn-popup-edit-aptechka special-for-popup">Редактировать</div>
                     @if (aptechkaService.GetAptechkaPictureUrl(Model.Id) != "")
                     {
-                        <a href="/Aptechka/DelAptPic?id=@Model.Id">
+                        <a href="/Aptechka/DelAptPic?id=@Model.Id" class="link-to-edit-aptechka">
                             <div class="btn-popup-edit-aptechka delete-pic-apt">Удалить фото</div>
                         </a>
                     }
+                    <div class="btn-popup-edit-aptechka delete-apt">Удалить аптечку</div>
                 </div>
             </div>
         </div>

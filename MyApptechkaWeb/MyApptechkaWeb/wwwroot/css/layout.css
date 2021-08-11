@@ -195,7 +195,15 @@ body {
     }
 
     .separated-row-info-aptechka .right-column-info-aptechka {
-        width: 225px;
+        width: 145px;
+    }
+
+    .separated-row-info-aptechka .left-column-info-aptechka {
+        width: 75px;
+    }
+
+    .block-btn-edit-aptechka .link-to-edit-aptechka {
+        margin-left: 0px;
     }
 }
 

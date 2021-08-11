@@ -163,15 +163,33 @@
 }
 
     .btn-popup-edit-aptechka:hover {
-        background-color: #7e6eff9e;
+        background-color: #7e6eff59;
     }
 
     .btn-popup-edit-aptechka.delete-pic-apt {
         background-color: #e92f3880;
     }
 
+        .btn-popup-edit-aptechka.delete-pic-apt:hover {
+            background-color: #e92f3840;
+        }
+
+    .btn-popup-edit-aptechka.delete-apt {
+        background-color: #df62f5a3;
+    }
+
+        .btn-popup-edit-aptechka.delete-apt:hover {
+            background-color: #df62f545;
+        }
+
 .block-btn-edit-aptechka {
     display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.link-to-edit-aptechka {
+    margin-left: 15px;
 }
 
 /*=======================================
@@ -255,7 +273,7 @@ END POPUP
     outline: none;
     border: 2px solid;
     height: 53px;
-    max-height: 53px;
+    max-height: 70px;
     max-width: 260px;
     font-size: 12pt;
 }
