@@ -197,8 +197,8 @@ POPUP FOR CHANGING INFO ABOUT APTECHKA
 }
 
 .edit-aptechka-block {
-    height: 500px;
-    width: 600px;
+    height: 515px;
+    width: 450px;
     background-color: #cdcdcd;
     z-index: 20;
     border-radius: 1em;
@@ -272,3 +272,8 @@ END POPUP
     .btn-input-edit-aptechka:hover {
         background: linear-gradient(to top, black, 5%, #2e8f3a);
     }
+
+.title-edit-aptechka {
+    font-size: 20pt;
+    margin-bottom: 10px;
+}

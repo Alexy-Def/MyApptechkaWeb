@@ -10,7 +10,7 @@
     <div class="aptechka-edit-info-popup hide">
         <div class="aptechka-edit-info-popup-cover"></div>
         <div class="edit-aptechka-block">
-            <div class="title-add-aptechka">Измененение аптечки</div>
+            <div class="title-edit-aptechka">Измененение аптечки</div>
 
             <form action="/Aptechka/Aptechkas" method="post" enctype="multipart/form-data">
                 <div class="separated-row-edit-aptechka">
@@ -46,10 +46,10 @@
                 <div class="separated-row-edit-aptechka">
                     <div class="left-column-edit-aptechka">Доп. описание:</div>
                     <div class="right-column-edit-aptechka">
-                        <input name="AdditionalDescription"
-                               type="text"
-                               autocomplete="off"
-                               class="input-edit-aptechka" />
+                        <textarea name="AdditionalDescription"
+                                  type="text"
+                                  autocomplete="off"
+                                  class="input-edit-aptechka"></textarea>
                     </div>
                 </div>
 
