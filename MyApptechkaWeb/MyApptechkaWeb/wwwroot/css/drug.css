@@ -56,11 +56,13 @@ a:visited {
     display: flex;
     padding: 10px;
     border-radius: 4px;
+    border: 1px solid;
+    margin-bottom: 10px;
 }
 
     .btn-action-drug:hover {
         border: 2px solid;
-        padding: 8px;
+        padding: 9px;
         background-color: #92c0f86e;
     }
 
