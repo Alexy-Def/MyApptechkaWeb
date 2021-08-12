@@ -14,6 +14,7 @@ namespace MyApptechkaWeb.EfStuff.Repositories
         {
         }
 
+
         //public User Get(string login)
         //{
         //    return _dbSet.SingleOrDefault(x =>
