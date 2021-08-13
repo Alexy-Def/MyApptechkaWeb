@@ -1,8 +1,87 @@
 ﻿@model DrugViewModel
 
 <div class="drug-container">
+    <div class="drug-edit-info-popup hide">
+        <div class="drug-edit-info-popup-cover"></div>
+        <div class="edit-drug-block">
+            <div class="title-edit-drug">Изменение лекарства</div>
+
+            <form action="/Aptechka/AddDrug" method="post">
+                @Html.HiddenFor(x => x.Id)
+                @Html.HiddenFor(x => x.AptechkaOwnerId)
+                <div class="separated-row-edit-drug">
+                    <div class="left-column-edit-drug">Название:</div>
+                    <div class="right-column-edit-drug">
+                        <textarea name="Name"
+                                  type="text"
+                                  autocomplete="off"
+                                  class="input-edit-drug">@Model.Name</textarea>
+                    </div>
+                </div>
+
+                <div class="separated-row-edit-drug">
+                    <div class="left-column-edit-drug">Форма выпуска:</div>
+                    <div class="right-column-edit-drug">
+                        <textarea name="Form"
+                                  type="text"
+                                  autocomplete="off"
+                                  class="input-edit-drug">@Model.Form</textarea>
+                    </div>
+                </div>
+
+                <div class="separated-row-edit-drug">
+                    <div class="left-column-edit-drug">Назначение:</div>
+                    <div class="right-column-edit-drug">
+                        <textarea name="Purpose"
+                                  type="text"
+                                  autocomplete="off"
+                                  class="input-edit-drug">@Model.Purpose</textarea>
+                    </div>
+                </div>
+
+                <div class="separated-row-edit-drug">
+                    <div class="left-column-edit-drug">Годен до:</div>
+                    <div class="right-column-edit-drug">
+                        <textarea name="ExpiryDate"
+                                  type="text"
+                                  autocomplete="off"
+                                  class="input-edit-drug">@Model.ExpiryDate</textarea>
+                    </div>
+                </div>
+
+                <div class="separated-row-edit-drug">
+                    <div class="left-column-edit-drug">Остаток:</div>
+                    <div class="right-column-edit-drug">
+                        <textarea name="Residue"
+                                  type="text"
+                                  autocomplete="off"
+                                  class="input-edit-drug">@Model.Residue</textarea>
+                    </div>
+                </div>
+
+                <div class="separated-row-edit-drug">
+                    <div class="left-column-edit-drug">Доп. описание:</div>
+                    <div class="right-column-edit-drug">
+                        <textarea name="AdditionalDescription"
+                                  type="text"
+                                  autocomplete="off"
+                                  class="input-edit-drug">@Model.AdditionalDescription</textarea>
+                    </div>
+                </div>
+
+                <div class="btn-edit-drug">
+                    <input type="submit" class="btn-input-edit-drug" value="Изменить аптечку" />
+                </div>
+            </form>
+        </div>
+    </div>
+
+
+
+
+
     <div class="left-block-drug">
-        <div class="btn-action-drug">
+        <div class="btn-action-drug btn-edit-drug">
             <div class="text-btn-action-drug">Изменить лекарство</div>
             <img src="../image/icon/edit.svg" class="img-edit-drug" />
         </div>
