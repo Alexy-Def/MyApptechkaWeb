@@ -140,5 +140,21 @@ namespace MyApptechkaWeb.Controllers
 
             return RedirectToAction("Aptechka", new { Id = id });
         }
+
+        public IActionResult DelAptechka(long id)
+        {
+            var aptechka = _aptechkaRepository.Get(id);
+            
+            var drugs = aptechka.Drugs;
+            foreach (var drug in drugs.ToList())
+            {
+                _drugRepository.Remove(drug);
+            }
+
+            _aptechkaRepository.Remove(aptechka);
+            
+
+            return RedirectToAction("Aptechkas");
+        }
     }
 }
