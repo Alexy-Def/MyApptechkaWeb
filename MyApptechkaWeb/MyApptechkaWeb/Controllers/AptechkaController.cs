@@ -112,6 +112,10 @@ namespace MyApptechkaWeb.Controllers
             dbModel.AptechkaOwner = aptechka;
             _drugRepository.Save(dbModel);
             
+            if(viewModel.Id > 0)
+            {
+                return RedirectToAction("Drug", new { id = viewModel.Id });
+            }
 
             return RedirectToAction("Aptechka", new { id = viewModel.AptechkaOwnerId });
         }
