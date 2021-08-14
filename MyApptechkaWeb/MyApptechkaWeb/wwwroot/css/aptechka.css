@@ -63,6 +63,14 @@
     display: flex;
 }
 
+    .separate-row-for-drug-not-title:hover {
+        background-color: lightgreen;
+    }
+
+.separate-row-for-drug-title {
+    font-weight: 700;
+}
+
 .separate-row-for-add-drug {
     display: flex;
     margin-bottom: 2px;

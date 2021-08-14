@@ -157,7 +157,7 @@
                 Список лекарств в аптечке"@Model.Name" (Всего: @Model.CountDrugs)
             </div>
             <div class="drugs-list">
-                <div class="separate-row-for-drug">
+                <div class="separate-row-for-drug separate-row-for-drug-title">
                     <div class="drug-index-number">
                         №
                     </div>
@@ -180,7 +180,7 @@
                 @for (int i = 0; i < Model.Drugs.Count; i++)
                 {
                     <a href="/Aptechka/Drug?id=@Model.Drugs[i].Id" class="lint-to-drug">
-                        <div class="separate-row-for-drug">
+                        <div class="separate-row-for-drug separate-row-for-drug-not-title">
                             <div class="drug-index-number">
                                 @(i+1)
                             </div>
