@@ -12,7 +12,8 @@ html {
 }
 
 body {
-    background-color: blanchedalmond;
+    /*background-color: blanchedalmond;*/
+    background-color: #f0f0eebf;
     font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
     /*display: flex;*/
     /*flex-direction: column;*/
@@ -531,7 +532,8 @@ input[type="password"] {
 
 .header {
     height: 60px;
-    background-color: aquamarine;
+    /*background-color: aquamarine;*/
+    box-shadow: 0 0 10px black;
 }
 
 .header-full {
@@ -614,5 +616,19 @@ input[type="password"] {
 
 .footer {
     height: 60px;
-    background-color: burlywood;
+    /*background-color: burlywood;*/
+    box-shadow: 0 0 5px black;
+}
+
+.test-start-page {
+    margin-top: 250px;
+    font-size: 15pt;
+    font-family: monospace;
+}
+
+.footer-full {
+    display: flex;
+    height: 60px;
+    align-items: center;
+    justify-content: center;
 }
